@@ -15,6 +15,7 @@ import org.jeecgframework.core.util.oConvertUtils;
  */
 public class WebUploaderTag extends TagSupport {
 	private static final long serialVersionUID = 1L;
+	private String udfpath;//文件上传路径内指定文件分类
 	private String name;//①文件路径 input默认name、②action返回的文件路径的name
 	private boolean auto=false;//是否自动上传上传按钮风格
 	private String buttonStyle;//默认绿色小号按钮
@@ -22,6 +23,7 @@ public class WebUploaderTag extends TagSupport {
 //	private String url = "systemController/ftpUploader.do";//ftp文件上传处理url
 	private int fileNumLimit =3;//fileNumLimit 最大文件数
 	private int fileSingleSizeLimit=104857600;//fileSingleSizeLimit单个文件最大5M[1024*1024*5]
+	
 	private int size;//文件总大小
 	private String fileVal="file";//fileVal设置文件上传域的name,默认file
 	private boolean duplicate=false;//去重， 根据文件名字、文件大小和最后修改时间来生成hash Key.
@@ -128,9 +130,9 @@ public class WebUploaderTag extends TagSupport {
 				sb.append(",accept:{extensions:'"+extensions+"'}");
 			}
 			if(oConvertUtils.isEmpty(extendParams)){
-				sb.append(",formData:{isup:'1',swfTransform:'"+swfTransform+"',bizType:'"+bizType+"'}});");
+				sb.append(",formData:{isup:'1',swfTransform:'"+swfTransform+"',udfpath:'"+udfpath+"',bizType:'"+bizType+"'}});");
 			}else{
-				sb.append(",formData:{isup:'1',swfTransform:'"+swfTransform+"',bizType:'"+bizType+"',"+extendParams+"}});");
+				sb.append(",formData:{isup:'1',swfTransform:'"+swfTransform+"',udfpath:'"+udfpath+"',bizType:'"+bizType+"',"+extendParams+"}});");
 			}
 			if(!auto){
 				sb.append("\r\nvar upbtnrdo4=\"<div id='"+name+"ctlBtn' class='upbtn btn-blue "+btnCss+"'>开始上传</div>\";$('#"+name+"picker').find('div:eq(0)').after(upbtnrdo4);upbtnrdo4='';\r\n");
@@ -353,6 +355,12 @@ public class WebUploaderTag extends TagSupport {
 	}
 	public String getFileVal() {
 		return fileVal;
+	}
+	public String getUdfpath() {
+		return udfpath;
+	}
+	public void setUdfpath(String udfpath) {
+		this.udfpath = udfpath;
 	}
 	public void setFileVal(String fileVal) {
 		this.fileVal = fileVal;
