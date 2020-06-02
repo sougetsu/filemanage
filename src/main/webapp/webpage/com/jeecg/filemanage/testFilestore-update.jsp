@@ -214,7 +214,7 @@
 							</label>
 						</td>
 						<td class="value">
-							<t:webUploader auto="true" pathValues="${testFilestorePage.jzbgh}" name="jzbgh" duplicate="true" fileNumLimit="5" datatype="*"></t:webUploader>
+							<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}" pathValues="${testFilestorePage.jzbgh}" name="jzbgh" duplicate="true" fileNumLimit="5" datatype="*"></t:webUploader>
 						</td>
 						<td align="right">
 							<label class="Validform_label">
@@ -421,7 +421,7 @@
 							</label>
 						</td>
 						<td class="value">
-							<t:webUploader auto="true" pathValues="${testFilestorePage.fzbhgqk}" name="fzbhgqk" fileNumLimit="3"></t:webUploader>
+							<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.fzbhgqk}" name="fzbhgqk" fileNumLimit="3"></t:webUploader>
 							<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>	
 						</td>
 					</t:hasPermission>
@@ -440,7 +440,7 @@
 							</label>
 						</td>
 						<td class="value">
-							<t:webUploader auto="true" name="sxbgh"  pathValues="${testFilestorePage.sxbgh}" fileNumLimit="3"></t:webUploader>
+							<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  name="sxbgh"  pathValues="${testFilestorePage.sxbgh}" fileNumLimit="3"></t:webUploader>
 							<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 						</td>
 						<t:hasPermission code="sxqzsj">
@@ -496,7 +496,7 @@
 							</label>
 						</td>
 						<td class="value">
-							<t:webUploader auto="true" name="sxbhgqk"  pathValues="${testFilestorePage.sxbhgqk}" fileNumLimit="3"></t:webUploader>
+							<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  name="sxbhgqk"  pathValues="${testFilestorePage.sxbhgqk}" fileNumLimit="3"></t:webUploader>
 							<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 						</td>
 					</tr>
@@ -554,7 +554,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.threebg}" name="threebg" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.threebg}" name="threebg" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 					<t:hasPermission code="dcplzl">
@@ -564,7 +564,7 @@
 							</label>
 						</td>
 						<td class="value">
-							<t:webUploader auto="true" pathValues="${testFilestorePage.dcplzlfxbg}" name="dcplzlfxbg" fileNumLimit="3"></t:webUploader>
+							<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.dcplzlfxbg}" name="dcplzlfxbg" fileNumLimit="3"></t:webUploader>
 							<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 						</td>
 					</t:hasPermission>
@@ -595,7 +595,7 @@
 							</label>
 						</td>
 						<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.jdbgbh}" name="jdbgbh" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.jdbgbh}" name="jdbgbh" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 						</td>
 					</tr>
@@ -617,7 +617,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.sjjdbg}" name="sjjdbg" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.sjjdbg}" name="sjjdbg" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 				</tr>
@@ -628,7 +628,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.sjjdml}" name="sjjdml" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.sjjdml}" name="sjjdml" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 					<td align="right">
@@ -637,7 +637,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.yhpsyj}" name="yhpsyj" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.yhpsyj}" name="yhpsyj" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 				</tr>
@@ -649,7 +649,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.zlps}" name="zlps" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.zlps}" name="zlps" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 					<td align="right">
@@ -658,7 +658,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.esd}" name="esd" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.esd}" name="esd" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 				</tr>
@@ -669,7 +669,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.kss}" name="kss" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.kss}" name="kss" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 					<td align="right">
@@ -678,7 +678,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.zjl}" name="zjl" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.zjl}" name="zjl" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 					</tr>
@@ -689,7 +689,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.dlz}" name="dlz" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.dlz}" name="dlz" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 					<td align="right">
@@ -698,7 +698,7 @@
 						</label>
 					</td>
 					<td class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.smhsq}" name="smhsq" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.smhsq}" name="smhsq" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 				</tr>
@@ -709,7 +709,7 @@
 						</label>
 					</td>
 					<td colspan="3" class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.shsq}" name="shsq" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.shsq}" name="shsq" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 				</tr>
@@ -727,7 +727,7 @@
 						</label>
 					</td>
 					<td colspan="3" class="value">
-						<t:webUploader auto="true" pathValues="${testFilestorePage.dpabgh}" name="dpabgh" fileNumLimit="3"></t:webUploader>
+						<t:webUploader auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.dpabgh}" name="dpabgh" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
 					</tr>

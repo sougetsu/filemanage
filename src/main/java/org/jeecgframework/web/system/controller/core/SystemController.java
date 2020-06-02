@@ -1581,11 +1581,12 @@ public class SystemController extends BaseController {
 	        if("1".equals(upFlag)){
 	        	String fileName = null;
 	        	String bizType=request.getParameter("bizType");//上传业务名称
+	        	String udfpath=request.getParameter("udfpath");//上传业务名称
 	        	logger.debug("---bizType----"+bizType);
 	        	String bizPath=StoreUploadFilePathEnum.getPath(bizType);//根据业务名称判断上传路径
 	        	String nowday=new SimpleDateFormat("yyyyMMdd").format(new Date());
 	        	logger.debug("---nowday----"+nowday);
-	    		File file = new File(ctxPath+File.separator+bizPath+File.separator+nowday);
+	    		File file = new File(ctxPath+File.separator+bizPath+File.separator+udfpath+File.separator+nowday);
 	    		if (!file.exists()) {
 	    			file.mkdirs();// 创建文件根目录
 	    		}
