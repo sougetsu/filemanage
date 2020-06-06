@@ -39,6 +39,7 @@ public class WebUploaderPlTag extends TagSupport {
 	private String nullMsg;//空的时候的提示信息,默认会根据当前控件的类型提示,文件类则提示“请选择文件”;图片类则提示“请选择图片”.
 	private String readOnly="false";//保留字段
 	private String bizType;//业务类型,根据该类型确定上传路径
+	private String udfpath;
 	private boolean displayTxt=true;//是否显示上传列表[默认显示]true显示false隐藏
 	private boolean outJs = false;//是否在外部引入了js和css
 	private boolean swfTransform = false;//是否转换成swf文件，文件预览使用
@@ -403,6 +404,12 @@ public class WebUploaderPlTag extends TagSupport {
 	 */
 	public boolean isDisplayTxt() {
 		return displayTxt;
+	}
+	public String getUdfpath() {
+		return udfpath;
+	}
+	public void setUdfpath(String udfpath) {
+		this.udfpath = udfpath;
 	}
 	/**
 	 * @param displayTxt the displayTxt to set

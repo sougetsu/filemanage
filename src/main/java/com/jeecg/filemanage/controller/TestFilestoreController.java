@@ -255,6 +255,20 @@ public class TestFilestoreController extends BaseController {
 	}
 	
 	/**
+	 * 文件管理编辑页面跳转
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "goDownload")
+	public ModelAndView goDownload(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+		if (StringUtil.isNotEmpty(testFilestore.getId())) {
+			testFilestore = testFilestoreService.getEntity(TestFilestoreEntity.class, testFilestore.getId());
+			req.setAttribute("testFilestorePage", testFilestore);
+		}
+		return new ModelAndView("com/jeecg/filemanage/testFilestore-download");
+	}
+	
+	/**
 	 * 导入功能跳转
 	 * 
 	 * @return

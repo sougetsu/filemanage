@@ -93,13 +93,15 @@
    <t:dgCol title="超期复验合格数量"  field="cqfyhgsl"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="补充检验报告"  field="bcjybg"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="单批质保报告"  field="dpzbbg"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
-   <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
+   <t:dgCol title="操作" field="opt" width="200"></t:dgCol>
    <t:dgFunOpt title="全部下载"  exp="jzbgh#ne#" funname="downallfilezip(id)" urlclass="ace_button"  urlfont="fa-download" />
+   <t:dgOpenOpt title="单个下载"  exp="jzbgh#ne#" url="testFilestoreController.do?goDownload&id={id}"  urlclass="ace_button"  urlfont="fa-download" width="800" height="400"/>
    <t:dgDelOpt title="删除" url="testFilestoreController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/>
    <t:dgToolBar title="录入" icon="icon-add" url="testFilestoreController.do?goAdd" funname="add"></t:dgToolBar>
 	<t:dgToolBar title="编辑" icon="icon-edit" url="testFilestoreController.do?goUpdate" funname="update"></t:dgToolBar>
    <t:dgToolBar title="批量删除"  icon="icon-remove" url="testFilestoreController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar>
    <t:dgToolBar title="查看" icon="icon-search" url="testFilestoreController.do?goUpdate" funname="detail"></t:dgToolBar>
+   <t:dgToolBar title="单个下载" icon="icon-search" url="testFilestoreController.do?goDownload" funname="detail"></t:dgToolBar>
    <t:dgToolBar title="导入" icon="icon-put" funname="ImportXls"></t:dgToolBar>
    <t:dgToolBar title="导出" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
    <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar>
@@ -113,6 +115,7 @@
  function downallfilezip(id) {
 	window.location.href = "testFilestoreController.do?downzipFile&id="+id;
  }
+ 
  
 //导入
 function ImportXls() {
