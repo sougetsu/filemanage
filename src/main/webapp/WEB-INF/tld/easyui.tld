@@ -395,7 +395,7 @@
 		<attribute>
 			<name>queryMode</name>
 			<rtexprvalue>true</rtexprvalue>
-			<description>字段查询模式：single(默认：单字段查询),group(范围查询)</description>
+			<description>字段查询模式：single(默认：单字段查询),group(范围查询),like(模糊查询)</description>
 		</attribute>
 		<attribute>
 			<name>frozenColumn</name>
