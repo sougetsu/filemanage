@@ -36,7 +36,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="ace-icon fa fa-microchip black"></i>
-							时代民芯   外协加工系统
+							检验处   文件管理系统
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->
@@ -127,19 +127,12 @@
 										 <t:mutiLang langKey="common.ssms.getSysInfos"/>
 									</a>
 								</li>
-								<li>
+								<%-- <li>
 									<a href="javascript:add('<t:mutiLang langKey="common.change.style"/>','userController.do?changestyle','',550,270)">
 										<i class="icon-cog"></i>
 										 <t:mutiLang langKey="common.my.style"/>
 									</a>
-								</li>
-								
-								<li>
-									<a href="http://yun.jeecg.org" target="_blank">
-										<i class="icon-cloud"></i>
-										 云应用中心
-									</a>
-								</li>
+								</li> --%>
 								
 								<li>
 									<a href="javascript:clearLocalstorage()">
@@ -204,10 +197,7 @@
 					</div><!-- #sidebar-shortcuts -->
 					<ul class="nav nav-list">
 						<li class="active">
-							<a  href="javascript:addTabs({id:'home',title:'首页',close: false,url: 'loginController.do?hplushome'});">
-								<i class="fa fa-tachometer"></i>
-								<span class="menu-text"> 首页 </span>
-							</a>
+							
 						</li>
 						<t:menu style="ace" menuFun="${menuMap}"></t:menu>
 					</ul><!-- /.nav-list -->

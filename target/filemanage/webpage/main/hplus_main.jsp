@@ -39,7 +39,7 @@
                 <li class="nav-header" style="padding:0;">
                     <div class="dropdown profile-element">
                         <div style="width:180px;height:60px" class="center">
-		             		<div class="logo-title">外协外包管理系统</div> 
+		             		<div class="logo-title">文件管理系统</div> 
 				        </div>
                     </div>
                     <div class="logo-element">SDMX
@@ -56,15 +56,6 @@
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header" style="height: 60px;"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                      <ul class="nav navbar-top-links navbar-left">
-	                	<li class="dropdown hidden-xs">	
-	                        <a class="J_menuItem" href="subcontractApplyController.do?todolist" data-index="1"><span class="menu-text red">外协待处理:</span><span id="waixietodonum" >${waixietodoNum}</span></a>
-	                    </li>
-	                    <li class="dropdown hidden-xs">	
-	                        <a class="J_menuItem" href="modulesubcontractApplyController.do?todolist" data-index="1"><span class="menu-text red">模块待处理:</span><span id="moduletodonum">${mokuaitodoNum}</span></a>
-	                    </li>
-	                    <li class="dropdown hidden-xs">	
-	                        <a class="J_menuItem" href="subcontractInspectionController.do?todolist" data-index="1"><span class="menu-text red">检验待处理:</span><span id="jianyantodonum">${jianyantodoNum}</span></a>
-	                    </li>
                 	</ul>
                 </div>
                 <ul class="nav navbar-top-links navbar-right">

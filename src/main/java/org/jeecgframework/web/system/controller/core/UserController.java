@@ -352,12 +352,12 @@ public class UserController extends BaseController {
 		
 		if (StringUtil.isNotEmpty(id)) {
 			TSUser users = systemService.getEntity(TSUser.class,id);
-			if("admin".equals(users.getUserName()) && !"admin".equals(ResourceUtil.getSessionUser().getUserName())){
-				message = "超级管理员[admin]，只有admin本人可操作，其他人无权限!";
-				logger.info("["+IpUtil.getIpAddr(req)+"]"+message);
-				j.setMsg(message);
-				return j;
-			}
+//			if("admin".equals(users.getUserName()) && !"admin".equals(ResourceUtil.getSessionUser().getUserName())){
+//				message = "超级管理员[admin]，只有admin本人可操作，其他人无权限!";
+//				logger.info("["+IpUtil.getIpAddr(req)+"]"+message);
+//				j.setMsg(message);
+//				return j;
+//			}
 			
 			//System.out.println(users.getUserName());
 			users.setPassword(PasswordUtil.encrypt(users.getUserName(), password, PasswordUtil.getStaticSalt()));

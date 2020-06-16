@@ -60,6 +60,20 @@ public class FileRawMaterialEntity implements java.io.Serializable {
 	/**附件*/
 	@Excel(name="附件",width=15)
 	private java.lang.String fileattach;
+	/**生产商*/
+	@Excel(name="生产商",width=15,dictTable ="subcontract_supplier_module",dicCode ="dwmc",dicText ="dwmc")
+	private java.lang.String producer;
+	
+	/**供应商*/
+	@Excel(name="供应商",width=15,dictTable ="subcontract_supplier",dicCode ="dwmc",dicText ="dwmc")
+	private java.lang.String supplier;
+	
+	/**检验数量*/
+	@Excel(name="检验数量",width=15)
+	private java.lang.String inspectiocount;
+	/**合格数量*/
+	@Excel(name="合格数量",width=15)
+	private java.lang.String qualifiedcount;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -285,4 +299,39 @@ public class FileRawMaterialEntity implements java.io.Serializable {
 	public void setFileattach(java.lang.String fileattach){
 		this.fileattach = fileattach;
 	}
+
+	public java.lang.String getInspectiocount() {
+		return inspectiocount;
+	}
+
+	public void setInspectiocount(java.lang.String inspectiocount) {
+		this.inspectiocount = inspectiocount;
+	}
+
+	public java.lang.String getQualifiedcount() {
+		return qualifiedcount;
+	}
+
+	public void setQualifiedcount(java.lang.String qualifiedcount) {
+		this.qualifiedcount = qualifiedcount;
+	}
+
+	@Column(name ="SUPPLIER",nullable=true,length=32)
+	public java.lang.String getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(java.lang.String supplier) {
+		this.supplier = supplier;
+	}
+	@Column(name ="PRODUCER",nullable=true,length=32)
+	public java.lang.String getProducer() {
+		return producer;
+	}
+
+	public void setProducer(java.lang.String producer) {
+		this.producer = producer;
+	}
+	
+	
 }

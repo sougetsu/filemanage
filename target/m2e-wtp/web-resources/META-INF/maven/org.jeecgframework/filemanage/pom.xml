@@ -142,16 +142,16 @@
 			<groupId>org.jeecgframework</groupId>
 			<artifactId>codegenerate</artifactId>
 			<version>${codegenerate.version}</version>
-			<scope>system</scope>
-          	<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/codegenerate-3.6.4-20180823.jar</systemPath>
+			<!--<scope>system</scope>
+          	<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/codegenerate-3.6.4-20180823.jar</systemPath>-->
 		</dependency>
 		<!-- jeecg plugin-ui-->
 		<dependency>
 			<groupId>org.jeecgframework</groupId>
 			<artifactId>jeecg-common-plugin-ui</artifactId>
 			<version>${jeecg-common-plugin-ui.version}</version>
-			<scope>system</scope>
-          	<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jeecg-common-plugin-ui-1.0.0-20180813.jar</systemPath>
+			<!--<scope>system</scope>
+          	<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jeecg-common-plugin-ui-1.0.0-20180813.jar</systemPath>-->
 		</dependency>
 		<!-- 自定义的依赖包  end -->
 		
@@ -285,8 +285,8 @@
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc14</artifactId>
             <version>${ojdbc14.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc14-10.2.0.5.0-20170917.jar</systemPath>
+            <!--<scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc14-10.2.0.5.0-20170917.jar</systemPath>-->
         </dependency>
         <!-- 数据库相关依赖包 _end -->
         
@@ -444,8 +444,8 @@
 		    <groupId>org.freemarker</groupId>
 		    <artifactId>freemarker</artifactId>
 		    <version>${freemarker.version}</version>
-		    <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/freemarker-null-2.3.19.jar</systemPath>
+		    <!--<scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/freemarker-null-2.3.19.jar</systemPath>-->
 		</dependency>
         <!-- jeasypoi 工具类 -->
         <dependency>
@@ -474,8 +474,8 @@
             <groupId>org.artofsolving</groupId>
             <artifactId>jodconverter</artifactId>
             <version>${jodconverter.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jodconverter-3.0-beta-4-20170917.jar</systemPath>
+            <!--<scope>system</scope>
+            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/jodconverter-3.0-beta-4-20170917.jar</systemPath>-->
         </dependency>
         <!-- openoffice end -->
         <!-- jacob -->
@@ -671,6 +671,8 @@
 							<value>${project.build.sourceEncoding}</value>
 						</systemProperty>
 					</systemProperties>
+					<stopKey/>
+					<stopPort/>
 				</configuration>
 			</plugin>
 			<!-- 打包跳过单元测试 -->

@@ -99,13 +99,13 @@ label.iPhoneCheckLabelOn span {
                     <div class="tip">
                         <input class="password" name="password" type="password" id="password" title="" value="123456" nullmsg="" />
                     </div>
-                    <div>
+                    <!-- <div>
                         <div style="float: right; margin-left:-150px; margin-right: 20px;">
                             <img id="randCodeImage" src="randCodeImage" />
                         </div>
                         <input class="randCode" name="randCode" type="text" id="randCode" title="" value="" nullmsg="" />
-                    </div>
-                    <input type="hidden" id="langCode" name="langCode" value="zh-cn" />
+                    </div> -->
+                    <input type="hidden" id="langCode" name="langCode" value="zh" />
                     <div class="loginButton">
                         <div style="float: left; margin-left: 80px;">
                             <input type="checkbox" id="on_off" name="remember" checked="ture" class="on_off_checkbox" value="0" />

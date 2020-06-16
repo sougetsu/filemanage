@@ -2035,6 +2035,12 @@
 			<description>业务类型[StoreUploadFilePathEnum],根据该类型确定上传路径</description>
 		</attribute>
 		<attribute>
+			<name>udfpath</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+			<description>文件上传路径内指定文件分类</description>
+		</attribute>
+		<attribute>
 			<name>displayTxt</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>

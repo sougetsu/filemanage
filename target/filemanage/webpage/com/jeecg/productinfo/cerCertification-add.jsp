@@ -7,7 +7,6 @@
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <script src="plug-in/easyui/extEasyUI.js"></script>
   <script type="text/javascript">
-  //编写自定义JS代码
   </script>
  </head>
  <body>
@@ -36,7 +35,7 @@
 						</label>
 					</td>
 					<td class="value">
-							<input id="Add_projectId" name="projectId" class="easyui-combotree" style="width:330px" data-options="url:'${pageContext.request.contextPath}/dictionary/projectList',parentField : 'pid',required:'true'"
+							<input id="hgzadd_cpxh" name="cpxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/cerProductInfoController.do?getCpxhList',parentField : 'pid',required:'true'"
 								lines="true" cascadeCheck="false" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品型号</label>
@@ -47,7 +46,8 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="cppc" name="cppc" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	<input id="hgzadd_cppc" name="cppc" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="required:'true'"
+								lines="true" cascadeCheck="false" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品批次</label>
 						</td>
@@ -59,7 +59,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="cpmc" name="cpmc" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	<input id="hgzadd_cpmc" name="cpmc" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品名称</label>
 						</td>
@@ -69,7 +69,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="cpsl" name="cpsl" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzadd_cpsl" name="cpsl" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品数量 </label>
 						</td>
@@ -81,7 +81,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="cpjcbz" name="cpjcbz" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzadd_cpjcbz" name="cpjcbz" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品检测标准</label>
 						</td>
@@ -91,7 +91,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="jcbgh" name="jcbgh" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzadd_jcbgh" name="jcbgh" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">检测报告号</label>
 						</td>
@@ -99,12 +99,12 @@
 				<tr>
 					<td align="right">
 						<label class="Validform_label">
-							<t:dictSelect field="cpmc" type="list"  typeGroupCode="zllx"  defaultVal="0" hasLabel="false"  title="质量类型" >
+							<t:dictSelect field="zlbs" type="list"  typeGroupCode="zllx"  defaultVal="0" hasLabel="false"  title="质量类型" >
 							</t:dictSelect>
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="zlbzdj" name="zlbzdj" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
+					     	 <input id="hgzadd_zlbzdj" name="zlbzdj" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">质量保证等级</label>
 						</td>
@@ -114,7 +114,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="yhdw" name="yhdw" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzadd_yhdw" name="yhdw" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">用户单位</label>
 						</td>
@@ -126,7 +126,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="jyy" name="jyy" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzadd_jyy" name="jyy" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">检验员</label>
 						</td>
@@ -136,7 +136,7 @@
 						</label>
 					</td>
 					<td class="value">
-							   <input id="qfrq" name="qfrq" type="text" style="width: 150px" class="Wdate" onClick="WdatePicker()"  datatype="*"  ignore="checked" />    
+							   <input id="hgzadd_qfrq" name="qfrq" type="text" style="width: 150px" class="Wdate" onClick="WdatePicker()"  datatype="*"  ignore="checked" />    
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">签发日期</label>
 						</td>
@@ -148,7 +148,7 @@
 						</label>
 					</td>
 					<td colspan="3" class="value">
-					     	 <input id="bz" name="bz" type="text" maxlength="32" style="width: 85%" class="inputxt"  ignore="ignore" />
+					     	 <input id="hgzadd_bz" name="bz" type="text" maxlength="32" style="width: 85%" class="inputxt"  ignore="ignore" />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">备注</label>
 						</td>
@@ -162,5 +162,50 @@
  </body>
 <script type="text/javascript">
 $(document).ready(function() {
+	$("#hgzadd_cpxh").combotree({
+    	onSelect:function(node){
+    		var cpxh = node.text; 
+    		$.ajax({
+                type: "POST",
+                url:'cerProductInfoController.do?getCppcListByCpxh',
+                data: {proCpxh:cpxh},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					$("#hgzadd_cppc").combotree({
+                            data: data.obj,
+                            valueField: 'id',
+                            textField: 'text',
+                        });
+    				}
+    			}
+            });
+    	}    
+    });
+	$("#hgzadd_cppc").combotree({
+    	onSelect:function(node){
+    		var cpxh = $("#hgzadd_cpxh").combotree("getValue");
+    		var cppc = node.text; 
+    		$.ajax({
+                type: "POST",
+                url:'cerProductInfoController.do?getProductInfo',
+                data: {proCpxh:cpxh,proCppc:cppc},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					$.each(data.obj, function(objIndex, obj){
+	    					//产品名称
+							$('input[name="cpmc"]').val(obj.cpmc);
+							//产品检测标准
+							$('input[name="cpjcbz"]').val(obj.cpjcbz);
+							//产品检测报告号
+							$('input[name="jcbgh"]').val(obj.jcbgh);
+    					 });
+    				}
+    			}
+            });
+    	}    
+    });
+	
 });
 </script>

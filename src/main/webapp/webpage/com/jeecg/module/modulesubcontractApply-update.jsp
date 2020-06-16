@@ -222,7 +222,7 @@
 				附件：
 			</div>
 			<div class="col-md-10 col-sm-10 col-xs-10 bt-content">
-			<span style="color:#F00">注：当预估金额大于50万元时，请务必上传附件<a href="export/template/附件10商务谈判记录（公开）.docx">商务谈判记录（模板）</a>、<a href="export/template/附件12单一来源采购申请表（公开）.docx">单一来源采购申请表（模板）</a></span>
+			<span style="color:#F00">注：当预估金额大于10万元时，请务必上传附件<a href="export/template/附件10商务谈判记录（公开）.docx">商务谈判记录（模板）</a>、<a href="export/template/附件12单一来源采购申请表（公开）.docx">单一来源采购申请表（模板）</a></span>
 			<t:webUploader name="attach" outJs="true" auto="true" showImgDiv="filediv_attach" pathValues="${modulesubcontractApply.attach}"></t:webUploader>
 			<div class="form" id="filediv_attach"></div>
 			</div>

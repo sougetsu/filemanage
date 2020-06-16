@@ -3,7 +3,7 @@
 <!DOCTYPE html >
 <html>
 	<head>
-		<title>JEECG 微云快速开发平台</title>
+		<title>检验处文件管理系统</title>
 <t:base type="jquery-webos,easyui,tools,DatePicker,autocomplete"></t:base>
 <link rel="shortcut icon" href="images/favicon.ico">
 		<link href="plug-in/sliding/css/main.css" rel="stylesheet" type="text/css" />
@@ -13,12 +13,9 @@
 		<link href="plug-in/sliding/css/smartMenu.css" rel="stylesheet"  type="text/css" />
 		<link href="plug-in/sliding/css/skins/opera.css" rel="stylesheet"  type="text/css" />
         <link href="plug-in/sliding/css/scrollStyle.css" rel="stylesheet"  type="text/css" />
-		<%--<script  type="text/javascript" src="plug-in/webos1.2/js/jquery-1.7.1.min.js"></script>--%>
 		<script  type="text/javascript" src="plug-in/sliding/js/jquery-powerFloat-min.js"></script>
 		<script  type="text/javascript" src="plug-in/sliding/js/jquery-smartMenu-min.js"></script>
 		<script  type="text/javascript" src="plug-in/sliding/js/jquery-class.js"></script>
-		<%--<script  type="text/javascript" src="plug-in/sliding/js/artDialog.js"></script>--%>
-		<%--<script  type="text/javascript" src="plug-in/sliding/js/iframeTools.js"></script>--%>
 		<script  type="text/javascript" src="plug-in/sliding/js/jquery.ui.core-min.js"></script>
 		<script  type="text/javascript" src="plug-in/sliding/js/jquery.ui.widget-min.js"></script>
 		<script  type="text/javascript" src="plug-in/sliding/js/jquery.ui.mouse-min.js"></script>
@@ -28,12 +25,7 @@
 		<script  type="text/javascript" src="plug-in/sliding/js/jquery.cookie.js"></script>
 		<script  type="text/javascript" src="plug-in/sliding/js/webos-core.js"></script>
         <script>
-
             $(function(){
-//                var $script = $("script[src='plug-in/jquery/jquery-1.8.3.js']");
-//                $($script).remove();
-//                alert($script.attr("src"));
-
 			  $(".dock_tool_theme").live("click",function(){
 				  $("#themeSetting_wrap2").append("<div id='themeSetting_wrap' style='display:none;'></div>");
 				  $("#themeSetting_wrap").html($("#themeSetting_wrap1").html());
@@ -209,10 +201,6 @@
 				<li cmd="favorite">
 					<div style="background: url(plug-in/login/images/exit.png) no-repeat left center;padding-left:30px;"
                          onclick="add('修改首页风格','userController.do?changestyle',null,560,250)">首页风格 </div>
-				</li>
-				<li cmd="favorite">
-					<div style="background: url(plug-in/login/images/exit.png) no-repeat left center;padding-left:30px;"
-                         onclick="window.open('http://yun.jeecg.org')">云应用中心 </div>
 				</li>
 				<li cmd="logout">
 					<div class="startMenuImg logout_botton" title="注销当前用户"

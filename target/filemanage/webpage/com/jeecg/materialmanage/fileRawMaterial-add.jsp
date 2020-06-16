@@ -11,8 +11,8 @@
   </script>
  </head>
  <body>
-  <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="fileRawMaterialController.do?doAdd" callback="jeecgFormFileCallBack@Override">
-					<input id="id" name="id" type="hidden" value="${fileRawMaterialPage.id }"/>
+  <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="fileRawMaterialController.do?doAdd">
+		<input id="id" name="id" type="hidden" value="${fileRawMaterialPage.id }"/>
 		<table style="width: 600px;" cellpadding="0" cellspacing="1" class="formtable">
 				<tr>
 					<td align="right">
@@ -57,83 +57,10 @@
 						</label>
 					</td>
 					<td class="value">
-		<div class="form jeecgDetail">
-			<t:upload name="fileattach" id="fileattach" queueID="filediv_fileattach" outhtml="false" uploader="cgUploadController.do?saveFiles"  extend="office" buttonText='添加文件'  onUploadStart="fileattachOnUploadStart"> </t:upload>
-			<div class="form" id="filediv_fileattach"></div>
-			<script type="text/javascript">
-				function fileattachOnUploadStart(file){
-					var cgFormId=$("input[name='id']").val();
-					$('#fileattach').uploadify("settings", "formData", {
-						'cgFormId':cgFormId,
-						'cgFormName':'file_raw_material',
-						'cgFormField':'FILEATTACH'
-					});
-				}
-			</script>
-		</div>
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">附件</label>
-						</td>
+						<t:webUploader auto="true" name="fileattach" fileNumLimit="10"></t:webUploader>
+						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
+					</td>
 				</tr>
-				
-				
 			</table>
 		</t:formvalid>
  </body>
-	  	<script type="text/javascript">
-	  		function jeecgFormFileCallBack(data){
-	  			if (data.success == true) {
-					uploadFile(data);
-				} else {
-					if (data.responseText == '' || data.responseText == undefined) {
-						$.messager.alert('错误', data.msg);
-						$.Hidemsg();
-					} else {
-						try {
-							var emsg = data.responseText.substring(data.responseText.indexOf('错误描述'), data.responseText.indexOf('错误信息'));
-							$.messager.alert('错误', emsg);
-							$.Hidemsg();
-						} catch(ex) {
-							$.messager.alert('错误', data.responseText + '');
-						}
-					}
-					return false;
-				}
-				if (!neibuClickFlag) {
-					var win = frameElement.api.opener;
-					win.reloadTable();
-				}
-	  		}
-	  		function upload() {
-					$('#fileattach').uploadify('upload', '*');	
-			}
-			
-			var neibuClickFlag = false;
-			function neibuClick() {
-				neibuClickFlag = true; 
-				$('#btn_sub').trigger('click');
-			}
-			function cancel() {
-					$('#fileattach').uploadify('cancel', '*');
-			}
-			function uploadFile(data){
-				if(!$("input[name='id']").val()){
-					if(data.obj!=null && data.obj!='undefined'){
-						$("input[name='id']").val(data.obj.id);
-					}
-				}
-				if($(".uploadify-queue-item").length>0){
-					upload();
-				}else{
-					if (neibuClickFlag){
-						alert(data.msg);
-						neibuClickFlag = false;
-					}else {
-						var win = frameElement.api.opener;
-						win.reloadTable();
-						win.tip(data.msg);
-						frameElement.api.close();
-					}
-				}
-			}
-	  	</script>

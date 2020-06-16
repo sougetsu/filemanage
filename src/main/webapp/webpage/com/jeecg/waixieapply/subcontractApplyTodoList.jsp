@@ -19,9 +19,9 @@
 						<div class="panel-body">
 							<form id="searchForm" onkeydown="if(event.keyCode==13){doSearch();return false;}">
 											<div class="col-xs-12 col-sm-6 col-md-4">
-												<label for="xmmc">项目名称：</label>
+												<label for="snxh">所内型号：</label>
 												<div class="input-group" style="width: 100%">
-													<input type="text" class="form-control input-sm" id="xmmc" name="xmmc"/>
+													<input type="text" class="form-control input-sm" id="snxh" name="snxh"/>
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-6 col-md-4">

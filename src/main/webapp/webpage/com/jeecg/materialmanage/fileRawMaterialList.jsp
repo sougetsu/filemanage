@@ -13,9 +13,13 @@
    <t:dgCol title="更新日期"  field="updateDate"  formatter="yyyy-MM-dd"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="所属部门"  field="sysOrgCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="所属公司"  field="sysCompanyCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
-   <t:dgCol title="检验批次"  field="inspectionLot"  query="true"  queryMode="like"  width="80"></t:dgCol>
+   <t:dgCol title="检验批次"  field="inspectionLot"  query="true"  queryMode="single"  width="80"></t:dgCol>
    <t:dgCol title="原材料类型"  field="materialType"  query="true"  queryMode="single"  dictionary="ycllx"  width="80"></t:dgCol>
    <t:dgCol title="型号"  field="model"  query="true"  queryMode="single"  width="80"></t:dgCol>
+   <t:dgCol title="生产商"  field="producer" width="80"></t:dgCol>
+   <t:dgCol title="供应商"  field="supplier" width="80"></t:dgCol>
+   <t:dgCol title="检验数量"  field="inspectiocount" width="80"></t:dgCol>
+   <t:dgCol title="合格数量"  field="qualifiedcount" width="80"></t:dgCol>
    <t:dgCol title="附件"  field="fileattach"  hidden="true"  queryMode="single"  downloadName="附件下载"  width="120"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
    <t:dgFunOpt title="附件下载"  exp="fileattach#ne#" funname="downzipfile(id)" urlclass="ace_button"  urlfont="fa-download" />

@@ -35,7 +35,8 @@
    <t:dgToolBar title="批量删除"  icon="icon-remove" url="cerCertificationController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar>
    <t:dgToolBar title="查看" icon="icon-search" url="cerCertificationController.do?goUpdate" funname="detail"></t:dgToolBar>
    <t:dgToolBar title="导入" icon="icon-put" funname="ImportXls"></t:dgToolBar>
-   <t:dgToolBar title="导出" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
+   <t:dgToolBar title="导出Excel" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
+   <t:dgToolBar title="导出Word" icon="icon-put" funname="ExportDoc"></t:dgToolBar>
    <t:dgToolBar title="模板下载" icon="icon-putout" funname="ExportXlsByT"></t:dgToolBar>
   </t:datagrid>
   </div>
@@ -54,6 +55,10 @@ function ImportXls() {
 //导出
 function ExportXls() {
 	JeecgExcelExport("cerCertificationController.do?exportXls","cerCertificationList");
+}
+//导出
+function ExportDoc() {
+	JeecgExcelExport("cerCertificationController.do?exportDoc","cerCertificationList");
 }
 
 //模板下载

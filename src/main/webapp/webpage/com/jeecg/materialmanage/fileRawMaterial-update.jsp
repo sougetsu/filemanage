@@ -6,8 +6,13 @@
   <title>原材料库</title>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <t:base type="uploadify"></t:base>
+  <link href="plug-in/select2/css/select2.css" rel="stylesheet">
+<script type="text/javascript" src="plug-in/select2/js/select2.js"></script>
   <script type="text/javascript">
   //编写自定义JS代码
+  $(document).ready(function() {
+  	$(".select2").select2();
+  });
   </script>
  </head>
  <body>
@@ -49,6 +54,50 @@
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">型号</label>
 						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								生产商:
+							</label>
+						</td>
+						<td class="value">
+							<t:dictSelect id="update_producer" field="producer" type="select"  hasLabel="false"  title="生产商" extendJson="{class:'form-control input-sm select2',style='width:100%'}"  defaultVal="${fileRawMaterialPage.producer}"  dictTable="subcontract_supplier_module" dictField="dwmc" dictText="dwmc" ></t:dictSelect>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								供应商:
+							</label>
+						</td>
+						<td class="value">
+							<t:dictSelect id="update_supplier" field="supplier" type="select"  hasLabel="false"  title="供应商" extendJson="{class:'form-control input-sm select2',style='width:100%'}"  defaultVal="${fileRawMaterialPage.supplier}"  dictTable="subcontract_supplier" dictField="dwmc" dictText="dwmc" ></t:dictSelect>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								检验数量:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="update_inspectiocount" name="inspectiocount" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" value='${fileRawMaterialPage.inspectiocount}' />
+								<span class="Validform_checktip"></span>
+								<label class="Validform_label" style="display: none;">检验数量</label>
+							</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								合格数量:
+							</label>
+						</td>
+						<td class="value">
+						     	 <input id="update_qualifiedcount" name="qualifiedcount" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" value='${fileRawMaterialPage.qualifiedcount}' />
+								<span class="Validform_checktip"></span>
+								<label class="Validform_label" style="display: none;">合格数量</label>
+							</td>
 					</tr>
 					<tr>
 						<td align="right">

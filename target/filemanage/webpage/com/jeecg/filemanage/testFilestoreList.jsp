@@ -18,11 +18,11 @@
    <t:dgCol title="电路名称"  field="dlmc"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="批次"  field="pc"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="任务通知单号"  field="rwtzdh"  query="true"  queryMode="single"  width="120"></t:dgCol>
-   <t:dgCol title="任务数量"  field="rwsl"  queryMode="single"  width="120"></t:dgCol>
+   <t:dgCol title="任务数量"  field="rwsl"   hidden="true" queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="执行规范号"  field="zxgfh"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="质量等级"  field="zldj"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="封装形式"  field="fzxs"  query="true"  queryMode="single"  width="120"></t:dgCol>
-   <t:dgCol title="芯片标识"  field="xpbs"  queryMode="single"  width="120"></t:dgCol>
+   <t:dgCol title="芯片标识"  field="xpbs"   hidden="true" queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="圆片批次"  field="yppc"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="圆片号"  field="yph"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="监制报告号"  field="jzbgh"  hidden="true"  queryMode="single"  downloadName="附件下载"  width="120"></t:dgCol>
@@ -94,6 +94,7 @@
    <t:dgCol title="补充检验报告"  field="bcjybg"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="单批质保报告"  field="dpzbbg"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
+   <t:dgFunOpt title="全部下载"  exp="jzbgh#ne#" funname="downallfilezip(id)" urlclass="ace_button"  urlfont="fa-download" />
    <t:dgDelOpt title="删除" url="testFilestoreController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/>
    <t:dgToolBar title="录入" icon="icon-add" url="testFilestoreController.do?goAdd" funname="add"></t:dgToolBar>
 	<t:dgToolBar title="编辑" icon="icon-edit" url="testFilestoreController.do?goUpdate" funname="update"></t:dgToolBar>
@@ -109,7 +110,9 @@
  $(document).ready(function(){
  });
  
-   
+ function downallfilezip(id) {
+	window.location.href = "testFilestoreController.do?downzipFile&id="+id;
+ }
  
 //导入
 function ImportXls() {

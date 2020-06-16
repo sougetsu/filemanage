@@ -40,7 +40,7 @@
       <span class="logo-mini"><b>M</b>TN</span>
       <small>
 			<i class="icon fa fa-microchip"></i>
-			时代民芯   外协加工系统
+			检验处  文件管理系统
 		</small>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
