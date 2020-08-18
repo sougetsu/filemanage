@@ -198,7 +198,100 @@
 						<label class="Validform_label" style="display: none;">外壳检验批次</label>
 					</td>
 				</tr>
+
 				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							盖板型号:
+						</label>
+					</td>
+					<td class="value">
+						<input	id="fileadd_gbxh" name="gbxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=coverplate',parentField : 'pid'" /> 
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">盖板型号</label>
+					</td>
+					<td align="right">
+						<label class="Validform_label">
+							盖板检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_gbjypc" name="gbjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+						lines="true" cascadeCheck="false" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">盖板检验批次</label>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							键合丝型号:
+						</label>
+					</td>
+					<td class="value">
+						<input	id="fileadd_jhsxh" name="jhsxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=bondingwire',parentField : 'pid'" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">键合丝型号</label>
+					</td>
+					<td align="right">
+						<label class="Validform_label">
+							键合丝检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_jhsjypc" name="jhsjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+						lines="true" cascadeCheck="false" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">键合丝检验批次</label>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							粘片胶型号:
+						</label>
+					</td>
+					<td class="value">
+						<input	id="fileadd_zpjxh" name="zpjxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=adhesivetape',parentField : 'pid'" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">粘片胶型号</label>
+					</td>
+					<td align="right">
+						<label class="Validform_label">
+							粘片胶检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_zpjyjpc" name="zpjyjpc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+						lines="true" cascadeCheck="false" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">粘片胶检验批次</label>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							打标墨型号:
+						</label>
+					</td>
+					<td class="value">
+						<input	id="fileadd_dbmxh" name="dbmxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=markingink',parentField : 'pid'" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">打标墨型号</label>
+					</td>
+					<td align="right">
+						<label class="Validform_label">
+							打标墨检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_dbmjypc" name="dbmjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+						lines="true" cascadeCheck="false" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">打标墨检验批次</label>
+					</td>
+				</tr>
+								<tr>
 					<td align="right">
 						<label class="Validform_label">
 							监制报告号:
@@ -239,94 +332,6 @@
 				     	 <input id="jzsj" name="jzsj" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
 						<span class="Validform_checktip"></span>
 						<label class="Validform_label" style="display: none;">监制时间</label>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							盖板型号:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_gbxh" name="gbxh" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">盖板型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							盖板检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_gbjypc" name="gbjypc" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">盖板检验批次</label>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							键合丝型号:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_jhsxh" name="jhsxh" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">键合丝型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							键合丝检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_jhsjypc" name="jhsjypc" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">键合丝检验批次</label>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							粘片胶型号:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_zpjxh" name="zpjxh" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">粘片胶型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							粘片胶检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_zpjyjpc" name="zpjyjpc" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">粘片胶检验批次</label>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							打标墨型号:
-						</label>
-					</td>
-					<td class="value">
-					 	<input	id="fileadd_dbmxh" name="dbmxh" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">打标墨型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							打标墨检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_dbmjypc" name="dbmjypc" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="ignore" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">打标墨检验批次</label>
 					</td>
 				</tr>
 				<tr>
@@ -1030,7 +1035,86 @@ $(document).ready(function() {
             });
     	}    
     });
-
+	$("#fileadd_gbxh").combotree({
+    	onSelect:function(node){
+    		var cpxh = node.text; 
+    		$.ajax({
+                type: "POST",
+                url:'fileRawMaterialController.do?getPcListByxh',
+                data: {xh:cpxh,type:"coverplate"},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					$("#fileadd_gbjypc").combotree({
+                            data: data.obj,
+                            valueField: 'id',
+                            textField: 'text',
+                        });
+    				}
+    			}
+            });
+    	}    
+    });
+	$("#fileadd_jhsxh").combotree({
+    	onSelect:function(node){
+    		var cpxh = node.text; 
+    		$.ajax({
+                type: "POST",
+                url:'fileRawMaterialController.do?getPcListByxh',
+                data: {xh:cpxh,type:"bondingwire"},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					$("#fileadd_jhsjypc").combotree({
+                            data: data.obj,
+                            valueField: 'id',
+                            textField: 'text',
+                        });
+    				}
+    			}
+            });
+    	}    
+    });
+	$("#fileadd_zpjxh").combotree({
+    	onSelect:function(node){
+    		var cpxh = node.text; 
+    		$.ajax({
+                type: "POST",
+                url:'fileRawMaterialController.do?getPcListByxh',
+                data: {xh:cpxh,type:"adhesivetape"},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					$("#fileadd_zpjyjpc").combotree({
+                            data: data.obj,
+                            valueField: 'id',
+                            textField: 'text',
+                        });
+    				}
+    			}
+            });
+    	}    
+    });
+	$("#fileadd_dbmxh").combotree({
+    	onSelect:function(node){
+    		var cpxh = node.text; 
+    		$.ajax({
+                type: "POST",
+                url:'fileRawMaterialController.do?getPcListByxh',
+                data: {xh:cpxh,type:"markingink"},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					$("#fileadd_dbmjypc").combotree({
+                            data: data.obj,
+                            valueField: 'id',
+                            textField: 'text',
+                        });
+    				}
+    			}
+            });
+    	}    
+    });
 
 });
 </script>

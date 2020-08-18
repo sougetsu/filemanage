@@ -51,6 +51,9 @@ public class FileRawMaterialEntity implements java.io.Serializable {
 	/**检验批次*/
 	@Excel(name="检验批次",width=15)
 	private java.lang.String inspectionLot;
+	/**检验报告单号*/
+	@Excel(name="检验报告单号",width=15)
+	private java.lang.String inspectionReportno;
 	/**原材料类型*/
 	@Excel(name="原材料类型",width=15,dicCode="ycllx")
 	private java.lang.String materialType;
@@ -248,6 +251,16 @@ public class FileRawMaterialEntity implements java.io.Serializable {
 	public void setInspectionLot(java.lang.String inspectionLot){
 		this.inspectionLot = inspectionLot;
 	}
+	
+	@Column(name ="INSPECTION_REPORTNO",nullable=false,length=32)
+	public java.lang.String getInspectionReportno() {
+		return inspectionReportno;
+	}
+
+	public void setInspectionReportno(java.lang.String inspectionReportno) {
+		this.inspectionReportno = inspectionReportno;
+	}
+
 	/**
 	 *方法: 取得java.lang.String
 	 *@return: java.lang.String  原材料类型

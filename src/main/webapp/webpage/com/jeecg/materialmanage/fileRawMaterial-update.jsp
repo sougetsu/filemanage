@@ -26,9 +26,21 @@
 							</label>
 						</td>
 						<td class="value">
-						    <input id="inspectionLot" name="inspectionLot" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked"  value='${fileRawMaterialPage.inspectionLot}'/>
+						    <input id="update_inspectionLot" name="inspectionLot" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked"  value='${fileRawMaterialPage.inspectionLot}'/>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">检验批次</label>
+						</td>
+					</tr>
+					<tr>
+						<td align="right">
+							<label class="Validform_label">
+								检验报告编号:
+							</label>
+						</td>
+						<td class="value">
+						    <input id="update_inspectionReportno" name="inspectionReportno" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked"  value='${fileRawMaterialPage.inspectionReportno}'/>
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">检验报告编号</label>
 						</td>
 					</tr>
 					<tr>

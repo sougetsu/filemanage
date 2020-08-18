@@ -88,7 +88,7 @@ label.iPhoneCheckLabelOn span {
        <!--  <div class="ribbon" style="background-image: url(plug-in/login/images/typelogin.png);"></div> -->
         <div class="inner">
             <div class="logo">
-            	<h2 class="title_login">检验处文件管理系统</h23>
+            	<h2 class="title_login">产品交付数据包管理系统</h23>
             </div>
             <div class="formLogin">
                 <form name="formLogin" id="formLogin" action="loginController.do?login" check="loginController.do?checkuser" method="post">

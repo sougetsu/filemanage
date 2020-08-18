@@ -34,6 +34,18 @@
 				<tr>
 					<td align="right">
 						<label class="Validform_label">
+							检验报告编号:
+						</label>
+					</td>
+					<td class="value">
+					     	 <input id="add_inspectionReportno" name="inspectionReportno" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">检验批次</label>
+						</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
 							原材料类型:
 						</label>
 					</td>
