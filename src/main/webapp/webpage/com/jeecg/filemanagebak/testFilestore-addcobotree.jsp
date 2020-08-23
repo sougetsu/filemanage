@@ -178,122 +178,6 @@
 				<tr>
 					<td align="right">
 						<label class="Validform_label">
-							外壳型号:
-						</label>
-					</td>
-					<td class="value">
-						<input id="fileadd_wjxh" name="wjxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=shell',parentField : 'pid'" />
-							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">外壳型号</label>
-						</td>
-					<td align="right">
-						<label class="Validform_label">
-							外壳检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input id="fileadd_wkjypc" name="wkjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-						lines="true" cascadeCheck="false" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">外壳检验批次</label>
-					</td>
-				</tr>
-
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							盖板型号:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_gbxh" name="gbxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=coverplate',parentField : 'pid'" /> 
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">盖板型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							盖板检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input id="fileadd_gbjypc" name="gbjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-						lines="true" cascadeCheck="false" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">盖板检验批次</label>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							键合丝型号:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_jhsxh" name="jhsxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=bondingwire',parentField : 'pid'" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">键合丝型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							键合丝检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input id="fileadd_jhsjypc" name="jhsjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-						lines="true" cascadeCheck="false" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">键合丝检验批次</label>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							粘片胶型号:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_zpjxh" name="zpjxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=adhesivetape',parentField : 'pid'" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">粘片胶型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							粘片胶检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input id="fileadd_zpjyjpc" name="zpjyjpc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-						lines="true" cascadeCheck="false" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">粘片胶检验批次</label>
-					</td>
-				</tr>
-				<tr>
-					<td align="right">
-						<label class="Validform_label">
-							打标墨型号:
-						</label>
-					</td>
-					<td class="value">
-						<input	id="fileadd_dbmxh" name="dbmxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=markingink',parentField : 'pid'" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">打标墨型号</label>
-					</td>
-					<td align="right">
-						<label class="Validform_label">
-							打标墨检验批次:
-						</label>
-					</td>
-					<td class="value">
-						<input id="fileadd_dbmjypc" name="dbmjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-						lines="true" cascadeCheck="false" />
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">打标墨检验批次</label>
-					</td>
-				</tr>
-								<tr>
-					<td align="right">
-						<label class="Validform_label">
 							监制报告号:
 						</label>
 					</td>
@@ -334,6 +218,126 @@
 						<label class="Validform_label" style="display: none;">监制时间</label>
 					</td>
 				</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							外壳型号:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_wjxh" name="wjxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=shell',parentField : 'pid'" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">外壳型号</label>
+						</td>
+					<td align="right">
+						<label class="Validform_label">
+							外壳检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_wkjypc" name="wkjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+						lines="true" cascadeCheck="false" />
+						<span class="Validform_checktip"></span>
+						<label class="Validform_label" style="display: none;">外壳检验批次</label>
+					</td>
+				</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							盖板型号:
+						</label>
+					</td>
+					<td class="value">
+							<t:dictSelect field="bpmStatus" type="list"  typeGroupCode="filestatus"  defaultVal="Producer" hasLabel="false"  title="阶段标识" ></t:dictSelect>
+							<input id="fileadd_gbxh" name="gbxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=coverplate',parentField : 'pid'"
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">盖板型号</label>
+						</td>
+					<td align="right">
+						<label class="Validform_label">
+							盖板检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_gbjypc" name="gbjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">盖板检验批次</label>
+						</td>
+					</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							键合丝型号:
+						</label>
+					</td>
+					<td class="value">
+							<input id="fileadd_jhsxh" name="jhsxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=bondingwire',parentField : 'pid'"
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">键合丝型号</label>
+						</td>
+					<td align="right">
+						<label class="Validform_label">
+							键合丝检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_jhsjypc" name="jhsjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">键合丝检验批次</label>
+						</td>
+					</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							粘片胶型号:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_zpjxh" name="zpjxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=adhesivetape',parentField : 'pid'"
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">粘片胶型号</label>
+						</td>
+					<td align="right">
+						<label class="Validform_label">
+							粘片胶检验批次:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_zpjyjpc" name="zpjyjpc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">粘片胶检验批次</label>
+						</td>
+					</tr>
+				<tr>
+					<td align="right">
+						<label class="Validform_label">
+							打标墨型号:
+						</label>
+					</td>
+					<td class="value">
+						<input id="fileadd_dbmxh" name="dbmxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=markingink',parentField : 'pid'"
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">打标墨型号</label>
+						</td>
+					<td align="right">
+						<label class="Validform_label">
+							打标墨检验批次:
+						</label>
+					</td>
+					<td class="value">
+					     	<input id="fileadd_dbmjypc" name="dbmjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
+							lines="true" cascadeCheck="false" />
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">打标墨检验批次</label>
+						</td>
+					</tr>
 				<tr>
 					<td class="title_label" colspan="1"> 
 							封装信息
@@ -1115,6 +1119,5 @@ $(document).ready(function() {
             });
     	}    
     });
-
 });
 </script>

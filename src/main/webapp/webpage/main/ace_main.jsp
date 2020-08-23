@@ -36,7 +36,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="ace-icon fa fa-microchip black"></i>
-							检验处   文件管理系统
+							产品交付数据包管理系统
 						</small>
 					</a><!-- /.brand -->
 				</div><!-- /.navbar-header -->

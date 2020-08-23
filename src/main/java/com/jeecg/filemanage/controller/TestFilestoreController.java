@@ -1,10 +1,17 @@
 package com.jeecg.filemanage.controller;
 import com.jeecg.filemanage.entity.TestFilestoreEntity;
 import com.jeecg.filemanage.service.TestFilestoreServiceI;
-import com.jeecg.materialmanage.entity.FileRawMaterialEntity;
-
+import com.jeecg.filemanage.page.TestFilestorePage;
+import com.jeecg.ysxx.entity.SubcontractYsxxEntity;
+import com.jeecg.cqfyxx.entity.SubcontractCqfxxxEntity;
+import com.jeecg.bcsxxx.entity.SubcontractBcsxxxEntity;
+import com.jeecg.ddsqbg.entity.SubcontractDdsqbgEntity;
+import com.jeecg.dpa.entity.SubcontractDpaEntity;
+import com.jeecg.jianzhi.entity.SubcontractJianzhiEntity;
+import com.jeecg.csbhgqk.entity.SubcontractCsbhgqkEntity;
+import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
+import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
@@ -14,63 +21,43 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.common.exception.BusinessException;
 import org.jeecgframework.core.common.hibernate.qbc.CriteriaQuery;
-import org.jeecgframework.core.common.model.common.TreeChildCount;
 import org.jeecgframework.core.common.model.json.AjaxJson;
 import org.jeecgframework.core.common.model.json.DataGrid;
 import org.jeecgframework.core.constant.Globals;
+import org.jeecgframework.core.util.ExceptionUtil;
+import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.core.util.StringUtil;
-import org.jeecgframework.core.util.ZipUtil;
-import org.jeecgframework.jwt.util.UtilValidate;
 import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
 import org.jeecgframework.web.system.service.SystemService;
 import org.jeecgframework.core.util.MyBeanUtils;
-
-import java.io.OutputStream;
-import org.jeecgframework.core.util.BrowserUtils;
-import org.jeecgframework.core.util.DateUtils;
-import org.jeecgframework.poi.excel.ExcelExportUtil;
 import org.jeecgframework.poi.excel.ExcelImportUtil;
 import org.jeecgframework.poi.excel.entity.ExportParams;
 import org.jeecgframework.poi.excel.entity.ImportParams;
-import org.jeecgframework.poi.excel.entity.TemplateExportParams;
 import org.jeecgframework.poi.excel.entity.vo.NormalExcelConstants;
-import org.jeecgframework.poi.excel.entity.vo.TemplateExcelConstants;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.jeecgframework.core.util.ResourceUtil;
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import java.io.IOException;
 import java.util.Map;
-import java.util.HashMap;
-import org.jeecgframework.core.util.ExceptionUtil;
 
 
 import org.jeecgframework.web.cgform.entity.upload.CgUploadEntity;
 import org.jeecgframework.web.cgform.service.config.CgFormFieldServiceI;
 import java.util.HashMap;
 /**   
- * @Title: Controller  
+ * @Title: Controller
  * @Description: 文件管理
  * @author onlineGenerator
- * @date 2019-12-22 18:21:14
+ * @date 2020-08-23 13:28:42
  * @version V1.0   
  *
  */
@@ -85,8 +72,6 @@ public class TestFilestoreController extends BaseController {
 	private SystemService systemService;
 	@Autowired
 	private CgFormFieldServiceI cgFormFieldService;
-	
-
 
 	/**
 	 * 文件管理列表 页面跳转
@@ -121,7 +106,7 @@ public class TestFilestoreController extends BaseController {
 		this.testFilestoreService.getDataGridReturn(cq, true);
 		TagUtil.datagrid(response, dataGrid);
 	}
-	
+
 	/**
 	 * 删除文件管理
 	 * 
@@ -130,12 +115,11 @@ public class TestFilestoreController extends BaseController {
 	@RequestMapping(params = "doDel")
 	@ResponseBody
 	public AjaxJson doDel(TestFilestoreEntity testFilestore, HttpServletRequest request) {
-		String message = null;
 		AjaxJson j = new AjaxJson();
 		testFilestore = systemService.getEntity(TestFilestoreEntity.class, testFilestore.getId());
-		message = "文件管理删除成功";
+		String message = "文件管理删除成功";
 		try{
-			testFilestoreService.delete(testFilestore);
+			testFilestoreService.delMain(testFilestore);
 			systemService.addLog(message, Globals.Log_Type_DEL, Globals.Log_Leavel_INFO);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -145,7 +129,7 @@ public class TestFilestoreController extends BaseController {
 		j.setMsg(message);
 		return j;
 	}
-	
+
 	/**
 	 * 批量删除文件管理
 	 * 
@@ -154,15 +138,14 @@ public class TestFilestoreController extends BaseController {
 	 @RequestMapping(params = "doBatchDel")
 	@ResponseBody
 	public AjaxJson doBatchDel(String ids,HttpServletRequest request){
-		String message = null;
 		AjaxJson j = new AjaxJson();
-		message = "文件管理删除成功";
+		String message = "文件管理删除成功";
 		try{
 			for(String id:ids.split(",")){
-				TestFilestoreEntity testFilestore = systemService.getEntity(TestFilestoreEntity.class, 
+				TestFilestoreEntity testFilestore = systemService.getEntity(TestFilestoreEntity.class,
 				id
 				);
-				testFilestoreService.delete(testFilestore);
+				testFilestoreService.delMain(testFilestore);
 				systemService.addLog(message, Globals.Log_Type_DEL, Globals.Log_Leavel_INFO);
 			}
 		}catch(Exception e){
@@ -174,7 +157,6 @@ public class TestFilestoreController extends BaseController {
 		return j;
 	}
 
-
 	/**
 	 * 添加文件管理
 	 * 
@@ -183,12 +165,20 @@ public class TestFilestoreController extends BaseController {
 	 */
 	@RequestMapping(params = "doAdd")
 	@ResponseBody
-	public AjaxJson doAdd(TestFilestoreEntity testFilestore, HttpServletRequest request) {
-		String message = null;
+	public AjaxJson doAdd(TestFilestoreEntity testFilestore,TestFilestorePage testFilestorePage, HttpServletRequest request) {
+		List<SubcontractYsxxEntity> subcontractYsxxList =  testFilestorePage.getSubcontractYsxxList();
+		List<SubcontractCqfxxxEntity> subcontractCqfxxxList =  testFilestorePage.getSubcontractCqfxxxList();
+		List<SubcontractBcsxxxEntity> subcontractBcsxxxList =  testFilestorePage.getSubcontractBcsxxxList();
+		List<SubcontractDdsqbgEntity> subcontractDdsqbgList =  testFilestorePage.getSubcontractDdsqbgList();
+		List<SubcontractDpaEntity> subcontractDpaList =  testFilestorePage.getSubcontractDpaList();
+		List<SubcontractJianzhiEntity> subcontractJianzhiList =  testFilestorePage.getSubcontractJianzhiList();
+		List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList =  testFilestorePage.getSubcontractCsbhgqkList();
+		List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList =  testFilestorePage.getSubcontractFzbhgqkList();
+		List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList =  testFilestorePage.getSubcontractSxbhgqkList();
 		AjaxJson j = new AjaxJson();
-		message = "文件管理添加成功";
+		String message = "添加成功";
 		try{
-			testFilestoreService.save(testFilestore);
+			testFilestoreService.addMain(testFilestore, subcontractYsxxList,subcontractCqfxxxList,subcontractBcsxxxList,subcontractDdsqbgList,subcontractDpaList,subcontractJianzhiList,subcontractCsbhgqkList,subcontractFzbhgqkList,subcontractSxbhgqkList);
 			systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -199,7 +189,6 @@ public class TestFilestoreController extends BaseController {
 		j.setObj(testFilestore);
 		return j;
 	}
-	
 	/**
 	 * 更新文件管理
 	 * 
@@ -208,24 +197,29 @@ public class TestFilestoreController extends BaseController {
 	 */
 	@RequestMapping(params = "doUpdate")
 	@ResponseBody
-	public AjaxJson doUpdate(TestFilestoreEntity testFilestore, HttpServletRequest request) {
-		String message = null;
+	public AjaxJson doUpdate(TestFilestoreEntity testFilestore,TestFilestorePage testFilestorePage, HttpServletRequest request) {
+		List<SubcontractYsxxEntity> subcontractYsxxList =  testFilestorePage.getSubcontractYsxxList();
+		List<SubcontractCqfxxxEntity> subcontractCqfxxxList =  testFilestorePage.getSubcontractCqfxxxList();
+		List<SubcontractBcsxxxEntity> subcontractBcsxxxList =  testFilestorePage.getSubcontractBcsxxxList();
+		List<SubcontractDdsqbgEntity> subcontractDdsqbgList =  testFilestorePage.getSubcontractDdsqbgList();
+		List<SubcontractDpaEntity> subcontractDpaList =  testFilestorePage.getSubcontractDpaList();
+		List<SubcontractJianzhiEntity> subcontractJianzhiList =  testFilestorePage.getSubcontractJianzhiList();
+		List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList =  testFilestorePage.getSubcontractCsbhgqkList();
+		List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList =  testFilestorePage.getSubcontractFzbhgqkList();
+		List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList =  testFilestorePage.getSubcontractSxbhgqkList();
 		AjaxJson j = new AjaxJson();
-		message = "文件管理更新成功";
-		TestFilestoreEntity t = testFilestoreService.get(TestFilestoreEntity.class, testFilestore.getId());
-		try {
-			MyBeanUtils.copyBeanNotNull2Bean(testFilestore, t);
-			testFilestoreService.saveOrUpdate(t);
+		String message = "更新成功";
+		try{
+			testFilestoreService.updateMain(testFilestore, subcontractYsxxList,subcontractCqfxxxList,subcontractBcsxxxList,subcontractDdsqbgList,subcontractDpaList,subcontractJianzhiList,subcontractCsbhgqkList,subcontractFzbhgqkList,subcontractSxbhgqkList);
 			systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);
-		} catch (Exception e) {
+		}catch(Exception e){
 			e.printStackTrace();
-			message = "文件管理更新失败";
+			message = "更新文件管理失败";
 			throw new BusinessException(e.getMessage());
 		}
 		j.setMsg(message);
 		return j;
 	}
-	
 
 	/**
 	 * 文件管理新增页面跳转
@@ -240,6 +234,7 @@ public class TestFilestoreController extends BaseController {
 		}
 		return new ModelAndView("com/jeecg/filemanage/testFilestore-add");
 	}
+	
 	/**
 	 * 文件管理编辑页面跳转
 	 * 
@@ -269,75 +264,308 @@ public class TestFilestoreController extends BaseController {
 	}
 	
 	/**
-	 * 导入功能跳转
+	 * 加载明细列表[验收信息]
 	 * 
 	 * @return
 	 */
-	@RequestMapping(params = "upload")
-	public ModelAndView upload(HttpServletRequest req) {
-		req.setAttribute("controller_name","testFilestoreController");
-		return new ModelAndView("common/upload/pub_excel_upload");
-	}
+	@RequestMapping(params = "subcontractYsxxList")
+	public ModelAndView subcontractYsxxList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
 	
-	/**
-	 * 导出excel
-	 * 
-	 * @param request
-	 * @param response
-	 */
-	@RequestMapping(params = "exportXls")
-	public String exportXls(TestFilestoreEntity testFilestore,HttpServletRequest request,HttpServletResponse response
-			, DataGrid dataGrid,ModelMap modelMap) {
-		CriteriaQuery cq = new CriteriaQuery(TestFilestoreEntity.class, dataGrid);
-		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, testFilestore, request.getParameterMap());
-		List<TestFilestoreEntity> testFilestores = this.testFilestoreService.getListByCriteriaQuery(cq,false);
-		modelMap.put(NormalExcelConstants.FILE_NAME,"文件管理");
-		modelMap.put(NormalExcelConstants.CLASS,TestFilestoreEntity.class);
-		modelMap.put(NormalExcelConstants.PARAMS,new ExportParams("文件管理列表", "导出人:"+ResourceUtil.getSessionUser().getRealName(),
-			"导出信息"));
-		modelMap.put(NormalExcelConstants.DATA_LIST,testFilestores);
-		return NormalExcelConstants.JEECG_EXCEL_VIEW;
+		//===================================================================================
+		//获取参数
+		Object id0 = testFilestore.getId();
+		//===================================================================================
+		//查询-验收信息
+	    String hql0 = "from SubcontractYsxxEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractYsxxEntity> subcontractYsxxEntityList = systemService.findHql(hql0,id0);
+			req.setAttribute("subcontractYsxxList", subcontractYsxxEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/ysxx/subcontractYsxxList");
 	}
 	/**
-	 * 导出excel 使模板
+	 * 加载明细列表[超期复验信息]
 	 * 
-	 * @param request
-	 * @param response
+	 * @return
 	 */
-	@RequestMapping(params = "exportXlsByT")
-	public String exportXlsByT(TestFilestoreEntity testFilestore,HttpServletRequest request,HttpServletResponse response
-			, DataGrid dataGrid,ModelMap modelMap) {
-    	modelMap.put(NormalExcelConstants.FILE_NAME,"文件管理");
-    	modelMap.put(NormalExcelConstants.CLASS,TestFilestoreEntity.class);
-    	modelMap.put(NormalExcelConstants.PARAMS,new ExportParams("文件管理列表", "导出人:"+ResourceUtil.getSessionUser().getRealName(),
-    	"导出信息"));
-    	modelMap.put(NormalExcelConstants.DATA_LIST,new ArrayList());
-    	return NormalExcelConstants.JEECG_EXCEL_VIEW;
-	}
+	@RequestMapping(params = "subcontractCqfxxxList")
+	public ModelAndView subcontractCqfxxxList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
 	
-	@SuppressWarnings("unchecked")
+		//===================================================================================
+		//获取参数
+		Object id1 = testFilestore.getId();
+		//===================================================================================
+		//查询-超期复验信息
+	    String hql1 = "from SubcontractCqfxxxEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractCqfxxxEntity> subcontractCqfxxxEntityList = systemService.findHql(hql1,id1);
+			req.setAttribute("subcontractCqfxxxList", subcontractCqfxxxEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/cqfyxx/subcontractCqfxxxList");
+	}
+	/**
+	 * 加载明细列表[补充筛选信息]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractBcsxxxList")
+	public ModelAndView subcontractBcsxxxList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id2 = testFilestore.getId();
+		//===================================================================================
+		//查询-补充筛选信息
+	    String hql2 = "from SubcontractBcsxxxEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractBcsxxxEntity> subcontractBcsxxxEntityList = systemService.findHql(hql2,id2);
+			req.setAttribute("subcontractBcsxxxList", subcontractBcsxxxEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/bcsxxx/subcontractBcsxxxList");
+	}
+	/**
+	 * 加载明细列表[单独水汽报告]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractDdsqbgList")
+	public ModelAndView subcontractDdsqbgList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id3 = testFilestore.getId();
+		//===================================================================================
+		//查询-单独水汽报告
+	    String hql3 = "from SubcontractDdsqbgEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractDdsqbgEntity> subcontractDdsqbgEntityList = systemService.findHql(hql3,id3);
+			req.setAttribute("subcontractDdsqbgList", subcontractDdsqbgEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/ddsqbg/subcontractDdsqbgList");
+	}
+	/**
+	 * 加载明细列表[dpa]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractDpaList")
+	public ModelAndView subcontractDpaList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id4 = testFilestore.getId();
+		//===================================================================================
+		//查询-dpa
+	    String hql4 = "from SubcontractDpaEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractDpaEntity> subcontractDpaEntityList = systemService.findHql(hql4,id4);
+			req.setAttribute("subcontractDpaList", subcontractDpaEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/dpa/subcontractDpaList");
+	}
+	/**
+	 * 加载明细列表[监制]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractJianzhiList")
+	public ModelAndView subcontractJianzhiList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id5 = testFilestore.getId();
+		//===================================================================================
+		//查询-监制
+	    String hql5 = "from SubcontractJianzhiEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractJianzhiEntity> subcontractJianzhiEntityList = systemService.findHql(hql5,id5);
+			req.setAttribute("subcontractJianzhiList", subcontractJianzhiEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/jianzhi/subcontractJianzhiList");
+	}
+	/**
+	 * 加载明细列表[测试不合格情况]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractCsbhgqkList")
+	public ModelAndView subcontractCsbhgqkList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id6 = testFilestore.getId();
+		//===================================================================================
+		//查询-测试不合格情况
+	    String hql6 = "from SubcontractCsbhgqkEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractCsbhgqkEntity> subcontractCsbhgqkEntityList = systemService.findHql(hql6,id6);
+			req.setAttribute("subcontractCsbhgqkList", subcontractCsbhgqkEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/csbhgqk/subcontractCsbhgqkList");
+	}
+	/**
+	 * 加载明细列表[封装不合格情况]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractFzbhgqkList")
+	public ModelAndView subcontractFzbhgqkList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id7 = testFilestore.getId();
+		//===================================================================================
+		//查询-封装不合格情况
+	    String hql7 = "from SubcontractFzbhgqkEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractFzbhgqkEntity> subcontractFzbhgqkEntityList = systemService.findHql(hql7,id7);
+			req.setAttribute("subcontractFzbhgqkList", subcontractFzbhgqkEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/fzbhgqk/subcontractFzbhgqkList");
+	}
+	/**
+	 * 加载明细列表[筛选不合格情况]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractSxbhgqkList")
+	public ModelAndView subcontractSxbhgqkList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id8 = testFilestore.getId();
+		//===================================================================================
+		//查询-筛选不合格情况
+	    String hql8 = "from SubcontractSxbhgqkEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractSxbhgqkEntity> subcontractSxbhgqkEntityList = systemService.findHql(hql8,id8);
+			req.setAttribute("subcontractSxbhgqkList", subcontractSxbhgqkEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/sxbhgqk/subcontractSxbhgqkList");
+	}
+
+    /**
+    * 导出excel
+    *
+    * @param request
+    * @param response
+    */
+    @RequestMapping(params = "exportXls")
+    public String exportXls(TestFilestoreEntity testFilestore,HttpServletRequest request, HttpServletResponse response, DataGrid dataGrid,ModelMap map) {
+    	CriteriaQuery cq = new CriteriaQuery(TestFilestoreEntity.class, dataGrid);
+    	//查询条件组装器
+    	org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, testFilestore);
+    	try{
+    	//自定义追加查询条件
+    	}catch (Exception e) {
+    		throw new BusinessException(e.getMessage());
+    	}
+    	cq.add();
+    	List<TestFilestoreEntity> list=this.testFilestoreService.getListByCriteriaQuery(cq, false);
+    	List<TestFilestorePage> pageList=new ArrayList<TestFilestorePage>();
+        if(list!=null&&list.size()>0){
+        	for(TestFilestoreEntity entity:list){
+        		try{
+        		TestFilestorePage page=new TestFilestorePage();
+        		   MyBeanUtils.copyBeanNotNull2Bean(entity,page);
+            	    Object id0 = entity.getId();
+				    String hql0 = "from SubcontractYsxxEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractYsxxEntity> subcontractYsxxEntityList = systemService.findHql(hql0,id0);
+            		page.setSubcontractYsxxList(subcontractYsxxEntityList);
+            	    Object id1 = entity.getId();
+				    String hql1 = "from SubcontractCqfxxxEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractCqfxxxEntity> subcontractCqfxxxEntityList = systemService.findHql(hql1,id1);
+            		page.setSubcontractCqfxxxList(subcontractCqfxxxEntityList);
+            	    Object id2 = entity.getId();
+				    String hql2 = "from SubcontractBcsxxxEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractBcsxxxEntity> subcontractBcsxxxEntityList = systemService.findHql(hql2,id2);
+            		page.setSubcontractBcsxxxList(subcontractBcsxxxEntityList);
+            	    Object id3 = entity.getId();
+				    String hql3 = "from SubcontractDdsqbgEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractDdsqbgEntity> subcontractDdsqbgEntityList = systemService.findHql(hql3,id3);
+            		page.setSubcontractDdsqbgList(subcontractDdsqbgEntityList);
+            	    Object id4 = entity.getId();
+				    String hql4 = "from SubcontractDpaEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractDpaEntity> subcontractDpaEntityList = systemService.findHql(hql4,id4);
+            		page.setSubcontractDpaList(subcontractDpaEntityList);
+            	    Object id5 = entity.getId();
+				    String hql5 = "from SubcontractJianzhiEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractJianzhiEntity> subcontractJianzhiEntityList = systemService.findHql(hql5,id5);
+            		page.setSubcontractJianzhiList(subcontractJianzhiEntityList);
+            	    Object id6 = entity.getId();
+				    String hql6 = "from SubcontractCsbhgqkEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractCsbhgqkEntity> subcontractCsbhgqkEntityList = systemService.findHql(hql6,id6);
+            		page.setSubcontractCsbhgqkList(subcontractCsbhgqkEntityList);
+            	    Object id7 = entity.getId();
+				    String hql7 = "from SubcontractFzbhgqkEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractFzbhgqkEntity> subcontractFzbhgqkEntityList = systemService.findHql(hql7,id7);
+            		page.setSubcontractFzbhgqkList(subcontractFzbhgqkEntityList);
+            	    Object id8 = entity.getId();
+				    String hql8 = "from SubcontractSxbhgqkEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractSxbhgqkEntity> subcontractSxbhgqkEntityList = systemService.findHql(hql8,id8);
+            		page.setSubcontractSxbhgqkList(subcontractSxbhgqkEntityList);
+            		pageList.add(page);
+            	}catch(Exception e){
+            		logger.info(e.getMessage());
+            	}
+            }
+        }
+        map.put(NormalExcelConstants.FILE_NAME,"文件管理");
+        map.put(NormalExcelConstants.CLASS,TestFilestorePage.class);
+        map.put(NormalExcelConstants.PARAMS,new ExportParams("文件管理列表", "导出人:Jeecg",
+            "导出信息"));
+        map.put(NormalExcelConstants.DATA_LIST,pageList);
+        return NormalExcelConstants.JEECG_EXCEL_VIEW;
+	}
+
+    /**
+	 * 通过excel导入数据
+	 * @param request
+	 * @param
+	 * @return
+	 */
 	@RequestMapping(params = "importExcel", method = RequestMethod.POST)
 	@ResponseBody
 	public AjaxJson importExcel(HttpServletRequest request, HttpServletResponse response) {
 		AjaxJson j = new AjaxJson();
-		
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap();
 		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {
 			MultipartFile file = entity.getValue();// 获取上传文件对象
 			ImportParams params = new ImportParams();
 			params.setTitleRows(2);
-			params.setHeadRows(1);
+			params.setHeadRows(2);
 			params.setNeedSave(true);
 			try {
-				List<TestFilestoreEntity> listTestFilestoreEntitys = ExcelImportUtil.importExcel(file.getInputStream(),TestFilestoreEntity.class,params);
-				for (TestFilestoreEntity testFilestore : listTestFilestoreEntitys) {
-					testFilestoreService.save(testFilestore);
+				List<TestFilestorePage> list =  ExcelImportUtil.importExcel(file.getInputStream(), TestFilestorePage.class, params);
+				TestFilestoreEntity entity1=null;
+				for (TestFilestorePage page : list) {
+					entity1=new TestFilestoreEntity();
+					MyBeanUtils.copyBeanNotNull2Bean(page,entity1);
+		            testFilestoreService.addMain(entity1, page.getSubcontractYsxxList(),page.getSubcontractCqfxxxList(),page.getSubcontractBcsxxxList(),page.getSubcontractDdsqbgList(),page.getSubcontractDpaList(),page.getSubcontractJianzhiList(),page.getSubcontractCsbhgqkList(),page.getSubcontractFzbhgqkList(),page.getSubcontractSxbhgqkList());
 				}
 				j.setMsg("文件导入成功！");
 			} catch (Exception e) {
 				j.setMsg("文件导入失败！");
-				logger.error(e.getMessage());
+				logger.error(ExceptionUtil.getExceptionMessage(e));
 			}finally{
 				try {
 					file.getInputStream().close();
@@ -345,10 +573,33 @@ public class TestFilestoreController extends BaseController {
 					e.printStackTrace();
 				}
 			}
-		}
-		return j;
+			}
+			return j;
 	}
-	
+	/**
+	* 导出excel 使模板
+	*/
+	@RequestMapping(params = "exportXlsByT")
+	public String exportXlsByT(ModelMap map) {
+		map.put(NormalExcelConstants.FILE_NAME,"文件管理");
+		map.put(NormalExcelConstants.CLASS,TestFilestorePage.class);
+		map.put(NormalExcelConstants.PARAMS,new ExportParams("文件管理列表", "导出人:"+ ResourceUtil.getSessionUser().getRealName(),
+		"导出信息"));
+		map.put(NormalExcelConstants.DATA_LIST,new ArrayList());
+		return NormalExcelConstants.JEECG_EXCEL_VIEW;
+	}
+	/**
+	* 导入功能跳转
+	*
+	* @return
+	*/
+	@RequestMapping(params = "upload")
+	public ModelAndView upload(HttpServletRequest req) {
+		req.setAttribute("controller_name", "testFilestoreController");
+		return new ModelAndView("common/upload/pub_excel_upload");
+	}
+
+ 	
 	/**
 	 * 获取文件附件信息
 	 * 
@@ -374,93 +625,5 @@ public class TestFilestoreController extends BaseController {
 		AjaxJson j = new AjaxJson();
 		j.setObj(files);
 		return j;
-	}
-	/**
-	 * 获取图片流/获取文件用于下载
-	 * @param response
-	 * @param request
-	 * @throws Exception
-	 */
-	@RequestMapping(params="downzipFile",method = RequestMethod.GET)
-	public void downzipFile(HttpServletResponse response,HttpServletRequest request) throws Exception{
-		String id=request.getParameter("id");
-		TestFilestoreEntity t = testFilestoreService.get(TestFilestoreEntity.class, id);
-		String ctxPath = ResourceUtil.getConfigByName("webUploadpath");
-		
-		String[] jzbghList = t.getJzbgh().split(",");
-		String[] fzbhgList = t.getFzbhgqk().split(",");
-		String[] sxbghList = t.getSxbgh().split(",");
-		String[] sxbbgbgList = t.getSxbhgqk().split(",");
-		String[] threebgList = t.getThreebg().split(",");
-		String[] dcplList = t.getDcplzlfxbg().split(",");
-		String[] sjjdbgList = t.getSjjdbg().split(",");
-		String[] jdbgbhList = t.getJdbgbh().split(",");
-		String[] sjjdmlList = t.getSjjdml().split(",");
-		String[] yhpsyjList = t.getYhpsyj().split(",");
-		String[] zlpsList = t.getZlps().split(",");
-		String[] esdList = t.getEsd().split(",");
-		String[] kssList = t.getKss().split(",");
-		String[] zjlList = t.getZjl().split(",");
-		String[] dlzList = t.getDlz().split(",");
-		String[] smhsqList = t.getSmhsq().split(",");
-		String[] shsqList = t.getShsq().split(",");
-		String[] dpaList = t.getDpabgh().split(",");
-		
-		String[] dbpathList =  UtilValidate.concatAll(jzbghList, fzbhgList,sxbghList,sxbbgbgList,
-				threebgList,dcplList,sjjdbgList,jdbgbhList,sjjdmlList,yhpsyjList,zlpsList,esdList,
-				kssList,zjlList,dlzList,smhsqList,shsqList,dpaList);
-		InputStream ins = null;
-		BufferedInputStream bins = null;
-		OutputStream outs = null;
-		BufferedOutputStream bouts = null;
-		File file = null;
-		try {
-			if(dbpathList!=null && dbpathList.length>=0){
-				List<String> pathList = new ArrayList<String>();
-				for (String subpath : dbpathList) {
-					pathList.add(ctxPath+File.separator+subpath);
-				}
-				String zipfileName=t.getXh()+"_"+t.getPc()+"_"+DateUtils.formatDate(new Date(),"yyyy-MM-dd")+".zip";
-				String user = ResourceUtil.getSessionUser().getUserName();
-				String path = request.getServletContext().getRealPath("/")+user+zipfileName;//zip临时目录
-				ZipUtil.compress(pathList, path);
-				file = new File(path);
-				if(file.exists()){
-					ins = new FileInputStream(path);
-					bins = new BufferedInputStream(ins);
-					//去掉路径结尾逗号
-					response.setContentType("application/x-msdownload;charset=utf-8");
-					response.setHeader("Content-disposition", "attachment; filename=" + zipfileName);
-					outs = response.getOutputStream();
-					bouts = new BufferedOutputStream(outs);
-					int bytesRead = 0;
-					byte[] buffer = new byte[8192];
-					//开始向网络传输流
-					while((bytesRead = bins.read(buffer,0,buffer.length)) != -1){
-						bouts.write(buffer, 0, bytesRead);
-					}
-					bouts.flush();
-				}
-			}
-		} catch (Exception e) {
-			logger.info("全部下载出问题了");
-		}finally{
-			if(ins!=null){
-				ins.close();
-			}
-			if(bins!=null){
-				bins.close();
-			}
-			if(outs!=null){
-				outs.close();
-			}
-			if(bouts!=null){
-				bouts.close();
-			}
-			if(file!=null){
-				file.delete();//删除临时zip文件
-			}
-		}
-		
 	}
 }
