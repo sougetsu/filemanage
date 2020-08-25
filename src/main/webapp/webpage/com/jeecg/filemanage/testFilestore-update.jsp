@@ -107,6 +107,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">任务通知单号</label>
 			</td>
+			<t:hasPermission code="rwsl">
 			<td align="right">
 				<label class="Validform_label">任务数量:</label>
 			</td>
@@ -115,6 +116,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">任务数量</label>
 			</td>
+			</t:hasPermission>
 		</tr>
 		<tr>
 			<td align="right">
@@ -143,6 +145,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">封装形式</label>
 			</td>
+			<t:hasPermission code="rwsl">
 			<td align="right">
 				<label class="Validform_label">芯片标识:</label>
 			</td>
@@ -151,6 +154,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">芯片标识</label>
 			</td>
+			</t:hasPermission>
 		</tr>
 	</table>
 	<div style="width: auto;height: auto;">
@@ -747,7 +751,7 @@
 				<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 			</td>
 		</tr>
-	<table>
+	</table>
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>

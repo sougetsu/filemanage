@@ -85,7 +85,7 @@
 				<label class="Validform_label">电路名称:</label>
 			</td>
 			<td class="value">
-		     	 <input id="dlmc" name="dlmc" type="text" maxlength="100" style="width: 150px" class="inputxt"  ignore="checked" />
+		     	<input id="dlmc" name="dlmc" type="text" maxlength="100" style="width: 150px" class="inputxt"  ignore="checked" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">电路名称</label>
 			</td>

@@ -1606,7 +1606,7 @@ public class SystemController extends BaseController {
 	    		}
 				msg="上传成功";
 				j.setMsg(msg);
-				String dbpath=bizPath+File.separator+nowday+File.separator+fileName;
+				String dbpath=bizPath+File.separator+udfpath+File.separator+nowday+File.separator+fileName;
 				logger.debug("---dbpath----"+dbpath);
 				if(dbpath.contains("\\")){
 					dbpath = dbpath.replace("\\","/");

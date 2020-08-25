@@ -1,30 +1,12 @@
 package com.jeecg.filemanage.controller;
-import com.jeecg.filemanage.entity.TestFilestoreEntity;
-import com.jeecg.filemanage.service.TestFilestoreServiceI;
-import com.jeecg.filemanage.page.TestFilestorePage;
-import com.jeecg.ysxx.entity.SubcontractYsxxEntity;
-import com.jeecg.cqfyxx.entity.SubcontractCqfxxxEntity;
-import com.jeecg.bcsxxx.entity.SubcontractBcsxxxEntity;
-import com.jeecg.ddsqbg.entity.SubcontractDdsqbgEntity;
-import com.jeecg.dpa.entity.SubcontractDpaEntity;
-import com.jeecg.jianzhi.entity.SubcontractJianzhiEntity;
-import com.jeecg.csbhgqk.entity.SubcontractCsbhgqkEntity;
-import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
-import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.text.SimpleDateFormat;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.common.exception.BusinessException;
@@ -33,26 +15,44 @@ import org.jeecgframework.core.common.model.json.AjaxJson;
 import org.jeecgframework.core.common.model.json.DataGrid;
 import org.jeecgframework.core.constant.Globals;
 import org.jeecgframework.core.util.ExceptionUtil;
+import org.jeecgframework.core.util.MyBeanUtils;
 import org.jeecgframework.core.util.ResourceUtil;
 import org.jeecgframework.core.util.StringUtil;
-import org.jeecgframework.tag.core.easyui.TagUtil;
-import org.jeecgframework.web.system.pojo.base.TSDepart;
-import org.jeecgframework.web.system.service.SystemService;
-import org.jeecgframework.core.util.MyBeanUtils;
+import org.jeecgframework.jwt.util.UtilValidate;
 import org.jeecgframework.poi.excel.ExcelImportUtil;
 import org.jeecgframework.poi.excel.entity.ExportParams;
 import org.jeecgframework.poi.excel.entity.ImportParams;
 import org.jeecgframework.poi.excel.entity.vo.NormalExcelConstants;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import java.io.IOException;
-import java.util.Map;
-
-
+import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.cgform.entity.upload.CgUploadEntity;
 import org.jeecgframework.web.cgform.service.config.CgFormFieldServiceI;
-import java.util.HashMap;
+import org.jeecgframework.web.system.service.SystemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.jeecg.bcsxxx.entity.SubcontractBcsxxxEntity;
+import com.jeecg.cqfyxx.entity.SubcontractCqfxxxEntity;
+import com.jeecg.csbhgqk.entity.SubcontractCsbhgqkEntity;
+import com.jeecg.ddsqbg.entity.SubcontractDdsqbgEntity;
+import com.jeecg.dpa.entity.SubcontractDpaEntity;
+import com.jeecg.filemanage.entity.TestFilestoreEntity;
+import com.jeecg.filemanage.page.TestFilestorePage;
+import com.jeecg.filemanage.service.TestFilestoreServiceI;
+import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
+import com.jeecg.jianzhi.entity.SubcontractJianzhiEntity;
+import com.jeecg.materialmanage.entity.FileRawMaterialEntity;
+import com.jeecg.materialmanage.service.FileRawMaterialServiceI;
+import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
+import com.jeecg.ysxx.entity.SubcontractYsxxEntity;
 /**   
  * @Title: Controller
  * @Description: 文件管理
@@ -72,7 +72,9 @@ public class TestFilestoreController extends BaseController {
 	private SystemService systemService;
 	@Autowired
 	private CgFormFieldServiceI cgFormFieldService;
-
+	
+	@Autowired
+	private FileRawMaterialServiceI fileRawMaterialService;
 	/**
 	 * 文件管理列表 页面跳转
 	 * 
@@ -259,6 +261,65 @@ public class TestFilestoreController extends BaseController {
 		if (StringUtil.isNotEmpty(testFilestore.getId())) {
 			testFilestore = testFilestoreService.getEntity(TestFilestoreEntity.class, testFilestore.getId());
 			req.setAttribute("testFilestorePage", testFilestore);
+			
+			//圆片附件
+			String ypFileList = "";
+			String yphql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> ypEntityList  = systemService.findHql(yphql,testFilestore.getYph(),testFilestore.getYppc());
+			if(UtilValidate.isNotEmpty(ypEntityList))
+			{
+				ypFileList = ypEntityList.get(0).getFileattach();
+			}
+			req.setAttribute("yphFile", ypFileList);
+			//外壳附件
+			String wkFileList = "";
+			String wkhql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> wkEntityList = systemService.findHql(wkhql,testFilestore.getWjxh(),testFilestore.getWkjypc());
+			if(UtilValidate.isNotEmpty(wkEntityList))
+			{
+				wkFileList = wkEntityList.get(0).getFileattach();
+			}
+			req.setAttribute("wkFile", wkFileList);
+			
+			//盖板附件
+			String gbFileList = "";
+			String gbhql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> gbEntityList = systemService.findHql(gbhql,testFilestore.getGbxh(),testFilestore.getGbjypc()); 
+			if(UtilValidate.isNotEmpty(gbEntityList))
+			{
+				gbFileList = gbEntityList.get(0).getFileattach();
+			}
+			req.setAttribute("gbFile", gbFileList);
+			
+			//键合丝附件
+			String jhsFileList = "";
+			String jhshql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> jhsEntityList = systemService.findHql(jhshql,testFilestore.getJhsxh(),testFilestore.getJhsjypc());
+			if(UtilValidate.isNotEmpty(jhsEntityList))
+			{
+				jhsFileList = jhsEntityList.get(0).getFileattach();
+			}
+			req.setAttribute("jhsFile", jhsFileList);
+			
+			//粘片胶附件
+			String zpjFileList = "";
+			String zpjhql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> zpjEntityList = systemService.findHql(zpjhql,testFilestore.getZpjxh(),testFilestore.getZpjyjpc());
+			if(UtilValidate.isNotEmpty(zpjEntityList))
+			{
+				zpjFileList = zpjEntityList.get(0).getFileattach();
+			}
+			req.setAttribute("gzpjFile",zpjFileList);
+			
+			//打标墨附件
+			String dbmFileList = "";
+			String dbmhql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> dbmEntityList = systemService.findHql(dbmhql,testFilestore.getDbmxh(),testFilestore.getDbmjypc());
+			if(UtilValidate.isNotEmpty(dbmEntityList))
+			{
+				dbmFileList = dbmEntityList.get(0).getFileattach();
+			}
+			req.setAttribute("dbmFile", dbmFileList);	
 		}
 		return new ModelAndView("com/jeecg/filemanage/testFilestore-download");
 	}
