@@ -4192,7 +4192,7 @@ v6U/Av0ROPZGoG8fj71n1r/i/gj0R2BpRqBvH5dmnPvf0h+B/ggceyPQt4/H3jPrX3F/BPojsDQj
 					</w:tc>
 					<w:tc>
 						<w:tcPr>
-							<w:tcW w:w="2533" w:type="dxa" />
+							<w:tcW w:w="6849" w:type="dxa" />
 							<w:tcBorders>
 								<w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
 									w:color="auto" />
@@ -4218,50 +4218,6 @@ v6U/Av0ROPZGoG8fj71n1r/i/gj0R2BpRqBvH5dmnPvf0h+B/ggceyPQt4/H3jPrX3F/BPojsDQj
 								</w:rPr>
 								<w:t>${remark}</w:t>
 							</w:r>
-						</w:p>
-					</w:tc>
-					<w:tc>
-						<w:tcPr>
-							<w:tcW w:w="1720" w:type="dxa" />
-							<w:tcBorders>
-								<w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-									w:color="auto" />
-							</w:tcBorders>
-							<w:shd w:val="clear" w:color="auto" w:fill="auto" />
-						</w:tcPr>
-						<w:p wsp:rsidR="00DC7EBA" wsp:rsidRPr="009C29B4"
-							wsp:rsidRDefault="00DC7EBA" wsp:rsidP="009C29B4">
-							<w:pPr>
-								<w:jc w:val="center" />
-								<w:rPr>
-									<w:rFonts w:ascii="宋体" w:h-ansi="宋体" />
-									<wx:font wx:val="宋体" />
-									<w:b />
-								</w:rPr>
-							</w:pPr>
-						</w:p>
-					</w:tc>
-					<w:tc>
-						<w:tcPr>
-							<w:tcW w:w="2596" w:type="dxa" />
-							<w:tcBorders>
-								<w:top w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-									w:color="auto" />
-								<w:bottom w:val="single" w:sz="4" wx:bdrwidth="10" w:space="0"
-									w:color="auto" />
-							</w:tcBorders>
-							<w:shd w:val="clear" w:color="auto" w:fill="auto" />
-						</w:tcPr>
-						<w:p wsp:rsidR="00DC7EBA" wsp:rsidRPr="009C29B4"
-							wsp:rsidRDefault="00DC7EBA" wsp:rsidP="009C29B4">
-							<w:pPr>
-								<w:jc w:val="center" />
-								<w:rPr>
-									<w:rFonts w:ascii="宋体" w:h-ansi="宋体" />
-									<wx:font wx:val="宋体" />
-									<w:b />
-								</w:rPr>
-							</w:pPr>
 						</w:p>
 					</w:tc>
 				</w:tr>
@@ -4293,7 +4249,7 @@ v6U/Av0ROPZGoG8fj71n1r/i/gj0R2BpRqBvH5dmnPvf0h+B/ggceyPQt4/H3jPrX3F/BPojsDQj
 									<wx:font wx:val="宋体" />
 									<w:b />
 								</w:rPr>
-								<w:t>中国航天科技集团公司第九研究院第七七二研究所</w:t>
+								<w:t>中国航天科技集团有限公司第九研究院第七七二研究所</w:t>
 							</w:r>
 						</w:p>
 					</w:tc>

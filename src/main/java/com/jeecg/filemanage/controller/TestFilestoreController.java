@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.criterion.Restrictions;
 import org.jeecgframework.core.common.controller.BaseController;
 import org.jeecgframework.core.common.exception.BusinessException;
 import org.jeecgframework.core.common.hibernate.qbc.CriteriaQuery;
@@ -26,6 +27,7 @@ import org.jeecgframework.poi.excel.entity.vo.NormalExcelConstants;
 import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.cgform.entity.upload.CgUploadEntity;
 import org.jeecgframework.web.cgform.service.config.CgFormFieldServiceI;
+import org.jeecgframework.web.system.pojo.base.DictionaryInfo;
 import org.jeecgframework.web.system.service.SystemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,6 +53,7 @@ import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
 import com.jeecg.jianzhi.entity.SubcontractJianzhiEntity;
 import com.jeecg.materialmanage.entity.FileRawMaterialEntity;
 import com.jeecg.materialmanage.service.FileRawMaterialServiceI;
+import com.jeecg.productinfo.entity.CerProductInfoEntity;
 import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
 import com.jeecg.ysxx.entity.SubcontractYsxxEntity;
 /**   
@@ -685,6 +688,85 @@ public class TestFilestoreController extends BaseController {
 		}
 		AjaxJson j = new AjaxJson();
 		j.setObj(files);
+		return j;
+	}
+	
+	/**
+	 * 获得产品型号
+	 * @param request
+	 * @return List<DictionaryInfo> 对象列表
+	 */
+	@RequestMapping(params = "getCpxhList")
+	@ResponseBody
+	public List<DictionaryInfo> getProjectList(HttpServletRequest request) {
+		List<DictionaryInfo> result = new ArrayList<DictionaryInfo>();
+		String sql  = "select distinct xh from test_filestore";
+		List<String> cpxhList = systemService.findListbySql(sql);
+		if(cpxhList != null && !cpxhList.isEmpty() && cpxhList.get(0) != null){
+			for (String cpxh : cpxhList) {
+				DictionaryInfo di = new DictionaryInfo();
+				di.setId(cpxh);
+				di.setText(cpxh);
+				result.add(di);
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 *  根据产品型号获得产品批次
+	 * @param 
+	 * @param 
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(params = "getCppcListByCpxh")
+	@ResponseBody
+	public AjaxJson getCppcListByCpxh( HttpServletRequest request,String proCpxh) {
+		String message = null;
+		AjaxJson j = new AjaxJson();
+		String sql  = "select distinct pc from test_filestore where xh= '" + proCpxh+"'";
+		List<String> cppcList = systemService.findListbySql(sql);
+		List<DictionaryInfo> result = new ArrayList<DictionaryInfo>();
+		if(cppcList != null && !cppcList.isEmpty() && cppcList.get(0) != null){
+			for (String cppc : cppcList) {
+				DictionaryInfo di = new DictionaryInfo();
+				di.setId(cppc);
+				di.setText(cppc);
+				result.add(di);
+			}
+		}
+		j.setObj(result);
+		j.setMsg(message);
+		return j;
+	}
+	/**
+	 * 根据产品批次获得产品基本信息
+	 * @param 
+	 * @param 
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping(params = "getProductInfo")
+	@ResponseBody
+	public AjaxJson getProductInfo( HttpServletRequest request,String proCpxh,String proCppc) {
+		String message = null;
+		AjaxJson j = new AjaxJson();
+		CriteriaQuery cq = new CriteriaQuery(TestFilestoreEntity.class,new DataGrid());
+		TestFilestoreEntity ssle = new TestFilestoreEntity();
+		//查询条件组装器
+		org.jeecgframework.core.extend.hqlsearch.HqlGenerateUtil.installHql(cq, ssle, request.getParameterMap());
+		try{
+		//自定义追加查询条件
+			cq.add(Restrictions.eq("xh", proCpxh));
+			cq.add(Restrictions.eq("pc", proCppc));
+		}catch (Exception e) {  
+			throw new BusinessException(e.getMessage());
+		}
+		List<TestFilestoreEntity> list = this.testFilestoreService
+				.getListByCriteriaQuery(cq, false);
+		j.setObj(list);
+		j.setMsg(message);
 		return j;
 	}
 }

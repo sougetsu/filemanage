@@ -72,30 +72,31 @@
 				<label class="Validform_label" style="display: none;">阶段标识</label>
 			</td>
 			<td align="right">
-				<label class="Validform_label">型号:</label>
-			</td>
-			<td class="value">
-		     	 <input id="xh" name="xh" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="checked"  value='${testFilestorePage.xh}'/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">型号</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">电路名称:</label>
+				<label class="Validform_label">产品名称:</label>
 			</td>
 			<td class="value">
 		     	 <input id="dlmc" name="dlmc" type="text" maxlength="100" style="width: 150px" class="inputxt"  ignore="checked"  value='${testFilestorePage.dlmc}'/>
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">电路名称</label>
+				<label class="Validform_label" style="display: none;">产品名称</label>
+			</td>
+			
+		</tr>
+		<tr>
+			<td align="right">
+				<label class="Validform_label">产品型号:</label>
+			</td>
+			<td class="value">
+		     	 <input id="xh" name="xh" type="text" maxlength="32" style="width: 150px" class="inputxt"  ignore="checked"  value='${testFilestorePage.xh}'/>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">产品型号</label>
 			</td>
 			<td align="right">
-				<label class="Validform_label">批次:</label>
+				<label class="Validform_label">产品批次:</label>
 			</td>
 			<td class="value">
 		     	 <input id="pc" name="pc" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="checked"  value='${testFilestorePage.pc}'/>
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">批次</label>
+				<label class="Validform_label" style="display: none;">产品批次</label>
 			</td>
 		</tr>
 		<tr>
@@ -145,7 +146,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">封装形式</label>
 			</td>
-			<t:hasPermission code="rwsl">
+			<t:hasPermission code="xpbs">
 			<td align="right">
 				<label class="Validform_label">芯片标识:</label>
 			</td>
@@ -157,13 +158,15 @@
 			</t:hasPermission>
 		</tr>
 	</table>
+	<t:hasPermission code="jianzhi">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:auto;height:1px;"></div>
 		<t:tabs id="add_fzbhgqk" iframe="false" tabPosition="top" fit="false">
 			<t:tab href="testFilestoreController.do?subcontractJianzhiList&id=${testFilestorePage.id}" icon="icon-search" title="监制信息" id="subcontractJianzhi"></t:tab>
 		</t:tabs>
-	</div>	
+	</div>
+	</t:hasPermission>
 	<table cellpadding="0" cellspacing="1" class="formtable">
 		<tr>
 			<td class="title_label" colspan="1"> 
@@ -172,8 +175,7 @@
 			<td colspan="3"> 
 			</td>
 		</tr>
-		
-		
+		<t:hasPermission code="yuanpian">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">
@@ -198,6 +200,8 @@
 				<label class="Validform_label" style="display: none;">圆片批次</label>
 			</td>
 		</tr>
+		</t:hasPermission>
+		<t:hasPermission code="waike">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">
@@ -222,7 +226,8 @@
 				<label class="Validform_label" style="display: none;">外壳检验批次</label>
 			</td>
 		</tr>
-
+		</t:hasPermission>
+		<t:hasPermission code="gaiban">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">
@@ -246,6 +251,8 @@
 				<label class="Validform_label" style="display: none;">盖板检验批次</label>
 			</td>
 		</tr>
+		</t:hasPermission>
+		<t:hasPermission code="jianhesi">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">
@@ -269,6 +276,8 @@
 				<label class="Validform_label" style="display: none;">键合丝检验批次</label>
 			</td>
 		</tr>
+		</t:hasPermission>
+		<t:hasPermission code="zhanpianjiao">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">
@@ -292,6 +301,8 @@
 				<label class="Validform_label" style="display: none;">粘片胶检验批次</label>
 			</td>
 		</tr>
+		</t:hasPermission>
+		<t:hasPermission code="dabiaomo">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">
@@ -315,6 +326,7 @@
 				<label class="Validform_label" style="display: none;">打标墨检验批次</label>
 			</td>
 		</tr>
+		</t:hasPermission>
 		<tr>
 			<td class="title_label" colspan="1"> 
 					封装信息
@@ -322,6 +334,7 @@
 			<td colspan="3"> 
 			</td>
 		</tr>
+		<t:hasPermission code="qiangti">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">腔体体积:</label>
@@ -340,6 +353,8 @@
 				<label class="Validform_label" style="display: none;">腔体高度</label>
 			</td>
 		</tr>
+		</t:hasPermission>
+		<t:hasPermission code="fzsl">
 		<tr>
 			<td align="right">
 				<label class="Validform_label">投入封装数量:</label>
@@ -349,6 +364,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">投入封装数量</label>
 			</td>
+			
 			<td align="right">
 				<label class="Validform_label">封装合格数量:</label>
 			</td>
@@ -358,6 +374,7 @@
 				<label class="Validform_label" style="display: none;">封装合格数量</label>
 			</td>
 		</tr>
+		</t:hasPermission>
 		<tr>
 			<td align="right">
 				<label class="Validform_label">封装成品率:</label>
@@ -376,6 +393,7 @@
 			</td>
 		</tr>
 	</table>
+	<t:hasPermission code="fzbhg">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
@@ -383,6 +401,7 @@
 			<t:tab href="testFilestoreController.do?subcontractFzbhgqkList&id=${testFilestorePage.id}" icon="icon-search" title="封装不合格情况" id="subcontractFzbhgqk"></t:tab>
 		</t:tabs>
 	</div>
+	</t:hasPermission>
 	<table cellpadding="0" cellspacing="1" class="formtable">
 		<tr>
 			<td class="title_label" colspan="1"> 
@@ -458,6 +477,7 @@
 				<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 			</td>
 		</tr>
+		<t:hasPermission code="sxqzsj">
 		<tr>
 		
 			<td align="right">
@@ -477,6 +497,7 @@
 				<label class="Validform_label" style="display: none;">筛选结束时间</label>
 			</td>
 		</tr>
+		</t:hasPermission>
 		<tr>
 			<td align="right">
 				<label class="Validform_label">筛选过程PIND次数:</label>
@@ -522,8 +543,6 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">筛选合格数量</label>
 			</td>
-			
-			
 			<td align="right">
 				<label class="Validform_label">筛选不合格情况:</label>
 			</td>
@@ -586,14 +605,15 @@
 			</td>
 		</tr>
 		</table>
-	
+	<t:hasPermission code="sxbhgqk">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
 		<t:tabs id="tt" iframe="false" tabPosition="top" fit="false">
 		 <t:tab href="testFilestoreController.do?subcontractSxbhgqkList&id=${testFilestorePage.id}" icon="icon-search" title="筛选不合格情况" id="subcontractSxbhgqk"></t:tab>
 		</t:tabs>
-	</div>	
+	</div>
+	</t:hasPermission>
 	<table cellpadding="0" cellspacing="1" class="formtable">	
 		<tr>
 			<td class="title_label" colspan="1"> 
@@ -620,6 +640,7 @@
 			</td>
 		</tr>
 		<tr>
+			<t:hasPermission code="jdyzxfs">
 			<td align="right">
 				<label class="Validform_label">鉴定/一致性检验方式:</label>
 			</td>
@@ -628,6 +649,7 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">鉴定/一致性检验方式</label>
 			</td>
+			</t:hasPermission>
 			<td align="right">
 				<label class="Validform_label">鉴定/一致性检验起止时间:</label>
 			</td>
@@ -752,6 +774,7 @@
 			</td>
 		</tr>
 	</table>
+	<t:hasPermission code="dpaxx">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
@@ -759,6 +782,8 @@
 			<t:tab href="testFilestoreController.do?subcontractDpaList&id=${testFilestorePage.id}" icon="icon-search" title="dpa信息" id="subcontractDpa"></t:tab>
 		 </t:tabs>
 	</div>
+	</t:hasPermission>
+	<t:hasPermission code="ddsqbg">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
@@ -766,6 +791,8 @@
 			<t:tab href="testFilestoreController.do?subcontractDdsqbgList&id=${testFilestorePage.id}" icon="icon-search" title="单独水汽报告" id="subcontractDdsqbg"></t:tab>
 		</t:tabs>
 	</div>
+	</t:hasPermission>
+	<t:hasPermission code="bcsxxx">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
@@ -773,6 +800,8 @@
 			<t:tab href="testFilestoreController.do?subcontractBcsxxxList&id=${testFilestorePage.id}" icon="icon-search" title="补充筛选信息" id="subcontractBcsxxx"></t:tab>
 		</t:tabs>
 	</div>
+	</t:hasPermission>
+	<t:hasPermission code="cqfyxx">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
@@ -780,6 +809,8 @@
 			<t:tab href="testFilestoreController.do?subcontractCqfxxxList&id=${testFilestorePage.id}" icon="icon-search" title="超期复验信息" id="subcontractCqfxxx"></t:tab>
 		 </t:tabs>
 	</div>
+	</t:hasPermission>
+	<t:hasPermission code="ysxx">
 	<div style="width: auto;height: auto;">
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
@@ -787,6 +818,7 @@
 			<t:tab href="testFilestoreController.do?subcontractYsxxList&id=${testFilestorePage.id}" icon="icon-search" title="验收信息" id="subcontractYsxx"></t:tab>
 		</t:tabs>
 	</div>
+	</t:hasPermission>
 	<table cellpadding="0" cellspacing="1" class="formtable">	
 		<tr>
 			<td align="right">

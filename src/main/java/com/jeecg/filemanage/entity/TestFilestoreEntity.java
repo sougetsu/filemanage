@@ -50,14 +50,14 @@ public class TestFilestoreEntity implements java.io.Serializable {
 	/**阶段标识*/
 	@Excel(name="阶段标识",width=15,dicCode="filestatus")
 	private java.lang.String bpmStatus;
-	/**型号*/
+	/**产品名称*/
+	@Excel(name="产品名称",width=15)
+	private java.lang.String dlmc;
+	/**产品型号*/
 	@Excel(name="型号",width=15)
 	private java.lang.String xh;
-	/**电路名称*/
-	@Excel(name="电路名称",width=15)
-	private java.lang.String dlmc;
-	/**批次*/
-	@Excel(name="批次",width=15)
+	/**产品批次*/
+	@Excel(name="产品批次",width=15)
 	private java.lang.String pc;
 	/**任务通知单号*/
 	@Excel(name="任务通知单号",width=15)

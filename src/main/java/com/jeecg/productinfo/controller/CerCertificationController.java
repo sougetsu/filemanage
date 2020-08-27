@@ -1,8 +1,12 @@
 package com.jeecg.productinfo.controller;
+import com.alibaba.fastjson.JSONArray;
+import com.jeecg.filemanage.entity.TestFilestoreEntity;
 import com.jeecg.productinfo.entity.CerCertificationEntity;
 import com.jeecg.productinfo.service.CerCertificationServiceI;
+import com.jeecg.waixieapply.entity.SubcontractApplyEntity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
@@ -31,6 +35,9 @@ import org.jeecgframework.jwt.util.DateUtil;
 import org.jeecgframework.jwt.util.UtilValidate;
 import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
+import org.jeecgframework.web.system.pojo.base.TSRole;
+import org.jeecgframework.web.system.pojo.base.TSRoleUser;
+import org.jeecgframework.web.system.pojo.base.TSUser;
 import org.jeecgframework.web.system.service.SystemService;
 import org.jeecgframework.core.util.MyBeanUtils;
 
@@ -178,6 +185,21 @@ public class CerCertificationController extends BaseController {
 		AjaxJson j = new AjaxJson();
 		message = "合格证管理添加成功";
 		try{
+			TSUser user = ResourceUtil.getSessionUser();
+			String roles = "";
+			List<TSRoleUser> rUsers = systemService.findByProperty(TSRoleUser.class, "TSUser.id", user.getId());
+			for (TSRoleUser ru : rUsers) {
+				TSRole role = ru.getTSRole();
+				roles += role.getRoleName() + ",";
+			}
+			
+			if(roles.indexOf("市场人员")!=-1){
+				cerCertification.setBpmStatus("2");
+			}else if(roles.indexOf("检验处人员")!=-1 ){
+				cerCertification.setBpmStatus("3");
+			}else{
+				cerCertification.setBpmStatus("2");
+			}
 			cerCertificationService.save(cerCertification);
 			systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
 		}catch(Exception e){
@@ -203,6 +225,21 @@ public class CerCertificationController extends BaseController {
 		message = "合格证管理更新成功";
 		CerCertificationEntity t = cerCertificationService.get(CerCertificationEntity.class, cerCertification.getId());
 		try {
+			TSUser user = ResourceUtil.getSessionUser();
+			String roles = "";
+			List<TSRoleUser> rUsers = systemService.findByProperty(TSRoleUser.class, "TSUser.id", user.getId());
+			for (TSRoleUser ru : rUsers) {
+				TSRole role = ru.getTSRole();
+				roles += role.getRoleName() + ",";
+			}
+			
+			if(roles.indexOf("市场人员")!=-1){
+				cerCertification.setBpmStatus("2");
+			}else if(roles.indexOf("检验处人员")!=-1 ){
+				cerCertification.setBpmStatus("3");
+			}else{
+				cerCertification.setBpmStatus("2");
+			}
 			MyBeanUtils.copyBeanNotNull2Bean(cerCertification, t);
 			cerCertificationService.saveOrUpdate(t);
 			systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);
@@ -215,6 +252,38 @@ public class CerCertificationController extends BaseController {
 		return j;
 	}
 	
+	/**
+	 * 更新外协加工申请
+	 * 
+	 * @param ids
+	 * @return
+	 */
+	@RequestMapping(params = "doConfirm")
+	@ResponseBody
+	public AjaxJson doConfirm(CerCertificationEntity cerCertification,String confrimStatus, HttpServletRequest request) {
+		String message = null;
+		AjaxJson j = new AjaxJson();
+		message = "合格证管理审核完成";
+		CerCertificationEntity t = cerCertificationService.get(CerCertificationEntity.class, cerCertification.getId());
+		if("1".equals(confrimStatus)){
+			cerCertification.setBpmStatus("3");
+		}
+		else {
+			cerCertification.setBpmStatus("11");
+		}
+		cerCertification.setQfrq(new Date());
+		try {
+			MyBeanUtils.copyBeanNotNull2Bean(cerCertification, t);
+			cerCertificationService.saveOrUpdate(t);
+			systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);
+		} catch (Exception e) {
+			e.printStackTrace();
+			message = "合格证管理更新失败";
+			throw new BusinessException(e.getMessage());
+		}
+		j.setMsg(message);
+		return j;
+	}
 
 	/**
 	 * 合格证管理新增页面跳转
@@ -349,14 +418,10 @@ public class CerCertificationController extends BaseController {
 			dataMap.put("productNum", UtilValidate.isEmpty(certificationVO.getCpsl())?"":certificationVO.getCpsl());
 			dataMap.put("testStandard", UtilValidate.isEmpty(certificationVO.getCpjcbz())?"":certificationVO.getCpjcbz());
 			dataMap.put("testReportId", UtilValidate.isEmpty(certificationVO.getJcbgh())?"":certificationVO.getJcbgh());
-			if(certificationVO.getZlbs()==0) {
-				dataMap.put("qualityStatus", UtilValidate.isEmpty(certificationVO.getZlbzdj())?"":certificationVO.getZlbzdj());
-			}else {
-				dataMap.put("qualityStatus", UtilValidate.isEmpty(certificationVO.getZlzt())?"":certificationVO.getZlzt());
-			}
+			dataMap.put("qualityStatus", UtilValidate.isEmpty(certificationVO.getZlbzdj())?"":certificationVO.getZlbzdj());
 			dataMap.put("userUnits", UtilValidate.isEmpty(certificationVO.getYhdw())?"":certificationVO.getYhdw());
 			dataMap.put("inspector", UtilValidate.isEmpty(certificationVO.getJyy())?"":certificationVO.getJyy());
-			dataMap.put("certificationDate", DateUtil.formatYMD(certificationVO.getQfrq()));
+			dataMap.put("certificationDate",  UtilValidate.isEmpty(certificationVO.getQfrq())?"": DateUtil.formatYMD(certificationVO.getQfrq()));
 			dataMap.put("remark", UtilValidate.isEmpty(certificationVO.getBz())?"":certificationVO.getBz());
 			datalist.add(dataMap);
 		}
@@ -391,4 +456,20 @@ public class CerCertificationController extends BaseController {
 		
 		}
 	}
+	
+	/**
+	 * 文件管理编辑页面跳转
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "goConfirm")
+	public ModelAndView goConfirm(CerCertificationEntity cerCertification, HttpServletRequest req) {
+		if (StringUtil.isNotEmpty(cerCertification.getId())) {
+			cerCertification = cerCertificationService.getEntity(CerCertificationEntity.class, cerCertification.getId());
+			req.setAttribute("cerCertificationPage", cerCertification);
+		}
+		return new ModelAndView("com/jeecg/productinfo/cerCertification-confirm");
+	}
+	
+	
 }

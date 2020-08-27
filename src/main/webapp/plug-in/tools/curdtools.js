@@ -71,6 +71,12 @@ function add(title,addurl,gname,width,height) {
 	gridname=gname;
 	createwindow(title, addurl,"100%","100%");
 }
+
+function confirmtask(title,url, id,width,height) {
+	gridname=id;
+	createconfirmwindow(title,url,width,height);
+}
+
 /**
  * 树列表添加事件打开窗口
  * @param title 编辑框标题
@@ -565,6 +571,91 @@ function createwindow(title, addurl,width,height) {
     //--author：JueYue---------date：20140427---------for：弹出bug修改,设置了zindex()函数
 	
 }
+
+function createconfirmwindow(title, addurl,width,height) {
+	//--author：zhoujf---------date：20180718---------for：弹出窗口大小控制问题
+	if(width=="100%" || height=="100%"){
+		width = window.top.document.body.offsetWidth;
+		height =window.top.document.body.offsetHeight-100;
+	}else{
+		width = isRealNum(width)?width:700;
+		height = isRealNum(height)?height:400;
+		width=parseInt(width);
+		height=parseInt(height);
+	}
+	//--author：zhoujf---------date：20180718---------for：弹出窗口大小控制问题
+    //--author：JueYue---------date：20140427---------for：弹出bug修改,设置了zindex()函数
+	if(typeof(windowapi) == 'undefined'){
+		$.dialog({
+			content: 'url:'+addurl,
+			lock : true,
+			zIndex: getzIndex(),
+			width:width,
+			height:height,
+			title:title,
+			opacity : 0.3,
+			cache:false,
+			button:[{
+	            name: '审核通过', 
+	            callback: function(){
+	                iframe = this.iframe.contentWindow;//获取弹出层的iframe
+			    	iframe.document.getElementById("confrimStatus").value="1";
+	                saveObj();//自定义保存数据方法
+	                return false;//阻止页面关闭（默认为true不关闭）
+	            }
+	        },{
+	            name: '审核不通过', 
+	            callback: function(){
+	                iframe = this.iframe.contentWindow;//获取弹出层的iframe
+			    	iframe.document.getElementById("confrimStatus").value="0";
+			    	$(this).addClass("ui_state_highlight");
+	                saveObj();//自定义保存数据方法
+	                return false;//阻止页面关闭（默认为true不关闭）
+	            }
+	        }],
+		    cancelVal: '关闭',
+		    cancel: true /*为true等价于function(){}*/
+		});
+	}else{
+
+		/*W.*/$.dialog({//使用W，即为使用顶级页面作为openner，造成打开的次级窗口获取不到关联的主窗口
+			content: 'url:'+addurl,
+			lock : true,
+			width:width,
+			zIndex:getzIndex(),
+			height:height,
+			parent:windowapi,
+			title:title,
+			opacity : 0.3,
+			cache:false,
+			button:[{
+	            name: '审核通过', 
+	            callback: function(){
+	                iframe = this.iframe.contentWindow;//获取弹出层的iframe
+	                iframe.document.getElementById("confrimStatus").value="1";
+	                $(this).addClass("ui_state_highlight");
+	                saveObj();//自定义保存数据方法
+	                return false;//阻止页面关闭（默认为true不关闭）
+	            }
+	        },{
+	            name: '审核不通过', 
+	            callback: function(){
+	                iframe = this.iframe.contentWindow;//获取弹出层的iframe
+	                iframe.document.getElementById("confrimStatus").value="0";
+	                $(this).addClass("ui_state_highlight");
+	                saveObj();//自定义保存数据方法
+	                return false;//阻止页面关闭（默认为true不关闭）
+	            }
+	        }],
+		    cancelVal: '关闭',
+		    cancel: true /*为true等价于function(){}*/
+		});
+
+	}
+	
+} 
+
+
 /**
  * 创建上传页面窗口
  * 

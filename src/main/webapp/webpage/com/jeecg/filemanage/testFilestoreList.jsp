@@ -14,9 +14,9 @@
    <t:dgCol title="所属部门"  field="sysOrgCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="所属公司"  field="sysCompanyCode"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="阶段标识"  field="bpmStatus"  query="true" hidden="true" queryMode="single"  dictionary="filestatus"  width="120"></t:dgCol>
-   <t:dgCol title="型号"  field="xh"  query="true"  queryMode="single"  width="120"></t:dgCol>
-   <t:dgCol title="电路名称"  field="dlmc"  query="true"  queryMode="single"  width="120"></t:dgCol>
-   <t:dgCol title="批次"  field="pc"  query="true"  queryMode="single"  width="120"></t:dgCol>
+   <t:dgCol title="产品名称"  field="dlmc"  query="true"  queryMode="single"  width="120"></t:dgCol>
+   <t:dgCol title="产品型号"  field="xh"  query="true"  queryMode="single"  width="120"></t:dgCol>
+   <t:dgCol title="产品批次"  field="pc"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="任务通知单号"  field="rwtzdh"  query="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="任务数量"  field="rwsl"  hidden="true" queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="执行规范号"  field="zxgfh"  query="true"  queryMode="single"  width="120"></t:dgCol>

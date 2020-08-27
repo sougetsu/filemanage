@@ -22,10 +22,6 @@ public class CerCertificationServiceImpl extends CommonServiceImpl implements Ce
  	}
  	
  	public Serializable save(CerCertificationEntity entity) throws Exception{
- 		if(entity.getZlbs()==1) {
- 			entity.setZlzt(entity.getZlbzdj());
- 			entity.setZlbzdj("");
- 		}
  		// 生成合格证编号
  		entity.setHgzbh(getHgzLsh());
  		Serializable t = super.save(entity);

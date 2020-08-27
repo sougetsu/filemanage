@@ -88,8 +88,6 @@ public class CerCertificationEntity implements java.io.Serializable {
 	/**备注*/
 	@Excel(name="备注",width=15)
 	private java.lang.String bz;
-	/**质量标识*/
-	private java.lang.Integer zlbs;
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -439,7 +437,7 @@ public class CerCertificationEntity implements java.io.Serializable {
 	 *@return: java.lang.String  检验员
 	 */
 
-	@Column(name ="JYY",nullable=false,length=32)
+	@Column(name ="JYY",nullable=true,length=32)
 	public java.lang.String getJyy(){
 		return this.jyy;
 	}
@@ -456,7 +454,7 @@ public class CerCertificationEntity implements java.io.Serializable {
 	 *@return: java.util.Date  签发日期
 	 */
 
-	@Column(name ="QFRQ",nullable=false,length=32)
+	@Column(name ="QFRQ",nullable=true,length=32)
 	public java.util.Date getQfrq(){
 		return this.qfrq;
 	}
@@ -484,22 +482,5 @@ public class CerCertificationEntity implements java.io.Serializable {
 	 */
 	public void setBz(java.lang.String bz){
 		this.bz = bz;
-	}
-	/**
-	 *方法: 取得java.lang.Integer
-	 *@return: java.lang.Integer  质量标识
-	 */
-
-	@Column(name ="ZLBS",nullable=true,length=32)
-	public java.lang.Integer getZlbs(){
-		return this.zlbs;
-	}
-
-	/**
-	 *方法: 设置java.lang.Integer
-	 *@param: java.lang.Integer  质量标识
-	 */
-	public void setZlbs(java.lang.Integer zlbs){
-		this.zlbs = zlbs;
 	}
 }

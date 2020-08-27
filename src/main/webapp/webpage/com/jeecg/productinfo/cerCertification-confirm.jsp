@@ -10,8 +10,10 @@
   </script>
  </head>
  <body>
-  <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="cerCertificationController.do?doAdd" >
-					<input id="id" name="id" type="hidden" value="${cerCertificationPage.id }"/>
+  <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="cerCertificationController.do?doConfirm" >
+		<input type="hidden" id="btn_sub" class="btn_sub"/>
+		<input id="id" name="id" type="hidden" value="${cerCertificationPage.id }"/>
+		<input type="hidden" id="confrimStatus" name="confrimStatus"/>
 		<table style="width: 100%;" cellpadding="0" cellspacing="1" class="formtable">
 				<tr>
 					<td rowspan="2" style="text-align:center;"><img src="images/cslog.png"/></td>
@@ -26,7 +28,7 @@
 							合格证编号：
 						</label
 					</td>
-					<td ></td>
+					<td >${cerCertificationPage.hgzbh}</td>
 				</tr>
 				<tr>
 					<td align="right">
@@ -35,7 +37,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	<input id="hgzadd_cpmc" name="cpmc" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	<input id="hgzupdate_cpmc" name="cpmc" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" value='${cerCertificationPage.cpmc}' />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品名称</label>
 						</td>
@@ -45,8 +47,8 @@
 						</label>
 					</td>
 					<td class="value">
-							<input id="hgzadd_cpxh" name="cpxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/testFilestoreController.do?getCpxhList',parentField : 'pid',required:'true'"
-								lines="true" cascadeCheck="false" />
+							<input id="hgzupdate_cpxh" name="cpxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/testFilestoreController.do?getCpxhList',parentField : 'pid',required:'true'"
+								lines="true" cascadeCheck="false"  value='${cerCertificationPage.cpxh}' />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品型号</label>
 						</td>
@@ -59,8 +61,8 @@
 						</label>
 					</td>
 					<td class="value">
-					     	<input id="hgzadd_cppc" name="cppc" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="required:'true'"
-								lines="true" cascadeCheck="false" />
+					     	<input id="hgzupdate_cppc" name="cppc" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="required:'true'"
+								lines="true" cascadeCheck="false"  value='${cerCertificationPage.cppc}'/>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品批次</label>
 						</td>
@@ -70,7 +72,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="hgzadd_cpsl" name="cpsl" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzupdate_cpsl" name="cpsl" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" value='${cerCertificationPage.cpsl}' />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">产品数量 </label>
 						</td>
@@ -82,9 +84,9 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="hgzadd_cpjcbz" name="cpjcbz" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzupdate_cpjcbz" name="cpjcbz" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" value='${cerCertificationPage.cpjcbz}'/>
 							<span class="Validform_checktip"></span>
-							<label class="Validform_label" style="display: none;">产品规范</label>
+							<label class="Validform_label" style="display: none;">产品检测标准</label>
 						</td>
 					<td align="right">
 						<label class="Validform_label">
@@ -92,7 +94,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="hgzadd_jcbgh" name="jcbgh" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzupdate_jcbgh" name="jcbgh" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" value='${cerCertificationPage.jcbgh}'/>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">检测报告号</label>
 						</td>
@@ -100,11 +102,13 @@
 				<tr>
 					<td align="right">
 						<label class="Validform_label">
+							<%-- <t:dictSelect field="zlbs" type="list"  typeGroupCode="zllx"  defaultVal="${cerCertificationPage.zlbs}" hasLabel="false"  title="质量类型" >
+							</t:dictSelect> --%>
 							质量等级:
 						</label>
 					</td>
 					<td class="value">
-							<select id="hgzadd_zlbzdj" name="zlbzdj" style="width: 150px" />
+							<select id="hgzupdate_zlbzdj" name="zlbzdj" style="width: 150px" value='${cerCertificationPage.jcbgh}'/>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">质量等级</label>
 						</td>
@@ -114,7 +118,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="hgzadd_yhdw" name="yhdw" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" />
+					     	 <input id="hgzupdate_yhdw" name="yhdw" type="text" maxlength="32" style="width: 150px" class="inputxt"  datatype="*"  ignore="checked" value='${cerCertificationPage.yhdw}'/>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">用户单位</label>
 						</td>
@@ -126,7 +130,7 @@
 						</label>
 					</td>
 					<td class="value">
-					     	 <input id="hgzadd_jyy" readonly="readonly" name="jyy" type="text" maxlength="32" style="width: 150px" class="inputxt"   />
+					     	 <input id="hgzupdate_jyy" readonly="readonly" name="jyy" type="text" maxlength="32" style="width: 150px" class="inputxt"  value='${cerCertificationPage.jyy}' />
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">检验员</label>
 						</td>
@@ -136,10 +140,10 @@
 						</label>
 					</td>
 					<td class="value">
-						<input id="hgzadd_qfrq" name="qfrq" type="text" style="width: 150px" class="Wdate" onClick="WdatePicker()" />    
-						<span class="Validform_checktip"></span>
-						<label class="Validform_label" style="display: none;">签发日期</label>
-					</td>
+							   <input id="hgzupdate_qfrq" name="qfrq" type="text" style="width: 150px" class="Wdate" onClick="WdatePicker()"  value = "<fmt:formatDate value='${cerCertificationPage.qfrq}' pattern='yyyy-MM-dd'/>"  />    
+							<span class="Validform_checktip"></span>
+							<label class="Validform_label" style="display: none;">签发日期</label>
+						</td>
 				</tr>
 				<tr>
 					<td align="right">
@@ -148,7 +152,7 @@
 						</label>
 					</td>
 					<td colspan="3" class="value">
-					     	 <input id="hgzadd_bz" name="bz" type="text" maxlength="32" style="width: 85%" class="inputxt"  ignore="ignore" />
+					     	 <input id="hgzupdate_bz" name="bz" type="text" maxlength="32" style="width: 85%" class="inputxt"  ignore="ignore" value='${cerCertificationPage.bz}'/>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">备注</label>
 						</td>
@@ -162,10 +166,9 @@
  </body>
 <script type="text/javascript">
 $(document).ready(function() {
-	$("#hgzadd_cpxh").combotree({
+	$("#hgzupdate_cpxh").combotree({
     	onSelect:function(node){
     		var cpxh = node.text; 
-    		
     		$.ajax({
                 type: "POST",
                 url:'testFilestoreController.do?getCppcListByCpxh',
@@ -173,7 +176,7 @@ $(document).ready(function() {
                 dataType : 'json',
     			success : function(data) {
     				if (data.success) {
-    					$("#hgzadd_cppc").combotree({
+    					$("#hgzupdate_cppc").combotree({
                             data: data.obj,
                             valueField: 'id',
                             textField: 'text',
@@ -183,11 +186,11 @@ $(document).ready(function() {
             });
     	}    
     });
-	$("#hgzadd_cppc").combotree({
+	$("#hgzupdate_cppc").combotree({
     	onSelect:function(node){
-    		var cpxh = $("#hgzadd_cpxh").combotree("getValue");
+    		var cpxh = $("#hgzupdate_cpxh").combotree("getValue");
     		var cppc = node.text; 
-    		$('#hgzadd_zlbzdj').find("option").remove();
+    		$('#hgzupdate_zlbzdj').find("option").remove();
     		$.ajax({
                 type: "POST",
                 url:'testFilestoreController.do?getProductInfo',
@@ -196,7 +199,7 @@ $(document).ready(function() {
     			success : function(data) {
     				if (data.success) {
     					$.each(data.obj, function(objIndex, obj){
-	    					//产品名称
+    						//产品名称
 							$('input[name="cpmc"]').val(obj.dlmc);
 							//产品检测标准
 							$('input[name="cpjcbz"]').val(obj.zxgfh);
@@ -206,15 +209,15 @@ $(document).ready(function() {
 							var option=document.createElement("option");
 							$(option).val(obj.zldj);
 							$(option).text(obj.zldj);
-							$('#hgzadd_zlbzdj').append(option);
+							$('#hgzupdate_zlbzdj').append(option);
 							var option1=document.createElement("option");
 							$(option1).val("筛选合格品");
 							$(option1).text("筛选合格品");
-							$('#hgzadd_zlbzdj').append(option1);
+							$('#hgzupdate_zlbzdj').append(option1);
 							var option2=document.createElement("option");
 							$(option2).val("三温测试合格品");
 							$(option2).text("三温测试合格品");
-							$('#hgzadd_zlbzdj').append(option2);
+							$('#hgzupdate_zlbzdj').append(option2);
     					 });
     				}
     			}
