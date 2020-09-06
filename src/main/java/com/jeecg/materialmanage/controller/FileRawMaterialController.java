@@ -1,4 +1,6 @@
 package com.jeecg.materialmanage.controller;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.jeecg.materialmanage.entity.FileRawMaterialEntity;
 import com.jeecg.materialmanage.service.FileRawMaterialServiceI;
 import java.util.ArrayList;
@@ -26,9 +28,12 @@ import org.jeecgframework.core.common.model.json.DataGrid;
 import org.jeecgframework.core.constant.Globals;
 import org.jeecgframework.core.util.StringUtil;
 import org.jeecgframework.core.util.ZipUtil;
+import org.jeecgframework.core.util.oConvertUtils;
 import org.jeecgframework.tag.core.easyui.TagUtil;
+import org.jeecgframework.web.system.pojo.base.DictEntity;
 import org.jeecgframework.web.system.pojo.base.DictionaryInfo;
 import org.jeecgframework.web.system.pojo.base.TSDepart;
+import org.jeecgframework.web.system.pojo.base.TSType;
 import org.jeecgframework.web.system.service.SystemService;
 import org.jeecgframework.core.util.MyBeanUtils;
 
@@ -53,13 +58,13 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import java.util.Map;
 import java.util.HashMap;
 import org.jeecgframework.core.util.ExceptionUtil;
-
-
+import org.jeecgframework.core.util.MutiLangUtil;
 import org.jeecgframework.web.cgform.entity.upload.CgUploadEntity;
 import org.jeecgframework.web.cgform.service.config.CgFormFieldServiceI;
 import java.util.HashMap;
@@ -452,6 +457,32 @@ public class FileRawMaterialController extends BaseController {
 	}
 	
 	/**
+	 * 获得项目名称
+	 * @param request
+	 * @return List<DictionaryInfo> 对象列表
+	 */
+	@RequestMapping(params = "getXhByTypeJson")
+	@ResponseBody
+	public AjaxJson getXhByTypeJson(HttpServletRequest request,String type) {
+		String message = null;
+		AjaxJson j = new AjaxJson();
+		List<DictionaryInfo> result = new ArrayList<DictionaryInfo>();
+		String sql  = "select distinct model from file_raw_material where material_type ='" + type +"'";;
+		List<String> cpxhList = systemService.findListbySql(sql);
+		if(cpxhList != null && !cpxhList.isEmpty() && cpxhList.get(0) != null){
+			for (String cpxh : cpxhList) {
+				DictionaryInfo di = new DictionaryInfo();
+				di.setId(cpxh);
+				di.setText(cpxh);
+				result.add(di);
+			}
+		}
+		j.setObj(result);
+		j.setMsg(message);
+		return j;
+	}
+	
+	/**
 	 * @param 
 	 * @param 
 	 * @param request
@@ -476,5 +507,32 @@ public class FileRawMaterialController extends BaseController {
 		j.setObj(result);
 		j.setMsg(message);
 		return j;
+	}
+	
+	@RequestMapping(params = "getRawTypeList")
+	@ResponseBody
+	public List<DictionaryInfo> getRawTypeList(@RequestParam(required=true)String typeGroupName,HttpServletRequest request) {
+		List<DictionaryInfo> result = new ArrayList<DictionaryInfo>();
+		try {
+			String dicTable = request.getParameter("dicTable");
+			if(oConvertUtils.isEmpty(dicTable)){
+				List<TSType> typeList = ResourceUtil.getCacheTypes(typeGroupName.toLowerCase());
+				if(typeList != null && !typeList.isEmpty()){
+					for (TSType type : typeList) {
+						DictionaryInfo dinfo = new DictionaryInfo();
+						dinfo.setId(type.getTypecode());
+						String typename = type.getTypename();
+						if(MutiLangUtil.existLangKey(typename)){
+							typename = MutiLangUtil.doMutiLang(typename,"");
+						}
+						dinfo.setText(typename);
+						result.add(dinfo);
+					}
+				}
+			}
+		} catch (Exception e) {
+			logger.debug(e.getMessage());
+		}
+		return result;
 	}
 }

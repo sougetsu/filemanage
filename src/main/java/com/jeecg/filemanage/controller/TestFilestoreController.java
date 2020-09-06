@@ -55,6 +55,7 @@ import com.jeecg.materialmanage.entity.FileRawMaterialEntity;
 import com.jeecg.materialmanage.service.FileRawMaterialServiceI;
 import com.jeecg.productinfo.entity.CerProductInfoEntity;
 import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
+import com.jeecg.ycl.entity.SubcontractYclEntity;
 import com.jeecg.ysxx.entity.SubcontractYsxxEntity;
 /**   
  * @Title: Controller
@@ -180,10 +181,11 @@ public class TestFilestoreController extends BaseController {
 		List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList =  testFilestorePage.getSubcontractCsbhgqkList();
 		List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList =  testFilestorePage.getSubcontractFzbhgqkList();
 		List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList =  testFilestorePage.getSubcontractSxbhgqkList();
+		List<SubcontractYclEntity> subcontractYclList =  testFilestorePage.getSubcontractYclList();
 		AjaxJson j = new AjaxJson();
 		String message = "添加成功";
 		try{
-			testFilestoreService.addMain(testFilestore, subcontractYsxxList,subcontractCqfxxxList,subcontractBcsxxxList,subcontractDdsqbgList,subcontractDpaList,subcontractJianzhiList,subcontractCsbhgqkList,subcontractFzbhgqkList,subcontractSxbhgqkList);
+			testFilestoreService.addMain(testFilestore, subcontractYsxxList,subcontractCqfxxxList,subcontractBcsxxxList,subcontractDdsqbgList,subcontractDpaList,subcontractJianzhiList,subcontractSxbhgqkList,subcontractFzbhgqkList,subcontractCsbhgqkList,subcontractYclList);
 			systemService.addLog(message, Globals.Log_Type_INSERT, Globals.Log_Leavel_INFO);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -212,10 +214,11 @@ public class TestFilestoreController extends BaseController {
 		List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList =  testFilestorePage.getSubcontractCsbhgqkList();
 		List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList =  testFilestorePage.getSubcontractFzbhgqkList();
 		List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList =  testFilestorePage.getSubcontractSxbhgqkList();
+		List<SubcontractYclEntity> subcontractYclList =  testFilestorePage.getSubcontractYclList();
 		AjaxJson j = new AjaxJson();
 		String message = "更新成功";
 		try{
-			testFilestoreService.updateMain(testFilestore, subcontractYsxxList,subcontractCqfxxxList,subcontractBcsxxxList,subcontractDdsqbgList,subcontractDpaList,subcontractJianzhiList,subcontractCsbhgqkList,subcontractFzbhgqkList,subcontractSxbhgqkList);
+			testFilestoreService.updateMain(testFilestore, subcontractYsxxList,subcontractCqfxxxList,subcontractBcsxxxList,subcontractDdsqbgList,subcontractDpaList,subcontractJianzhiList,subcontractSxbhgqkList,subcontractFzbhgqkList,subcontractCsbhgqkList,subcontractYclList);
 			systemService.addLog(message, Globals.Log_Type_UPDATE, Globals.Log_Leavel_INFO);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -525,7 +528,30 @@ public class TestFilestoreController extends BaseController {
 		}
 		return new ModelAndView("com/jeecg/sxbhgqk/subcontractSxbhgqkList");
 	}
-
+	
+	/**
+	 * 加载明细列表[10]
+	 * 
+	 * @return
+	 */
+	@RequestMapping(params = "subcontractYclList")
+	public ModelAndView subcontractYclList(TestFilestoreEntity testFilestore, HttpServletRequest req) {
+	
+		//===================================================================================
+		//获取参数
+		Object id9 = testFilestore.getId();
+		//===================================================================================
+		//查询-10
+	    String hql9 = "from SubcontractYclEntity where 1 = 1 AND fileid = ? ";
+	    try{
+	    	List<SubcontractYclEntity> subcontractYclEntityList = systemService.findHql(hql9,id9);
+			req.setAttribute("subcontractYclList", subcontractYclEntityList);
+		}catch(Exception e){
+			logger.info(e.getMessage());
+		}
+		return new ModelAndView("com/jeecg/ycl/subcontractYclList");
+	}
+	
     /**
     * 导出excel
     *
@@ -624,7 +650,7 @@ public class TestFilestoreController extends BaseController {
 				for (TestFilestorePage page : list) {
 					entity1=new TestFilestoreEntity();
 					MyBeanUtils.copyBeanNotNull2Bean(page,entity1);
-		            testFilestoreService.addMain(entity1, page.getSubcontractYsxxList(),page.getSubcontractCqfxxxList(),page.getSubcontractBcsxxxList(),page.getSubcontractDdsqbgList(),page.getSubcontractDpaList(),page.getSubcontractJianzhiList(),page.getSubcontractCsbhgqkList(),page.getSubcontractFzbhgqkList(),page.getSubcontractSxbhgqkList());
+		            testFilestoreService.addMain(entity1, page.getSubcontractYsxxList(),page.getSubcontractCqfxxxList(),page.getSubcontractBcsxxxList(),page.getSubcontractDdsqbgList(),page.getSubcontractDpaList(),page.getSubcontractJianzhiList(),page.getSubcontractSxbhgqkList(),page.getSubcontractFzbhgqkList(),page.getSubcontractCsbhgqkList(),page.getSubcontractYclList());
 				}
 				j.setMsg("文件导入成功！");
 			} catch (Exception e) {

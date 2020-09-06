@@ -6,9 +6,10 @@ import com.jeecg.bcsxxx.entity.SubcontractBcsxxxEntity;
 import com.jeecg.ddsqbg.entity.SubcontractDdsqbgEntity;
 import com.jeecg.dpa.entity.SubcontractDpaEntity;
 import com.jeecg.jianzhi.entity.SubcontractJianzhiEntity;
-import com.jeecg.csbhgqk.entity.SubcontractCsbhgqkEntity;
-import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
 import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
+import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
+import com.jeecg.csbhgqk.entity.SubcontractCsbhgqkEntity;
+import com.jeecg.ycl.entity.SubcontractYclEntity;
 
 import java.util.List;
 import org.jeecgframework.core.common.service.CommonService;
@@ -21,13 +22,13 @@ public interface TestFilestoreServiceI extends CommonService{
 	 * 
 	 */
 	public void addMain(TestFilestoreEntity testFilestore,
-	        List<SubcontractYsxxEntity> subcontractYsxxList,List<SubcontractCqfxxxEntity> subcontractCqfxxxList,List<SubcontractBcsxxxEntity> subcontractBcsxxxList,List<SubcontractDdsqbgEntity> subcontractDdsqbgList,List<SubcontractDpaEntity> subcontractDpaList,List<SubcontractJianzhiEntity> subcontractJianzhiList,List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList,List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList,List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList) throws Exception;
+	        List<SubcontractYsxxEntity> subcontractYsxxList,List<SubcontractCqfxxxEntity> subcontractCqfxxxList,List<SubcontractBcsxxxEntity> subcontractBcsxxxList,List<SubcontractDdsqbgEntity> subcontractDdsqbgList,List<SubcontractDpaEntity> subcontractDpaList,List<SubcontractJianzhiEntity> subcontractJianzhiList,List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList,List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList,List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList,List<SubcontractYclEntity> subcontractYclList) throws Exception;
 	/**
 	 * 修改一对多
 	 * 
 	 */
 	public void updateMain(TestFilestoreEntity testFilestore,
-	        List<SubcontractYsxxEntity> subcontractYsxxList,List<SubcontractCqfxxxEntity> subcontractCqfxxxList,List<SubcontractBcsxxxEntity> subcontractBcsxxxList,List<SubcontractDdsqbgEntity> subcontractDdsqbgList,List<SubcontractDpaEntity> subcontractDpaList,List<SubcontractJianzhiEntity> subcontractJianzhiList,List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList,List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList,List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList) throws Exception;
+	        List<SubcontractYsxxEntity> subcontractYsxxList,List<SubcontractCqfxxxEntity> subcontractCqfxxxList,List<SubcontractBcsxxxEntity> subcontractBcsxxxList,List<SubcontractDdsqbgEntity> subcontractDdsqbgList,List<SubcontractDpaEntity> subcontractDpaList,List<SubcontractJianzhiEntity> subcontractJianzhiList,List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList,List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList,List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList,List<SubcontractYclEntity> subcontractYclList) throws Exception;
 	        
 	/**
 	 * 删除一对多

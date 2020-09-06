@@ -8,6 +8,7 @@ import com.jeecg.ddsqbg.entity.SubcontractDdsqbgEntity;
 import com.jeecg.dpa.entity.SubcontractDpaEntity;
 import com.jeecg.jianzhi.entity.SubcontractJianzhiEntity;
 import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
+import com.jeecg.ycl.entity.SubcontractYclEntity;
 import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
 import com.jeecg.csbhgqk.entity.SubcontractCsbhgqkEntity;
 
@@ -1603,5 +1604,14 @@ public class TestFilestorePage implements java.io.Serializable {
 		}
 		public void setSubcontractCsbhgqkList(List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList) {
 		this.subcontractCsbhgqkList = subcontractCsbhgqkList;
+		}
+	/**保存-10*/
+    @ExcelCollection(name="10")
+	private List<SubcontractYclEntity> subcontractYclList = new ArrayList<SubcontractYclEntity>();
+		public List<SubcontractYclEntity> getSubcontractYclList() {
+		return subcontractYclList;
+		}
+		public void setSubcontractYclList(List<SubcontractYclEntity> subcontractYclList) {
+		this.subcontractYclList = subcontractYclList;
 		}
 }

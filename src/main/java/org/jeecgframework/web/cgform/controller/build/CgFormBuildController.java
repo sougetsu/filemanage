@@ -363,6 +363,7 @@ public class CgFormBuildController extends BaseController {
 			}
 
 			response.getWriter().print(content);
+			System.out.println(content);
 			response.getWriter().flush();
 			long end = System.currentTimeMillis();
 			logger.debug("自定义表单生成耗时："+(end-start)+" ms");
