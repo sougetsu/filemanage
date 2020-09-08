@@ -43,6 +43,8 @@
   </style>
   <t:base type="jquery,easyui,tools,DatePicker"></t:base>
   <t:base type="uploadify"></t:base>
+<link href="plug-in/select2/css/select2.css" rel="stylesheet">
+<script type="text/javascript" src="plug-in/select2/js/select2.js"></script>
   <script type="text/javascript">
   $(document).ready(function(){
 	$('#tt').tabs({
@@ -51,6 +53,7 @@
 		}
 	});
 	$(".tabs-wrap").css('width','100%');
+	$(".select2").select2();
   });
  </script>
  </head>
@@ -1285,6 +1288,40 @@
 					<label class="Validform_label">产品型号:</label>
 				</td>
 				<td class="value" width="25%">
+					<t:dictSelect  field="subcontractYclList[#index#].cpxh" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_raw_material" dictField="model" dictText="model" ></t:dictSelect>
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">监制单位</label>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%">
+					<label class="Validform_label">产品批次:</label>
+				</td>
+				<td class="value" width="25%">
+					<t:dictSelect  field="subcontractYclList[#index#].cppc" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_raw_material" dictField="inspection_lot" dictText="inspection_lot" ></t:dictSelect>
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">产品批次</label>
+				</td>
+				<td align="right" width="25%">
+					<label class="Validform_label">文件附件:</label>
+				</td>
+				<td class="value" width="25%">
+				</td>
+			</tr>
+			<%-- <tr>
+				<td align="right" width="25%">
+					<input style="width:20px;"  type="checkbox" name="ck"/>
+					<label class="Validform_label">原材料类型:</label>
+				</td>
+				<td class="value" width="25%">
+					<t:dictSelect field="subcontractYclList[#index#].materialType" type="list"   typeGroupCode="ycllx"   hasLabel="false"  title="阶段标识" ></t:dictSelect>
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">原材料类型</label>
+				</td>
+				<td align="right" width="25%">
+					<label class="Validform_label">产品型号:</label>
+				</td>
+				<td class="value" width="25%">
 					<input name="subcontractYclList[#index#].cpxh" class="easyui-combotree" style="width: 150px" class="inputxt"  
 					lines="true" cascadeCheck="false" />
 					<span class="Validform_checktip"></span>
@@ -1311,7 +1348,7 @@
 									<a  target="_blank" id="subcontractYclList[#index#].fileattach_href"></a>
 				  	<label class="Validform_label" style="display: none;">文件附件</label>
 				</td>
-			</tr>
+			</tr> --%>
 		</tbody>
 	</table>
 </body>

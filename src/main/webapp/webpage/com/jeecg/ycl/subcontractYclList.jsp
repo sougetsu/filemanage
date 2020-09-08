@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/context/mytags.jsp"%>
+<link href="plug-in/select2/css/select2.css" rel="stylesheet">
+<script type="text/javascript" src="plug-in/select2/js/select2.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+		$(".select2").select2();
+	});
 	$('#addSubcontractYclBtn').linkbutton({   
 	    iconCls: 'icon-add'  
 	});  
@@ -8,17 +13,110 @@
 	    iconCls: 'icon-remove'  
 	}); 
 	$('#addSubcontractYclBtn').bind('click', function(){   
- 		 var tr =  $("#add_subcontractYcl_table_template tr").clone();
-	 	 $("#add_subcontractYcl_table").append(tr);
-	 	 resetyclTrNumByRow('add_subcontractYcl_table',2);
-	 	$("select[name$='materialType']").change(function(){  
-	 		alert( this.value );
+ 		var tr =  $("#add_subcontractYcl_table_template tr").clone();
+	 	$("#add_subcontractYcl_table").append(tr);
+	 	resetyclTrNumByRow('add_subcontractYcl_table',2);
+	 	$("#add_subcontractYcl_table").find("select[name$='materialType']:last").select2();
+	 	$("#add_subcontractYcl_table").find("select[name$='cpxh']:last").select2();
+	 	$("#add_subcontractYcl_table").find("select[name$='cppc']:last").select2();
+	 	$("#add_subcontractYcl_table").find("select[name$='materialType']:last").change(function(){  
+	 		var materialType =  this.value;
+	 		alert(materialType);
+			var $cpxh = $(this).parent().next().next().children("select[name$='cpxh']");
+			var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
+			$cpxh.html('');
+			$cppc.html('');
+			var option;
+			$.ajax({
+	            type: "POST",
+	            url:'fileRawMaterialController.do?getXhByTypeJson',
+	            data: {type:materialType},
+	            dataType : 'json',
+				success : function(data) {
+					if (data.success) {
+						 option +=  "<option value=''></option>";
+						 $.each(data.obj, function(objIndex, obj){
+							 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
+						 });
+						 $cpxh.html(option);//将循环拼接的字符串插入第二个下拉列表
+						 
+					}
+				}
+	        });
 		});
-	 	 return false;
+	 	$("#add_subcontractYcl_table").find("select[name$='cpxh']:last").change(function(){
+			var cpxh =  this.value;
+			var materialType =  $(this).parent().parent().children("td:eq(1)").children("select[name$='materialType']").val();
+			var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
+			$cppc.html('');
+			var option;
+			$.ajax({
+	            type: "POST",
+	            url:'fileRawMaterialController.do?getPcListByxh',
+	            data: {xh:cpxh,type:materialType},
+	            dataType : 'json',
+				success : function(data) {
+					if (data.success) {
+						 option +=  "<option value=''></option>";
+						 $.each(data.obj, function(objIndex, obj){
+							 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
+						 });
+						 $cppc.html(option);//将循环拼接的字符串插入第二个下拉列表
+					}
+				}
+	        });
+			
+		});
+	 	return false;
     });
-	$("select[name$='materialType']").change(function(){  
-		alert( this.value );
+	$("select[name$='materialType']").change(function(){
+		var materialType =  this.value;
+		var $cpxh = $(this).parent().next().next().children("select[name$='cpxh']");
+		var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
+		$cpxh.html('');
+		$cppc.html('');
+		var option;
+		$.ajax({
+            type: "POST",
+            url:'fileRawMaterialController.do?getXhByTypeJson',
+            data: {type:materialType},
+            dataType : 'json',
+			success : function(data) {
+				if (data.success) {
+					 option +=  "<option value=''></option>";
+					 $.each(data.obj, function(objIndex, obj){
+						 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
+					 });
+					 $cpxh.html(option);//将循环拼接的字符串插入第二个下拉列表
+				}
+			}
+        });
 	});
+	
+	$("select[name$='cpxh']").change(function(){
+		var cpxh =  this.value;
+		var materialType =  $(this).parent().parent().children("td:eq(1)").children("select[name$='materialType']").val();
+		var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
+		$cppc.html('');
+		var option;
+		$.ajax({
+            type: "POST",
+            url:'fileRawMaterialController.do?getPcListByxh',
+            data: {xh:cpxh,type:materialType},
+            dataType : 'json',
+			success : function(data) {
+				if (data.success) {
+					 option +=  "<option value=''></option>";
+					 $.each(data.obj, function(objIndex, obj){
+						 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
+					 });
+					 $cppc.html(option);//将循环拼接的字符串插入第二个下拉列表
+				}
+			}
+        });
+		
+	});
+	
 	
 	$('#delSubcontractYclBtn').bind('click', function(){   
 		$("#add_subcontractYcl_table").find("input[name$='ck']:checked").parent().parent().next().remove();  
@@ -115,7 +213,7 @@
 				<label class="Validform_label">原材料类型:</label>
 			</td>
 			<td class="value" width="25%">
-				<t:dictSelect field="subcontractYclList[0].materialType" type="list"   typeGroupCode="ycllx"   hasLabel="false"  title="阶段标识" ></t:dictSelect>
+				<t:dictSelect field="subcontractYclList[0].materialType" type="list"   typeGroupCode="ycllx"  extendJson="{class:'form-control input-sm select2'}" hasLabel="false"  title="阶段标识" ></t:dictSelect>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">原材料类型</label>
 			</td>
@@ -123,10 +221,9 @@
 				<label class="Validform_label">产品型号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractYclList[0].cpxh" class="easyui-combotree" style="width: 150px" class="inputxt"  
-					lines="true" cascadeCheck="false" />
+				<t:dictSelect field="subcontractYclList[0].cpxh" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictField="model" dictText="model" ></t:dictSelect>
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">监制单位</label>
+				<label class="Validform_label" style="display: none;">产品型号</label>
 			</td>
 		</tr>
 		<tr>
@@ -134,8 +231,7 @@
 				<label class="Validform_label">产品批次:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractYclList[0].cppc" class="easyui-combotree" style="width: 150px" class="inputxt"  
-					lines="true" cascadeCheck="false" />
+				<t:dictSelect  field="subcontractYclList[0].cppc" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictField="inspection_lot" dictText="inspection_lot" ></t:dictSelect>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">产品批次</label>
 			</td>
@@ -143,11 +239,6 @@
 				<label class="Validform_label">文件附件:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input type="hidden" id="subcontractYclList[0].fileattach" name="subcontractYclList[0].fileattach" />
-							   <input class="ui-button" type="button" value="上传附件" name="subcontractYclList[0].imgBtn"
-											onclick="commonUpload(commonUploadDefaultCallBack,'subcontractYclList\\[0\\]\\.fileattach')"/>
-								<a  target="_blank" id="subcontractYclList[0].fileattach_href"></a>
-			  	<label class="Validform_label" style="display: none;">文件附件</label>
 			</td>
 		</tr>
 	</c:if>
