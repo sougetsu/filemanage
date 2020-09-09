@@ -63,7 +63,6 @@ public class SubcontractYclEntity implements java.io.Serializable {
 	/**文件id*/
 	private java.lang.String fileid;
 	/**文件附件*/
-	@Excel(name="文件附件",width=15)
 	private java.lang.String fileattach;
 	
 	/**
@@ -344,7 +343,7 @@ public class SubcontractYclEntity implements java.io.Serializable {
 	 *@return: java.lang.String  文件附件
 	 */
 	
-	@Column(name ="FILEATTACH",nullable=true,length=32)
+	@Column(name ="FILEATTACH",nullable=true,length=500)
 	public java.lang.String getFileattach(){
 		return this.fileattach;
 	}

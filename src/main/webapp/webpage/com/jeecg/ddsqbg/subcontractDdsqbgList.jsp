@@ -52,7 +52,7 @@
 				<label class="Validform_label">单独水汽报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractDdsqbgList[0].ddsqbgh" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractDdsqbgList[0].ddsqbgh" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">单独水汽报告号</label>
 			</td>
@@ -60,7 +60,7 @@
 				<label class="Validform_label">水汽检测机构:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[0].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractDdsqbgList[0].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">水汽检测机构</label>
 			</td>
@@ -78,7 +78,7 @@
 				<label class="Validform_label">水汽检测结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[0].sqjcendtime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractDdsqbgList[0].sqjcendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">水汽检测结束时间</label>
 			</td>
@@ -118,7 +118,7 @@
 				<label class="Validform_label">单独水汽报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractDdsqbgList[${stuts.index }].ddsqbgh" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.ddsqbgh }"/>
+				<input name="subcontractDdsqbgList[${stuts.index }].ddsqbgh" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.ddsqbgh }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">单独水汽报告号</label>
 			</td>
@@ -126,7 +126,7 @@
 				<label class="Validform_label">水汽检测机构:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[${stuts.index }].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.sqjcjg }"/>
+		     	<input name="subcontractDdsqbgList[${stuts.index }].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.sqjcjg }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">水汽检测机构</label>
 			</td>
@@ -136,7 +136,7 @@
 				<label class="Validform_label">水汽检测开始时间:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractDdsqbgList[${stuts.index }].sqjcstarttime" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.sqjcstarttime }"/>
+				<input name="subcontractDdsqbgList[${stuts.index }].sqjcstarttime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.sqjcstarttime }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">水汽检测开始时间</label>
 			</td>
@@ -144,7 +144,7 @@
 				<label class="Validform_label">水汽检测结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[${stuts.index }].sqjcendtime" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.sqjcendtime }"/>
+		     	<input name="subcontractDdsqbgList[${stuts.index }].sqjcendtime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.sqjcendtime }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">水汽检测结束时间</label>
 			</td>

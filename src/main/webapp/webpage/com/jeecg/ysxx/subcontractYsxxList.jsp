@@ -50,7 +50,7 @@
 				<label class="Validform_label">验收报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractYsxxList[0].ysbgh" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+				<input name="subcontractYsxxList[0].ysbgh" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">验收报告号</label>
 			</td>
@@ -84,7 +84,7 @@
 					<label class="Validform_label">验收报告号:</label>
 				</td>
 				<td class="value" width="25%">
-					<input name="subcontractYsxxList[${stuts.index }].ysbgh" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.ysbgh }"/>
+					<input name="subcontractYsxxList[${stuts.index }].ysbgh" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.ysbgh }"/>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">验收报告号</label>
 				</td>

@@ -50,34 +50,30 @@ public class SubcontractFzbhgqkEntity implements java.io.Serializable {
 	/**流程状态*/
 	private java.lang.String bpmStatus;
 	/**键合前检验*/
-	@Excel(name="键合前检验",width=15)
 	private java.lang.String jhqjy;
 	/**键合检验*/
-	@Excel(name="键合检验",width=15)
 	private java.lang.String jhjy;
 	/**封帽前镜检*/
-	@Excel(name="封帽前镜检",width=15)
 	private java.lang.String fmqjj;
 	/**封帽镜检*/
-	@Excel(name="封帽镜检",width=15)
 	private java.lang.String fmjj;
 	/**PIND*/
-	@Excel(name="PIND",width=15)
 	private java.lang.String fzpind;
 	/**细检漏*/
-	@Excel(name="细检漏",width=15)
 	private java.lang.String xjl;
 	/**粗检漏*/
-	@Excel(name="粗检漏",width=15)
 	private java.lang.String cjl;
 	/**切筋成形*/
-	@Excel(name="切筋成形",width=15)
 	private java.lang.String qjcx;
 	/**外部目检*/
-	@Excel(name="外部目检",width=15)
 	private java.lang.String wbmj;
+	/**不合格项目*/
+	@Excel(name="不合格项目",width=15,dicCode="fzbhgqk")
+	private java.lang.String bhgxm;
+	/**不合格数量*/
+	@Excel(name="不合格数量",width=15)
+	private java.lang.String bhgsl;
 	/**文件id*/
-	@Excel(name="文件id",width=15)
 	private java.lang.String fileid;
 	
 	/**
@@ -441,6 +437,22 @@ public class SubcontractFzbhgqkEntity implements java.io.Serializable {
 	 */
 	public void setFileid(java.lang.String fileid){
 		this.fileid = fileid;
+	}
+
+	public java.lang.String getBhgxm() {
+		return bhgxm;
+	}
+
+	public void setBhgxm(java.lang.String bhgxm) {
+		this.bhgxm = bhgxm;
+	}
+
+	public java.lang.String getBhgsl() {
+		return bhgsl;
+	}
+
+	public void setBhgsl(java.lang.String bhgsl) {
+		this.bhgsl = bhgsl;
 	}
 	
 }

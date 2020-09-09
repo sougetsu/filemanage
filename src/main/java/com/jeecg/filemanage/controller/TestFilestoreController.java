@@ -182,6 +182,20 @@ public class TestFilestoreController extends BaseController {
 		List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList =  testFilestorePage.getSubcontractFzbhgqkList();
 		List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList =  testFilestorePage.getSubcontractSxbhgqkList();
 		List<SubcontractYclEntity> subcontractYclList =  testFilestorePage.getSubcontractYclList();
+		for (SubcontractYclEntity subcontractYclEntity : subcontractYclList) {
+			String fileList = "";
+			String materialId = "";
+			String hql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> jhsEntityList = systemService.findHql(hql,subcontractYclEntity.getCpxh(),subcontractYclEntity.getCppc());
+			if(UtilValidate.isNotEmpty(jhsEntityList))
+			{
+				fileList = jhsEntityList.get(0).getFileattach();
+				materialId = jhsEntityList.get(0).getId();
+			}
+			subcontractYclEntity.setFileattach(fileList);
+			subcontractYclEntity.setMaterialId(materialId);
+		}
+		
 		AjaxJson j = new AjaxJson();
 		String message = "添加成功";
 		try{
@@ -215,6 +229,19 @@ public class TestFilestoreController extends BaseController {
 		List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList =  testFilestorePage.getSubcontractFzbhgqkList();
 		List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList =  testFilestorePage.getSubcontractSxbhgqkList();
 		List<SubcontractYclEntity> subcontractYclList =  testFilestorePage.getSubcontractYclList();
+		for (SubcontractYclEntity subcontractYclEntity : subcontractYclList) {
+			String fileList = "";
+			String materialId = "";
+			String hql = "from FileRawMaterialEntity where 1 = 1 AND model = ? AND inspectionLot= ? ";
+			List<FileRawMaterialEntity> jhsEntityList = systemService.findHql(hql,subcontractYclEntity.getCpxh(),subcontractYclEntity.getCppc());
+			if(UtilValidate.isNotEmpty(jhsEntityList))
+			{
+				fileList = jhsEntityList.get(0).getFileattach();
+				materialId = jhsEntityList.get(0).getId();
+			}
+			subcontractYclEntity.setFileattach(fileList);
+			subcontractYclEntity.setMaterialId(materialId);
+		}
 		AjaxJson j = new AjaxJson();
 		String message = "更新成功";
 		try{
@@ -612,6 +639,11 @@ public class TestFilestoreController extends BaseController {
 				    String hql8 = "from SubcontractSxbhgqkEntity where 1 = 1 AND fileid = ? ";
         	        List<SubcontractSxbhgqkEntity> subcontractSxbhgqkEntityList = systemService.findHql(hql8,id8);
             		page.setSubcontractSxbhgqkList(subcontractSxbhgqkEntityList);
+            		Object id9 = entity.getId();
+				    String hql9 = "from SubcontractYclEntity where 1 = 1 AND fileid = ? ";
+        	        List<SubcontractYclEntity> subcontractYclEntityList = systemService.findHql(hql9,id9);
+            		page.setSubcontractYclList(subcontractYclEntityList);
+            		
             		pageList.add(page);
             	}catch(Exception e){
             		logger.info(e.getMessage());

@@ -53,7 +53,7 @@
 				<label class="Validform_label">补充筛选报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractBcsxxxList[0].bcsxbgh" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractBcsxxxList[0].bcsxbgh" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选报告号</label>
 			</td>
@@ -61,7 +61,7 @@
 				<label class="Validform_label">补充筛选开始时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxstarttime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[0].bcsxstarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选开始时间</label>
 			</td>
@@ -71,7 +71,7 @@
 				<label class="Validform_label">补充筛选结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxendtime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[0].bcsxendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选结束时间</label>
 			</td>
@@ -79,7 +79,7 @@
 				<label class="Validform_label">补充筛选委托单位:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[0].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
 			</td>
@@ -89,7 +89,7 @@
 				<label class="Validform_label">补充筛选投入数量:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxtrsl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[0].bcsxtrsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
 			</td>
@@ -97,7 +97,7 @@
 				<label class="Validform_label">补充筛选合格数量:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxhgzl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[0].bcsxhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
 			</td>
@@ -137,7 +137,7 @@
 				<label class="Validform_label">补充筛选报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractBcsxxxList[${stuts.index }].bcsxbgh" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.bcsxbgh }"/>
+				<input name="subcontractBcsxxxList[${stuts.index }].bcsxbgh" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxbgh }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选报告号</label>
 			</td>
@@ -145,7 +145,7 @@
 				<label class="Validform_label">补充筛选开始时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxstarttime" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.bcsxstarttime }"/>
+		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxstarttime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxstarttime }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选开始时间</label>
 			</td>
@@ -155,7 +155,7 @@
 				<label class="Validform_label">补充筛选结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxendtime" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.bcsxendtime }"/>
+		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxendtime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxendtime }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选结束时间</label>
 			</td>
@@ -163,7 +163,7 @@
 				<label class="Validform_label">补充筛选委托单位:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.bcsxwtdw }"/>
+		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxwtdw }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
 			</td>
@@ -173,7 +173,7 @@
 				<label class="Validform_label">补充筛选投入数量:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxtrsl" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.bcsxtrsl }"/>
+		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxtrsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxtrsl }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
 			</td>
@@ -181,7 +181,7 @@
 				<label class="Validform_label">补充筛选合格数量:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxhgzl" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.bcsxhgzl }"/>
+		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxhgzl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxhgzl }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
 			</td>

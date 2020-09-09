@@ -8,6 +8,7 @@ import com.jeecg.bcsxxx.entity.SubcontractBcsxxxEntity;
 import com.jeecg.ddsqbg.entity.SubcontractDdsqbgEntity;
 import com.jeecg.dpa.entity.SubcontractDpaEntity;
 import com.jeecg.jianzhi.entity.SubcontractJianzhiEntity;
+import com.jeecg.materialmanage.entity.FileRawMaterialEntity;
 import com.jeecg.sxbhgqk.entity.SubcontractSxbhgqkEntity;
 import com.jeecg.fzbhgqk.entity.SubcontractFzbhgqkEntity;
 import com.jeecg.csbhgqk.entity.SubcontractCsbhgqkEntity;
@@ -24,6 +25,8 @@ import org.jeecgframework.core.util.MyClassLoader;
 import org.jeecgframework.web.cgform.enhance.CgformEnhanceJavaInter;
 import org.jeecgframework.core.util.StringUtil;
 import org.jeecgframework.core.util.oConvertUtils;
+import org.jeecgframework.jwt.util.UtilValidate;
+
 import java.util.ArrayList;
 import java.util.UUID;
 import java.io.Serializable;

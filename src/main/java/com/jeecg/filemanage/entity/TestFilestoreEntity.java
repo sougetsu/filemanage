@@ -126,10 +126,10 @@ public class TestFilestoreEntity implements java.io.Serializable {
 	@Excel(name="打标墨检验批次",width=15)
 	private java.lang.String dbmjypc;
 	/**腔体体积*/
-	@Excel(name="腔体体积",width=15)
+	@Excel(name="腔体体积cm 3",width=15)
 	private java.lang.String qttj;
 	/**腔体高度*/
-	@Excel(name="腔体高度",width=15)
+	@Excel(name="腔体高度mm",width=15)
 	private java.lang.String qtgd;
 	/**投入封装数量*/
 	@Excel(name="投入封装数量",width=15)
@@ -255,7 +255,7 @@ public class TestFilestoreEntity implements java.io.Serializable {
 	@Excel(name="封装后测试成品率",width=15)
 	private java.lang.String fzhcscpl;
 	/**封装成品率*/
-	@Excel(name="封装成品率",width=15)
+	@Excel(name="封装成品率%",width=15)
 	private java.lang.String fzcpl;
 	/**筛选报告号*/
 	@Excel(name="筛选报告号",width=15)

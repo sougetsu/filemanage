@@ -116,7 +116,7 @@
 				<label class="Validform_label">监制数量:</label>
 			</td>
 			<td class="value">
-				<input name="subcontractJianzhiList[0].jzsl" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+				<input name="subcontractJianzhiList[0].jzsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">监制数量</label>
 			</td>
@@ -124,7 +124,7 @@
 				<label class="Validform_label">监制时间:</label>
 			</td>
 			<td class="value">
-		     	<input name="subcontractJianzhiList[0].jzsj" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+		     	<input name="subcontractJianzhiList[0].jzsj" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">监制时间</label>
 			</td>
@@ -164,7 +164,7 @@
 					<label class="Validform_label">监制报告号:</label>
 				</td>
 				<td class="value" width="25%">
-					<input name="subcontractJianzhiList[${stuts.index }].jzbgh" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.jzbgh }"/>
+					<input name="subcontractJianzhiList[${stuts.index }].jzbgh" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.jzbgh }"/>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">监制报告号</label>
 				</td>
@@ -172,7 +172,7 @@
 					<label class="Validform_label">监制单位:</label>
 				</td>
 				<td class="value" width="25%">
-			     	<input name="subcontractJianzhiList[${stuts.index }].jzdw" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.jzdw }"/>
+			     	<input name="subcontractJianzhiList[${stuts.index }].jzdw" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.jzdw }"/>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">监制单位</label>
 				</td>
@@ -182,7 +182,7 @@
 					<label class="Validform_label">监制数量:</label>
 				</td>
 				<td class="value">
-					<input name="subcontractJianzhiList[${stuts.index }].jzsl" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.jzsl }"/>
+					<input name="subcontractJianzhiList[${stuts.index }].jzsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.jzsl }"/>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">监制数量</label>
 				</td>
@@ -190,7 +190,7 @@
 					<label class="Validform_label">监制时间:</label>
 				</td>
 				<td class="value">
-			     	<input name="subcontractJianzhiList[${stuts.index }].jzsj" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.jzsj }"/>
+			     	<input name="subcontractJianzhiList[${stuts.index }].jzsj" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.jzsj }"/>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">监制时间</label>
 				</td>

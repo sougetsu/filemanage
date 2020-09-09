@@ -60,7 +60,7 @@
 				<label class="Validform_label">DPA检测机构:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[0].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractDpaList[0].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">DPA检测机构</label>
 			</td>
@@ -122,7 +122,7 @@
 				<label class="Validform_label">DPA报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractDpaList[${stuts.index }].dpabgh" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.dpabgh }"/>
+				<input name="subcontractDpaList[${stuts.index }].dpabgh" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpabgh }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">DPA报告号</label>
 			</td>
@@ -130,7 +130,7 @@
 				<label class="Validform_label">DPA检测机构:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[${stuts.index }].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.dpajcjg }"/>
+		     	<input name="subcontractDpaList[${stuts.index }].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpajcjg }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">DPA检测机构</label>
 			</td>
@@ -140,7 +140,7 @@
 				<label class="Validform_label">DPA样品数量:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractDpaList[${stuts.index }].dpaypsl" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.dpaypsl }"/>
+				<input name="subcontractDpaList[${stuts.index }].dpaypsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpaypsl }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">DPA样品数量</label>
 			</td>
@@ -148,7 +148,7 @@
 				<label class="Validform_label">DPA试验开始时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[${stuts.index }].dpastarttime" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.dpastarttime }"/>
+		     	<input name="subcontractDpaList[${stuts.index }].dpastarttime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpastarttime }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">DPA试验开始时间</label>
 			</td>
@@ -158,7 +158,7 @@
 				<label class="Validform_label">DPA试验结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractDpaList[${stuts.index }].dpaendtime" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore"  value="${poVal.dpaendtime }"/>
+				<input name="subcontractDpaList[${stuts.index }].dpaendtime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpaendtime }"/>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">DPA试验结束时间</label>
 			</td>

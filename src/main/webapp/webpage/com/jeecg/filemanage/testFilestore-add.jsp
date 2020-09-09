@@ -16,9 +16,6 @@
 		line-height:16px;
 		text-align:left; 
 	}
-	.title_head {
-		width:25%; 
-	}
   .ui-button {
   	  display: inline-block;
 	  padding: 2px 2px;
@@ -53,7 +50,6 @@
 		}
 	});
 	$(".tabs-wrap").css('width','100%');
-	$(".select2").select2();
   });
  </script>
  </head>
@@ -174,153 +170,6 @@
 		 </t:tabs>
 	</div>
 	<table cellpadding="0" cellspacing="1" class="formtable">
-		<tr>
-			<td class="title_label" colspan="1"> 
-					原材料信息
-			</td>
-			<td colspan="3"> 
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">
-					圆片号:
-				</label>
-			</td>
-			<td class="value" width="25%">
-				 <input id="fileadd_yph" name="yph" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=wafer',parentField : 'pid'"
-					lines="true" cascadeCheck="false" />
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">圆片号</label>
-				</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">
-					圆片批次:
-				</label>
-			</td>
-			<td class="value" width="25%">
-				<input id="fileadd_yppc" name="yppc" class="easyui-combotree" style="width: 150px" class="inputxt"  
-					lines="true" cascadeCheck="false" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">圆片批次</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">
-					外壳型号:
-				</label>
-			</td>
-			<td class="value">
-				<input id="fileadd_wjxh" name="wjxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=shell',parentField : 'pid'" />
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">外壳型号</label>
-				</td>
-			<td align="right">
-				<label class="Validform_label">
-					外壳检验批次:
-				</label>
-			</td>
-			<td class="value">
-				<input id="fileadd_wkjypc" name="wkjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-				lines="true" cascadeCheck="false" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">外壳检验批次</label>
-			</td>
-		</tr>
-
-		<tr>
-			<td align="right">
-				<label class="Validform_label">
-					盖板型号:
-				</label>
-			</td>
-			<td class="value">
-				<input	id="fileadd_gbxh" name="gbxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=coverplate',parentField : 'pid'" /> 
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">盖板型号</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">
-					盖板检验批次:
-				</label>
-			</td>
-			<td class="value">
-				<input id="fileadd_gbjypc" name="gbjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-				lines="true" cascadeCheck="false" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">盖板检验批次</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">
-					键合丝型号:
-				</label>
-			</td>
-			<td class="value">
-				<input	id="fileadd_jhsxh" name="jhsxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=bondingwire',parentField : 'pid'" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">键合丝型号</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">
-					键合丝检验批次:
-				</label>
-			</td>
-			<td class="value">
-				<input id="fileadd_jhsjypc" name="jhsjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-				lines="true" cascadeCheck="false" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">键合丝检验批次</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">
-					粘片胶型号:
-				</label>
-			</td>
-			<td class="value">
-				<input	id="fileadd_zpjxh" name="zpjxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=adhesivetape',parentField : 'pid'" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">粘片胶型号</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">
-					粘片胶检验批次:
-				</label>
-			</td>
-			<td class="value">
-				<input id="fileadd_zpjyjpc" name="zpjyjpc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-				lines="true" cascadeCheck="false" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">粘片胶检验批次</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right">
-				<label class="Validform_label">
-					打标墨型号:
-				</label>
-			</td>
-			<td class="value">
-				<input	id="fileadd_dbmxh" name="dbmxh" class="easyui-combotree" style="width: 150px" class="inputxt"  data-options="url:'${pageContext.request.contextPath}/fileRawMaterialController.do?getXhByType&type=markingink',parentField : 'pid'" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">打标墨型号</label>
-			</td>
-			<td align="right">
-				<label class="Validform_label">
-					打标墨检验批次:
-				</label>
-			</td>
-			<td class="value">
-				<input id="fileadd_dbmjypc" name="dbmjypc" class="easyui-combotree" style="width: 150px" class="inputxt" 
-				lines="true" cascadeCheck="false" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">打标墨检验批次</label>
-			</td>
-		</tr>
 		<tr>
 			<td class="title_label" colspan="1"> 
 					封装信息
@@ -468,7 +317,7 @@
 				<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 			</td>
 			
-		</td>
+		</tr>
 		<tr>
 			<td align="right">
 				<label class="Validform_label">筛选开始时间:</label>
@@ -797,13 +646,6 @@
 			<t:tab href="testFilestoreController.do?subcontractYsxxList&id=${testFilestorePage.id}" icon="icon-search" title="验收信息" id="subcontractYsxx"></t:tab>
 		</t:tabs>
 	</div>
-<%-- 	<div style="width: auto;height: auto;">
-		增加一个div，用于调节页面大小，否则默认太小
-		<div style="width:800px;height:1px;"></div>
-		<t:tabs id="tt" iframe="false" tabPosition="top" fit="false">
-			<t:tab href="testFilestoreController.do?subcontractYclList&id=${testFilestorePage.id}" icon="icon-search" title="原材料信息" id="subcontractYcl"></t:tab>
-		 </t:tabs>
-	</div> --%>
 	<table cellpadding="0" cellspacing="1" class="formtable">	
 		<tr>
 			<td align="right" width="25%">
@@ -852,7 +694,7 @@
 				<label class="Validform_label">验收报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractYsxxList[#index#].ysbgh" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractYsxxList[#index#].ysbgh" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">验收报告号</label>
 			</td>
@@ -875,7 +717,7 @@
 				<label class="Validform_label">超期复验报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractCqfxxxList[#index#].cqfybgh" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractCqfxxxList[#index#].cqfybgh" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">超期复验报告号</label>
 			</td>
@@ -883,7 +725,7 @@
 				<label class="Validform_label">超期复验开始时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractCqfxxxList[#index#].cqfystarttime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractCqfxxxList[#index#].cqfystarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">超期复验开始时间</label>
 			</td>
@@ -893,7 +735,7 @@
 				<label class="Validform_label">超期复验结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractCqfxxxList[#index#].cqfyendtime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractCqfxxxList[#index#].cqfyendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">超期复验结束时间</label>
 			</td>
@@ -901,7 +743,7 @@
 				<label class="Validform_label">超期复验类别:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractCqfxxxList[#index#].cqfylb" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractCqfxxxList[#index#].cqfylb" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">超期复验类别</label>
 			</td>
@@ -911,7 +753,7 @@
 				<label class="Validform_label">超期复验合格数量:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractCqfxxxList[#index#].cqfyhgzl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractCqfxxxList[#index#].cqfyhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">超期复验合格数量</label>
 			</td>
@@ -934,7 +776,7 @@
 				<label class="Validform_label">补充筛选报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractBcsxxxList[#index#].bcsxbgh" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractBcsxxxList[#index#].bcsxbgh" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选报告号</label>
 			</td>
@@ -942,7 +784,7 @@
 				<label class="Validform_label">补充筛选开始时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxstarttime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[#index#].bcsxstarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选开始时间</label>
 			</td>
@@ -952,7 +794,7 @@
 				<label class="Validform_label">补充筛选结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxendtime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[#index#].bcsxendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选结束时间</label>
 			</td>
@@ -960,7 +802,7 @@
 				<label class="Validform_label">补充筛选委托单位:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[#index#].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
 			</td>
@@ -970,7 +812,7 @@
 				<label class="Validform_label">补充筛选投入数量:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxtrsl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[#index#].bcsxtrsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
 			</td>
@@ -978,7 +820,7 @@
 				<label class="Validform_label">补充筛选合格数量:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxhgzl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractBcsxxxList[#index#].bcsxhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
 			</td>
@@ -1007,7 +849,7 @@
 				<label class="Validform_label">单独水汽报告号:</label>
 			</td>
 			<td class="value" width="25%">
-				<input name="subcontractDdsqbgList[#index#].ddsqbgh" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+				<input name="subcontractDdsqbgList[#index#].ddsqbgh" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">单独水汽报告号</label>
 			</td>
@@ -1015,7 +857,7 @@
 				<label class="Validform_label">水汽检测机构:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[#index#].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractDdsqbgList[#index#].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">水汽检测机构</label>
 			</td>
@@ -1033,7 +875,7 @@
 				<label class="Validform_label">水汽检测结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[#index#].sqjcendtime" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractDdsqbgList[#index#].sqjcendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">水汽检测结束时间</label>
 			</td>
@@ -1070,7 +912,7 @@
 				<label class="Validform_label">DPA检测机构:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[#index#].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
+		     	<input name="subcontractDpaList[#index#].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">DPA检测机构</label>
 			</td>
@@ -1139,7 +981,7 @@
 				<label class="Validform_label">监制数量:</label>
 			</td>
 			<td class="value">
-				<input name="subcontractJianzhiList[#index#].jzsl" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+				<input name="subcontractJianzhiList[#index#].jzsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">监制数量</label>
 			</td>
@@ -1147,7 +989,7 @@
 				<label class="Validform_label">监制时间:</label>
 			</td>
 			<td class="value">
-		     	<input name="subcontractJianzhiList[#index#].jzsj" maxlength="32" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" >
+		     	<input name="subcontractJianzhiList[#index#].jzsj" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">监制时间</label>
 			</td>
@@ -1169,110 +1011,83 @@
 			</td>
    		</tr>
 	</tbody>
-	
-	
 	<tbody id="add_subcontractCsbhgqk_table_template">
-		<tr>
-			 <td align="center"><div style="width: 25px;" name="xh"></div></td>
-			 <td align="center"><input style="width:20px;" type="checkbox" name="ck"/></td>
-				  <td align="left">
-					  	<input name="subcontractCsbhgqkList[#index#].normal" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">常温</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractCsbhgqkList[#index#].high" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">高温</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractCsbhgqkList[#index#].low" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">低温</label>
-				  </td>
+			<tr>
+				<td align="right" width="25%">
+					<label class="Validform_label">常温:</label>
+				</td>
+				<td class="value" width="25%">
+					<input name="subcontractCsbhgqkList[#index#].normal" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">常温</label>
+				</td>
+				<td align="right" width="25%">
+					<label class="Validform_label">高温:</label>
+				</td>
+				<td class="value" width="25%">
+			     	<input name="subcontractCsbhgqkList[#index#].high" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">高温</label>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%">
+					<label class="Validform_label">低温:</label>
+				</td>
+				<td class="value" width="25%">
+					<input name="subcontractCsbhgqkList[#index#].low" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">低温</label>
+				</td>
+				<td align="right" width="25%">
+					<label class="Validform_label"></label>
+				</td>
+				<td class="value" width="25%">
+				</td>
 			</tr>
 	</tbody>
 	<tbody id="add_subcontractFzbhgqk_table_template">
 		<tr>
-			 <td align="center"><div style="width: 25px;" name="xh"></div></td>
-			 <td align="center"><input style="width:20px;" type="checkbox" name="ck"/></td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].jhqjy" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">键合前检验</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].jhjy" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">键合检验</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].fmqjj" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">封帽前镜检</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].fmjj" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">封帽镜检</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].fzpind" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">PIND</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].xjl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">细检漏</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].cjl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">粗检漏</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].qjcx" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">切筋成形</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractFzbhgqkList[#index#].wbmj" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">外部目检</label>
-				  </td>
-			</tr>
-		 </tbody>
+			<td align="right" width="25%">
+				<input style="width:20px;"  type="checkbox" name="ck"/>
+				<label class="Validform_label">不合格项目:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect field="subcontractFzbhgqkList[#index#].bhgxm" type="list"   typeGroupCode="fzbhgqk"  extendJson="{class:'form-control input-sm'}" hasLabel="false"  title="封装不合格情况" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">不合格项目</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">不合格数量:</label>
+			</td>
+			<td class="value" width="25%">
+				<input name="subcontractFzbhgqkList[#index#].bhgsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"/>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">不合格数量</label>
+			</td>
+		</tr>
+	</tbody>
 	<tbody id="add_subcontractSxbhgqk_table_template">
 		<tr>
-			 <td align="center"><div style="width: 25px;" name="xh"></div></td>
-			 <td align="center"><input style="width:20px;" type="checkbox" name="ck"/></td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxbhgpind" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">PIND</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxllqdcs" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">老炼前电测试</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxdtllhdcs" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">动态老炼后电测试</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxjtllhdcs" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">静态老炼后电测试</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxzzdcs" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">最终电测试</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxxjl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">细检漏</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxcjl" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">粗检漏</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxxsx" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">X射线</label>
-				  </td>
-				  <td align="left">
-					  	<input name="subcontractSxbhgqkList[#index#].sxwbmj" maxlength="200" type="text" class="inputxt"  style="width:120px;"  ignore="ignore" />
-					  <label class="Validform_label" style="display: none;">外部目检</label>
-				  </td>
-			</tr>
-		 </tbody>
+			<td align="right" width="25%">
+				<input style="width:20px;"  type="checkbox" name="ck"/>
+				<label class="Validform_label">不合格项目:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect field="subcontractSxbhgqkList[#index#].bhgxm" type="list"   typeGroupCode="sxbhgqk"  extendJson="{class:'form-control input-sm'}" hasLabel="false"  title="筛选不合格情况" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">不合格项目</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">不合格数量:</label>
+			</td>
+			<td class="value" width="25%">
+				<input name="subcontractSxbhgqkList[#index#].bhgsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"/>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">不合格数量</label>
+			</td>
+		</tr>
+	</tbody>
 		<tbody id="add_subcontractYcl_table_template">
 			<tr>
 				<td align="right" width="25%">
@@ -1308,47 +1123,6 @@
 				<td class="value" width="25%">
 				</td>
 			</tr>
-			<%-- <tr>
-				<td align="right" width="25%">
-					<input style="width:20px;"  type="checkbox" name="ck"/>
-					<label class="Validform_label">原材料类型:</label>
-				</td>
-				<td class="value" width="25%">
-					<t:dictSelect field="subcontractYclList[#index#].materialType" type="list"   typeGroupCode="ycllx"   hasLabel="false"  title="阶段标识" ></t:dictSelect>
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">原材料类型</label>
-				</td>
-				<td align="right" width="25%">
-					<label class="Validform_label">产品型号:</label>
-				</td>
-				<td class="value" width="25%">
-					<input name="subcontractYclList[#index#].cpxh" class="easyui-combotree" style="width: 150px" class="inputxt"  
-					lines="true" cascadeCheck="false" />
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">监制单位</label>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%">
-					<label class="Validform_label">产品批次:</label>
-				</td>
-				<td class="value" width="25%">
-					<input name="subcontractYclList[#index#].cppc" class="easyui-combotree" style="width: 150px" class="inputxt"  
-					lines="true" cascadeCheck="false" />
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">产品批次</label>
-				</td>
-				<td align="right" width="25%">
-					<label class="Validform_label">文件附件:</label>
-				</td>
-				<td class="value" width="25%">
-			     	<input type="hidden" id="subcontractYclList[#index#].fileattach" name="subcontractYclList[#index#].fileattach" />
-								   <input class="ui-button" type="button" value="上传附件" name="subcontractYclList[#index#].imgBtn"
-												onclick="commonUpload(commonUploadDefaultCallBack,'subcontractYclList\\[#index#\\]\\.fileattach')"/>
-									<a  target="_blank" id="subcontractYclList[#index#].fileattach_href"></a>
-				  	<label class="Validform_label" style="display: none;">文件附件</label>
-				</td>
-			</tr> --%>
 		</tbody>
 	</table>
 </body>

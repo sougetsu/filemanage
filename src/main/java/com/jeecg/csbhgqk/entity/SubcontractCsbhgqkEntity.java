@@ -59,7 +59,6 @@ public class SubcontractCsbhgqkEntity implements java.io.Serializable {
 	@Excel(name="低温",width=15)
 	private java.lang.String low;
 	/**文件id*/
-	@Excel(name="文件id",width=15)
 	private java.lang.String fileid;
 	
 	/**

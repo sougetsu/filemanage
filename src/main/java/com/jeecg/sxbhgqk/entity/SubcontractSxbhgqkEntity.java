@@ -50,34 +50,31 @@ public class SubcontractSxbhgqkEntity implements java.io.Serializable {
 	/**流程状态*/
 	private java.lang.String bpmStatus;
 	/**PIND*/
-	@Excel(name="PIND",width=15)
 	private java.lang.String sxbhgpind;
 	/**老炼前电测试*/
-	@Excel(name="老炼前电测试",width=15)
 	private java.lang.String sxllqdcs;
 	/**动态老炼后电测试*/
-	@Excel(name="动态老炼后电测试",width=15)
 	private java.lang.String sxdtllhdcs;
 	/**静态老炼后电测试*/
-	@Excel(name="静态老炼后电测试",width=15)
 	private java.lang.String sxjtllhdcs;
 	/**最终电测试*/
-	@Excel(name="最终电测试",width=15)
 	private java.lang.String sxzzdcs;
 	/**细检漏*/
-	@Excel(name="细检漏",width=15)
 	private java.lang.String sxxjl;
 	/**粗检漏*/
-	@Excel(name="粗检漏",width=15)
 	private java.lang.String sxcjl;
 	/**X射线*/
-	@Excel(name="X射线",width=15)
 	private java.lang.String sxxsx;
 	/**外部目检*/
-	@Excel(name="外部目检",width=15)
 	private java.lang.String sxwbmj;
+	/**不合格项目*/
+	@Excel(name="不合格项目",width=15,dicCode="sxbhgqk")
+	private java.lang.String bhgxm;
+	/**不合格数量*/
+	@Excel(name="不合格数量",width=15)
+	private java.lang.String bhgsl;
+	
 	/**文件id*/
-	@Excel(name="文件id",width=15)
 	private java.lang.String fileid;
 	
 	/**
@@ -441,6 +438,22 @@ public class SubcontractSxbhgqkEntity implements java.io.Serializable {
 	 */
 	public void setFileid(java.lang.String fileid){
 		this.fileid = fileid;
+	}
+
+	public java.lang.String getBhgxm() {
+		return bhgxm;
+	}
+
+	public void setBhgxm(java.lang.String bhgxm) {
+		this.bhgxm = bhgxm;
+	}
+
+	public java.lang.String getBhgsl() {
+		return bhgsl;
+	}
+
+	public void setBhgsl(java.lang.String bhgsl) {
+		this.bhgsl = bhgsl;
 	}
 	
 }

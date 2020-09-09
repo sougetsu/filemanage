@@ -86,58 +86,42 @@ public class TestFilestorePage implements java.io.Serializable {
     @Excel(name="芯片标识")
 	private java.lang.String xpbs;
 	/**圆片批次*/
-    @Excel(name="圆片批次")
 	private java.lang.String yppc;
 	/**圆片号*/
-    @Excel(name="圆片号")
 	private java.lang.String yph;
 	/**监制报告号*/
-    @Excel(name="监制报告号")
 	private java.lang.String jzbgh;
 	/**监制单位*/
-    @Excel(name="监制单位")
 	private java.lang.String jzdw;
 	/**监制数量*/
-    @Excel(name="监制数量")
 	private java.lang.String jzsl;
 	/**监制时间*/
-    @Excel(name="监制时间")
 	private java.lang.String jzsj;
 	/**外壳型号*/
-    @Excel(name="外壳型号")
 	private java.lang.String wjxh;
 	/**外壳检验批次*/
-    @Excel(name="外壳检验批次")
 	private java.lang.String wkjypc;
 	/**盖板型号*/
-    @Excel(name="盖板型号")
 	private java.lang.String gbxh;
 	/**盖板检验批次*/
-    @Excel(name="盖板检验批次")
 	private java.lang.String gbjypc;
 	/**键合丝型号*/
-    @Excel(name="键合丝型号")
 	private java.lang.String jhsxh;
 	/**键合丝检验批次*/
-    @Excel(name="键合丝检验批次")
 	private java.lang.String jhsjypc;
 	/**粘片胶型号*/
-    @Excel(name="粘片胶型号")
 	private java.lang.String zpjxh;
 	/**粘片胶检验批次*/
-    @Excel(name="粘片胶检验批次")
 	private java.lang.String zpjyjpc;
 	/**打标墨型号*/
-    @Excel(name="打标墨型号")
 	private java.lang.String dbmxh;
 	/**打标墨检验批次*/
-    @Excel(name="打标墨检验批次")
 	private java.lang.String dbmjypc;
 	/**腔体体积*/
-    @Excel(name="腔体体积")
+    @Excel(name="腔体体积 cm 3 ")
 	private java.lang.String qttj;
 	/**腔体高度*/
-    @Excel(name="腔体高度")
+    @Excel(name="腔体高度mm")
 	private java.lang.String qtgd;
 	/**投入封装数量*/
     @Excel(name="投入封装数量")
@@ -263,7 +247,7 @@ public class TestFilestorePage implements java.io.Serializable {
     @Excel(name="封装后测试成品率")
 	private java.lang.String fzhcscpl;
 	/**封装成品率*/
-    @Excel(name="封装成品率")
+    @Excel(name="封装成品率%")
 	private java.lang.String fzcpl;
 	/**筛选报告号*/
     @Excel(name="筛选报告号")
@@ -1525,7 +1509,7 @@ public class TestFilestorePage implements java.io.Serializable {
 	}
 
 	/**保存-12*/
-    @ExcelCollection(name="12")
+    @ExcelCollection(name="验收信息")
 	private List<SubcontractYsxxEntity> subcontractYsxxList = new ArrayList<SubcontractYsxxEntity>();
 		public List<SubcontractYsxxEntity> getSubcontractYsxxList() {
 		return subcontractYsxxList;
@@ -1534,7 +1518,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractYsxxList = subcontractYsxxList;
 		}
 	/**保存-2*/
-    @ExcelCollection(name="2")
+    @ExcelCollection(name="超期复验信息")
 	private List<SubcontractCqfxxxEntity> subcontractCqfxxxList = new ArrayList<SubcontractCqfxxxEntity>();
 		public List<SubcontractCqfxxxEntity> getSubcontractCqfxxxList() {
 		return subcontractCqfxxxList;
@@ -1543,7 +1527,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractCqfxxxList = subcontractCqfxxxList;
 		}
 	/**保存-3*/
-    @ExcelCollection(name="3")
+    @ExcelCollection(name="补充筛选信息")
 	private List<SubcontractBcsxxxEntity> subcontractBcsxxxList = new ArrayList<SubcontractBcsxxxEntity>();
 		public List<SubcontractBcsxxxEntity> getSubcontractBcsxxxList() {
 		return subcontractBcsxxxList;
@@ -1552,7 +1536,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractBcsxxxList = subcontractBcsxxxList;
 		}
 	/**保存-4*/
-    @ExcelCollection(name="4")
+    @ExcelCollection(name="单独水汽报告")
 	private List<SubcontractDdsqbgEntity> subcontractDdsqbgList = new ArrayList<SubcontractDdsqbgEntity>();
 		public List<SubcontractDdsqbgEntity> getSubcontractDdsqbgList() {
 		return subcontractDdsqbgList;
@@ -1561,7 +1545,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractDdsqbgList = subcontractDdsqbgList;
 		}
 	/**保存-5*/
-    @ExcelCollection(name="5")
+    @ExcelCollection(name="DPA信息")
 	private List<SubcontractDpaEntity> subcontractDpaList = new ArrayList<SubcontractDpaEntity>();
 		public List<SubcontractDpaEntity> getSubcontractDpaList() {
 		return subcontractDpaList;
@@ -1570,7 +1554,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractDpaList = subcontractDpaList;
 		}
 	/**保存-6*/
-    @ExcelCollection(name="6")
+    @ExcelCollection(name="监制信息")
 	private List<SubcontractJianzhiEntity> subcontractJianzhiList = new ArrayList<SubcontractJianzhiEntity>();
 		public List<SubcontractJianzhiEntity> getSubcontractJianzhiList() {
 		return subcontractJianzhiList;
@@ -1579,7 +1563,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractJianzhiList = subcontractJianzhiList;
 		}
 	/**保存-7*/
-    @ExcelCollection(name="7")
+    @ExcelCollection(name="筛选不合格情况")
 	private List<SubcontractSxbhgqkEntity> subcontractSxbhgqkList = new ArrayList<SubcontractSxbhgqkEntity>();
 		public List<SubcontractSxbhgqkEntity> getSubcontractSxbhgqkList() {
 		return subcontractSxbhgqkList;
@@ -1588,7 +1572,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractSxbhgqkList = subcontractSxbhgqkList;
 		}
 	/**保存-8*/
-    @ExcelCollection(name="8")
+    @ExcelCollection(name="封装不合格情况")
 	private List<SubcontractFzbhgqkEntity> subcontractFzbhgqkList = new ArrayList<SubcontractFzbhgqkEntity>();
 		public List<SubcontractFzbhgqkEntity> getSubcontractFzbhgqkList() {
 		return subcontractFzbhgqkList;
@@ -1597,7 +1581,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractFzbhgqkList = subcontractFzbhgqkList;
 		}
 	/**保存-9*/
-    @ExcelCollection(name="9")
+    @ExcelCollection(name="测试不合格情况")
 	private List<SubcontractCsbhgqkEntity> subcontractCsbhgqkList = new ArrayList<SubcontractCsbhgqkEntity>();
 		public List<SubcontractCsbhgqkEntity> getSubcontractCsbhgqkList() {
 		return subcontractCsbhgqkList;
@@ -1606,7 +1590,7 @@ public class TestFilestorePage implements java.io.Serializable {
 		this.subcontractCsbhgqkList = subcontractCsbhgqkList;
 		}
 	/**保存-10*/
-    @ExcelCollection(name="10")
+    @ExcelCollection(name="原材料信息")
 	private List<SubcontractYclEntity> subcontractYclList = new ArrayList<SubcontractYclEntity>();
 		public List<SubcontractYclEntity> getSubcontractYclList() {
 		return subcontractYclList;

@@ -21,7 +21,6 @@
 	 	$("#add_subcontractYcl_table").find("select[name$='cppc']:last").select2();
 	 	$("#add_subcontractYcl_table").find("select[name$='materialType']:last").change(function(){  
 	 		var materialType =  this.value;
-	 		alert(materialType);
 			var $cpxh = $(this).parent().next().next().children("select[name$='cpxh']");
 			var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
 			$cpxh.html('');
@@ -262,7 +261,7 @@
 					<label class="Validform_label">原材料类型:</label>
 				</td>
 				<td class="value" width="25%">
-					<t:dictSelect field="subcontractYclList[${stuts.index }].materialType" type="list"   typeGroupCode="ycllx"  defaultVal="${poVal.materialType }" hasLabel="false"  title="原材料类型"></t:dictSelect>
+					<t:dictSelect field="subcontractYclList[${stuts.index }].materialType" type="list"   typeGroupCode="ycllx" defaultVal="${poVal.materialType }"  extendJson="{class:'form-control input-sm select2'}" hasLabel="false"  title="原材料类型" ></t:dictSelect>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">原材料类型</label>
 				</td>
@@ -270,18 +269,17 @@
 					<label class="Validform_label">产品型号:</label>
 				</td>
 				<td class="value" width="25%">
-			     	<t:dictSelect field="subcontractYclList[${stuts.index }].cpxh" type="list"   typeGroupCode=""  defaultVal="${poVal.cpxh }" hasLabel="false"  title="产品型号"></t:dictSelect>
+					<t:dictSelect field="subcontractYclList[${stuts.index }].cpxh" type="select"  hasLabel="false" defaultVal="${poVal.cpxh }" extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictField="model" dictText="model" ></t:dictSelect>
 					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">监制单位</label>
+					<label class="Validform_label" style="display: none;">产品型号</label>
 				</td>
 			</tr>
 			<tr>
 				<td align="right" width="25%">
-					<input style="width:20px;"  type="checkbox" name="ck"/>
 					<label class="Validform_label">产品批次:</label>
 				</td>
 				<td class="value" width="25%">
-					<t:dictSelect field="subcontractYclList[${stuts.index }].cppc" type="list"   typeGroupCode=""  defaultVal="${poVal.cppc }" hasLabel="false"  title="产品批次"></t:dictSelect>
+					<t:dictSelect field="subcontractYclList[${stuts.index }].cppc" type="select"  hasLabel="false" defaultVal="${poVal.cppc }" extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictField="inspection_lot" dictText="inspection_lot" ></t:dictSelect>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">产品批次</label>
 				</td>
@@ -289,16 +287,8 @@
 					<label class="Validform_label">文件附件:</label>
 				</td>
 				<td class="value" width="25%">
-			     	<input type="hidden" id="subcontractYclList[${stuts.index }].fileattach" name="subcontractYclList[${stuts.index }].fileattach"  value="${poVal.fileattach }"/>
-									   <input class="ui-button" type="button" value="上传附件" name="subcontractYclList[${stuts.index }].imgBtn"
-													onclick="commonUpload(commonUploadDefaultCallBack,'subcontractYclList\\[${stuts.index }\\]\\.fileattach')"/>
-					  	 		<c:if test="${empty poVal.fileattach}">
-											<a  target="_blank" id="subcontractYclList[${stuts.index }].fileattach_href"></a>
-										</c:if>
-										<c:if test="${!empty poVal.fileattach}">
-											<a  href="${poVal.fileattach}"  target="_blank" id="subcontractYclList[${stuts.index }].fileattach_href">下载</a>
-										</c:if>
-					  <label class="Validform_label" style="display: none;">文件附件</label>
+			     	<t:webUploader name="subcontractYclList[${stuts.index }].fileattach" readOnly="true" auto="true"  pathValues="${poVal.fileattach}" ></t:webUploader>
+					<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>	
 				</td>
 			</tr>
 		</c:forEach>
