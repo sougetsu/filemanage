@@ -27,74 +27,19 @@
   <t:formvalid formid="formobj" dialog="true" usePlugin="password" layout="table" action="">
 		<input id="id" name="id" type="hidden" value="${testFilestorePage.id }"/>
 		<div style="width: auto;height: auto;">
-			<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
-			<div style="width:auto;height:1px;"></div>
+		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
+			<div style="width:auto;height:auto;"></div>
 			<t:tabs id="add_fzbhgqk" iframe="false" tabPosition="top" fit="false">
-				<t:tab href="testFilestoreController.do?subcontractJianzhiList&id=${testFilestorePage.id}" icon="icon-search" title="监制信息" id="subcontractJianzhi"></t:tab>
+				<t:tab href="testFilestoreController.do?subcontractJianzhiList&id=${testFilestorePage.id}" title="监制信息" id="subcontractJianzhi"></t:tab>
+			</t:tabs>
+		</div>
+		<div style="width: auto;height: auto;">
+			<div style="width:800px;height:1px;"></div>
+			<t:tabs id="tt" iframe="false" tabPosition="top" fit="false">
+				<t:tab href="testFilestoreController.do?subcontractYclList&id=${testFilestorePage.id}" icon="icon-search" title="原材料信息" id="subcontractYcl"></t:tab>
 			</t:tabs>
 		</div>
 		<table style="width: 100%;" cellpadding="0" cellspacing="1" class="formtable">
-			<tr>
-				<td class="title_label" colspan="1"> 
-						原材料附件
-				</td>
-				<td colspan="3"> 
-				</td>
-			</tr>
-			<tr>
-				<td align="right">
-					<label class="Validform_label">
-							圆片附件:
-					</label>
-				</td>
-				<td class="value">
-					<t:webUploader auto="true" pathValues="${ypFile}" name="fileattach1" duplicate="true" fileNumLimit="10"></t:webUploader>
-				</td>
-				<td align="right">
-					<label class="Validform_label">
-							外壳附件:
-					</label>
-				</td>
-				<td class="value">
-					<t:webUploader auto="true" pathValues="${wkFile}" name="fileattach2" duplicate="true" fileNumLimit="10"></t:webUploader>
-				</td>
-			</tr>
-			<tr>
-				<td align="right">
-					<label class="Validform_label">
-							盖板附件:
-					</label>
-				</td>
-				<td class="value">
-					<t:webUploader auto="true" pathValues="${gbFile}" name="fileattach3" duplicate="true" fileNumLimit="10"></t:webUploader>
-				</td>
-				<td align="right">
-					<label class="Validform_label">
-							键合丝附件:
-					</label>
-				</td>
-				<td class="value">
-					<t:webUploader auto="true" pathValues="${jhsFile}" name="fileattach4" duplicate="true" fileNumLimit="10"></t:webUploader>
-				</td>
-			</tr>
-			<tr>
-				<td align="right">
-					<label class="Validform_label">
-							粘片胶附件:
-					</label>
-				</td>
-				<td class="value">
-					<t:webUploader auto="true" pathValues="${zpjFile}" name="fileattach5" duplicate="true" fileNumLimit="10"></t:webUploader>
-				</td>
-				<td align="right">
-					<label class="Validform_label">
-							打标墨附件:
-					</label>
-				</td>
-				<td class="value">
-					<t:webUploader auto="true" pathValues="${dbmFile}" name="fileattach6" duplicate="true" fileNumLimit="10"></t:webUploader>
-				</td>
-			</tr>
 			<tr>
 				<td class="title_label" colspan="1"> 
 						封装附件
@@ -124,20 +69,20 @@
 			</tr>
 			<tr>
 				<t:hasPermission code="sxbgfj">
-					<td align="right">
+					<td align="right" width="25%">
 						<label class="Validform_label">
 							筛选报告附件:
 						</label>
 					</td>
-					<td class="value">
+					<td class="value" width="25%">
 						<t:webUploader readOnly="true" auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.sxbghfile}" name="sxbghfile" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>	
 					</td>
 				</t:hasPermission>
-				<td align="right">
+				<td align="right" width="25%">
 					<label class="Validform_label">PIND分析报告:</label>
 				</td>
-				<td class="value">
+				<td class="value" width="25%">
 					<t:webUploader readOnly="true" auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.pindfxbg}" name="pindfxbg" fileNumLimit="3"></t:webUploader>
 					<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 				</td>
@@ -183,19 +128,19 @@
 				</td>
 			</tr>	
 				<tr>
-					<td align="right">
+					<td align="right" width="25%">
 						<label class="Validform_label">鉴定/一致性检验报告附件:</label>
 					</td>
-					<td class="value">
+					<td class="value" width="25%">
 						<t:webUploader readOnly="true" auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.jdbgbhfile}" name="jdbgbhfile" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>
-					<td align="right">
+					<td align="right" width="25%">
 						<label class="Validform_label">
 							首件鉴定报告:
 						</label>
 					</td>
-					<td class="value">
+					<td class="value" width="25%">
 						<t:webUploader readOnly="true" auto="true" udfpath="${testFilestorePage.xh }/${testFilestorePage.pc}"  pathValues="${testFilestorePage.sjjdbg}" name="sjjdbg" fileNumLimit="3"></t:webUploader>
 						<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 					</td>

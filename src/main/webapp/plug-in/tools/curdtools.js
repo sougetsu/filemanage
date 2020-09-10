@@ -533,6 +533,7 @@ function createwindow(title, addurl,width,height) {
 			zIndex: getzIndex(),
 			width:width,
 			height:height,
+			maximized:true,
 			title:title,
 			opacity : 0.3,
 			cache:false,
@@ -554,6 +555,7 @@ function createwindow(title, addurl,width,height) {
 			zIndex:getzIndex(),
 			height:height,
 			parent:windowapi,
+			maximized:true,
 			title:title,
 			opacity : 0.3,
 			cache:false,
@@ -593,6 +595,7 @@ function createconfirmwindow(title, addurl,width,height) {
 			width:width,
 			height:height,
 			title:title,
+			maximized:true,
 			opacity : 0.3,
 			cache:false,
 			button:[{
@@ -626,6 +629,7 @@ function createconfirmwindow(title, addurl,width,height) {
 			height:height,
 			parent:windowapi,
 			title:title,
+			maximized:true,
 			opacity : 0.3,
 			cache:false,
 			button:[{
