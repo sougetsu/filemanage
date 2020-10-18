@@ -154,7 +154,7 @@ public class TestFilestorePage implements java.io.Serializable {
     @Excel(name="PDA")
 	private java.lang.String pda;
 	/**成品率*/
-    @Excel(name="成品率")
+    @Excel(name="成品率  %")
 	private java.lang.String cpl;
 	/**X光盘*/
     @Excel(name="X光盘")
@@ -244,7 +244,7 @@ public class TestFilestorePage implements java.io.Serializable {
     @Excel(name="测试合格数量")
 	private java.lang.String fzhcshgsl;
 	/**封装后测试成品率*/
-    @Excel(name="封装后测试成品率")
+    @Excel(name="封装后测试成品率 %")
 	private java.lang.String fzhcscpl;
 	/**封装成品率*/
     @Excel(name="封装成品率%")
@@ -261,6 +261,15 @@ public class TestFilestorePage implements java.io.Serializable {
 	/**筛选结束时间*/
     @Excel(name="筛选结束时间")
 	private java.lang.String sxendtime;
+    
+    /**鉴定开始时间*/
+    @Excel(name="鉴定开始时间")
+	private java.lang.String jdstarttime;
+	/**鉴定结束时间*/
+    @Excel(name="鉴定结束时间")
+	private java.lang.String jdendtime;
+    
+    
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -1507,6 +1516,24 @@ public class TestFilestorePage implements java.io.Serializable {
 	public void setSxendtime(java.lang.String sxendtime){
 		this.sxendtime = sxendtime;
 	}
+
+	
+	public java.lang.String getJdstarttime() {
+		return jdstarttime;
+	}
+
+	public void setJdstarttime(java.lang.String jdstarttime) {
+		this.jdstarttime = jdstarttime;
+	}
+
+	public java.lang.String getJdendtime() {
+		return jdendtime;
+	}
+
+	public void setJdendtime(java.lang.String jdendtime) {
+		this.jdendtime = jdendtime;
+	}
+
 
 	/**保存-12*/
     @ExcelCollection(name="验收信息")

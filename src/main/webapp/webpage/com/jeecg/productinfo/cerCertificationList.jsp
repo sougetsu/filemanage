@@ -28,14 +28,14 @@
    <t:dgCol title="备注"  field="bz"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="质量标识"  field="zlbs"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="操作" field="opt" width="100"></t:dgCol>
-   <t:dgDelOpt title="删除" url="cerCertificationController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/>
+   <t:dgDelOpt title="删除" operationCode="deletehgz" url="cerCertificationController.do?doDel&id={id}" urlclass="ace_button"  urlfont="fa-trash-o"/>
    <t:dgToolBar title="录入" icon="icon-add" url="cerCertificationController.do?goAdd" funname="add"></t:dgToolBar>
    <t:dgToolBar title="编辑" icon="icon-edit" url="cerCertificationController.do?goUpdate" funname="update"></t:dgToolBar>
-   <t:dgToolBar title="批量删除"  icon="icon-remove" url="cerCertificationController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar>
+   <t:dgToolBar title="批量删除" operationCode="batchdeletehgz" icon="icon-remove" url="cerCertificationController.do?doBatchDel" funname="deleteALLSelect"></t:dgToolBar>
    <t:dgToolBar title="查看" icon="icon-search" url="cerCertificationController.do?goUpdate" funname="detail"></t:dgToolBar>
    <t:dgToolBar title="导入" icon="icon-put" operationCode="importtable" funname="ImportXls"></t:dgToolBar>
-   <t:dgToolBar title="导出Excel" icon="icon-putout" funname="ExportXls"></t:dgToolBar>
-   <t:dgToolBar title="导出Word" icon="icon-put" funname="ExportDoc"></t:dgToolBar>
+   <t:dgToolBar title="导出Excel" icon="icon-putout" operationCode="exportexcel" funname="ExportXls"></t:dgToolBar>
+   <t:dgToolBar title="导出Word" icon="icon-put" operationCode="exportword" funname="ExportDoc"></t:dgToolBar>
    <t:dgToolBar title="模板下载" icon="icon-putout" operationCode="exporttabledown" funname="ExportXlsByT"></t:dgToolBar>
    <t:dgFunOpt  title="审核" operationCode="confirmButton" exp="bpmStatus#eq#2" funname ="confirmCer(id)" urlclass="ace_button"  urlfont="fa-edit"></t:dgFunOpt>
   </t:datagrid>

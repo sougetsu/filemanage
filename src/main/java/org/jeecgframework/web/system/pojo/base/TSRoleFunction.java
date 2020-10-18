@@ -40,7 +40,7 @@ public class TSRoleFunction extends IdEntity implements java.io.Serializable {
 		this.TSRole = TSRole;
 	}
 
-	@Column(name = "operation", length = 100)
+	@Column(name = "operation", length = 5000)
 	public String getOperation() {
 		return this.operation;
 	}

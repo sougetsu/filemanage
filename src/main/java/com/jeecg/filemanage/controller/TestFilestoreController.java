@@ -28,6 +28,7 @@ import org.jeecgframework.tag.core.easyui.TagUtil;
 import org.jeecgframework.web.cgform.entity.upload.CgUploadEntity;
 import org.jeecgframework.web.cgform.service.config.CgFormFieldServiceI;
 import org.jeecgframework.web.system.pojo.base.DictionaryInfo;
+import org.jeecgframework.web.system.pojo.base.TSUser;
 import org.jeecgframework.web.system.service.SystemService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -652,7 +653,8 @@ public class TestFilestoreController extends BaseController {
         }
         map.put(NormalExcelConstants.FILE_NAME,"文件管理");
         map.put(NormalExcelConstants.CLASS,TestFilestorePage.class);
-        map.put(NormalExcelConstants.PARAMS,new ExportParams("文件管理列表", "导出人:Jeecg",
+        TSUser user = ResourceUtil.getSessionUser();
+        map.put(NormalExcelConstants.PARAMS,new ExportParams("文件管理列表", "导出人:"+user.getRealName() ,
             "导出信息"));
         map.put(NormalExcelConstants.DATA_LIST,pageList);
         return NormalExcelConstants.JEECG_EXCEL_VIEW;

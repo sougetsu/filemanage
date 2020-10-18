@@ -57,34 +57,6 @@
 				<label class="Validform_label" style="display: none;">单独水汽报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测机构:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[0].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测机构</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDdsqbgList[0].sqjcstarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测开始时间</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[0].sqjcendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测结束时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
 				<label class="Validform_label">水汽附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -92,6 +64,34 @@
 			    <input class="ui-button" type="button" value="上传附件"  name="subcontractDdsqbgList[0].imgBtn" onclick="commonUpload(commonUploadDefaultCallBack,'subcontractDdsqbgList\\[0\\]\\.fileattach')"/> 
 				<a  target="_blank" id="subcontractDdsqbgList[0].fileattach_href">未上传</a>
 			  	<label class="Validform_label" style="display: none;">文件上传</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDdsqbgList0sqjcstarttime" name="subcontractDdsqbgList[0].sqjcstarttime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractDdsqbgList0sqjcstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDdsqbgList0sqjcendtime" name="subcontractDdsqbgList[0].sqjcendtime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractDdsqbgList0sqjcendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测机构:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractDdsqbgList[0].sqjcjg" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_sqjcjg" dictField="companyname" dictText="companyname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">水汽检测机构</label>
 			</td>
 			<td align="right" width="25%">
 			</td>
@@ -123,34 +123,6 @@
 				<label class="Validform_label" style="display: none;">单独水汽报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测机构:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[${stuts.index }].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.sqjcjg }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测机构</label>
-			</td>
-		</tr>
-			<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDdsqbgList[${stuts.index }].sqjcstarttime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.sqjcstarttime }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测开始时间</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[${stuts.index }].sqjcendtime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.sqjcendtime }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测结束时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
 				<label class="Validform_label">水汽附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -161,9 +133,37 @@
 											<a  target="_blank" id="subcontractDdsqbgList[${stuts.index }].fileattach_href"></a>
 										</c:if>
 										<c:if test="${!empty poVal.fileattach}">
-											<a  href="${poVal.fileattach}"  target="_blank" id="subcontractDdsqbgList[${stuts.index }].fileattach_href">下载</a>
+											<a  href="img/server/${poVal.fileattach}"  target="_blank" id="subcontractDdsqbgList[${stuts.index }].fileattach_href">下载</a>
 										</c:if>
 					  <label class="Validform_label" style="display: none;">文件上传</label>
+			</td>
+		</tr>
+			<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDdsqbgList${stuts.index }sqjcstarttime" name="subcontractDdsqbgList[${stuts.index }].sqjcstarttime" type="text" errormsg="该字段不为空" value="${poVal.sqjcstarttime }" />
+				<img onclick="WdatePicker({el:'subcontractDdsqbgList${stuts.index }sqjcstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDdsqbgList${stuts.index }sqjcendtime" name="subcontractDdsqbgList[${stuts.index }].sqjcendtime" type="text" errormsg="该字段不为空" value="${poVal.sqjcendtime }" />
+				<img onclick="WdatePicker({el:'subcontractDdsqbgList${stuts.index }sqjcendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测机构:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractDdsqbgList[${stuts.index }].sqjcjg" type="select"  hasLabel="false" defaultVal="${poVal.sqjcjg }" extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_sqjcjg" dictField="companyname" dictText="companyname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">水汽检测机构</label>
 			</td>
 			<td align="right" width="25%">
 			</td>

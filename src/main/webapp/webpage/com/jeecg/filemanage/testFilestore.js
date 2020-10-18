@@ -4,7 +4,7 @@
 function resetTrNum(tableId) {
 	$tbody = $("#"+tableId+"");
 	$tbody.find('>tr').each(function(i){
-		$(':input, select,button,a', this).each(function(){
+		$(':input, select,button,a,img', this).each(function(){
 			var $this = $(this),validtype_str = $this.attr('validType'), name = $this.attr('name'),id=$this.attr('id'),onclick_str=$this.attr('onclick'), val = $this.val();
 			if(name!=null){
 				if (name.indexOf("#index#") >= 0){
@@ -50,7 +50,7 @@ function resetTrNum(tableId) {
 function resetTrNumByRow(tableId,rownum) {
 	$tbody = $("#"+tableId+"");
 	$tbody.find('>tr').each(function(i){
-		$(':input, select,button,a', this).each(function(){
+		$(':input, select,button,a,img', this).each(function(){
 			var $this = $(this),validtype_str = $this.attr('validType'), name = $this.attr('name'),id=$this.attr('id'),onclick_str=$this.attr('onclick'), val = $this.val();
 			if(name!=null){
 				if (name.indexOf("#index#") >= 0){

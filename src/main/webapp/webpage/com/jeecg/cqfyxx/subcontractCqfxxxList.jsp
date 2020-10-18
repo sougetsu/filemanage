@@ -57,42 +57,6 @@
 				<label class="Validform_label" style="display: none;">超期复验报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">超期复验开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractCqfxxxList[0].cqfystarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验开始时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">超期复验结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractCqfxxxList[0].cqfyendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验结束时间</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">超期复验类别:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractCqfxxxList[0].cqfylb" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验类别</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">超期复验合格数量:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractCqfxxxList[0].cqfyhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验合格数量</label>
-			</td>
-			<td align="right" width="25%">
 				<label class="Validform_label">超期复验附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -101,6 +65,43 @@
 				<a  target="_blank" id="subcontractCqfxxxList[0].cqfyfileattach_href">未上传</a>
 			  	<label class="Validform_label" style="display: none;">超期复验附件</label>
 			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractCqfxxxList0cqfystarttime" name="subcontractCqfxxxList[0].cqfystarttime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractCqfxxxList0cqfystarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractCqfxxxList0cqfyendtime" name="subcontractCqfxxxList[0].cqfyendtime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractCqfxxxList0cqfyendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验类别:</label>
+			</td>
+			<td class="value" width="25%">
+		     	<input name="subcontractCqfxxxList[0].cqfylb" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">超期复验类别</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验合格数量:</label>
+			</td>
+			<td class="value" width="25%">
+				<input name="subcontractCqfxxxList[0].cqfyhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">超期复验合格数量</label>
+			</td>
+			
 		</tr>
 	</c:if>
 	<c:if test="${fn:length(subcontractCqfxxxList)  > 0 }">
@@ -127,42 +128,6 @@
 					<label class="Validform_label" style="display: none;">超期复验报告号</label>
 				</td>
 				<td align="right" width="25%">
-					<label class="Validform_label">超期复验开始时间:</label>
-				</td>
-				<td class="value" width="25%">
-			     	<input name="subcontractCqfxxxList[${stuts.index }].cqfystarttime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.cqfystarttime }"/>
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">超期复验开始时间</label>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%">
-					<label class="Validform_label">超期复验结束时间:</label>
-				</td>
-				<td class="value" width="25%">
-					<input name="subcontractCqfxxxList[${stuts.index }].cqfyendtime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.cqfyendtime }"/>
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">超期复验结束时间</label>
-				</td>
-				<td align="right" width="25%">
-					<label class="Validform_label">超期复验类别:</label>
-				</td>
-				<td class="value" width="25%">
-			     	<input name="subcontractCqfxxxList[${stuts.index }].cqfylb" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.cqfylb }"/>
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">超期复验类别</label>
-				</td>
-			</tr>
-			<tr>
-				<td align="right" width="25%">
-					<label class="Validform_label">超期复验合格数量:</label>
-				</td>
-				<td class="value" width="25%">
-					<input name="subcontractCqfxxxList[${stuts.index }].cqfyhgzl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.cqfyhgzl }"/>
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">超期复验合格数量</label>
-				</td>
-				<td align="right" width="25%">
 					<label class="Validform_label">超期复验附件:</label>
 				</td>
 				<td class="value" width="25%">
@@ -173,9 +138,45 @@
 											<a  target="_blank" id="subcontractCqfxxxList[${stuts.index }].cqfyfileattach_href"></a>
 										</c:if>
 										<c:if test="${!empty poVal.cqfyfileattach}">
-											<a  href="${poVal.cqfyfileattach}"  target="_blank" id="subcontractCqfxxxList[${stuts.index }].cqfyfileattach_href">下载</a>
+											<a  href="img/server/${poVal.cqfyfileattach}"  target="_blank" id="subcontractCqfxxxList[${stuts.index }].cqfyfileattach_href">下载</a>
 										</c:if>
 					  <label class="Validform_label" style="display: none;">超期复验附件</label>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%">
+					<label class="Validform_label">超期复验开始时间:</label>
+				</td>
+				<td class="value" width="25%">
+					<input id="subcontractCqfxxxList${stuts.index }cqfystarttime" name="subcontractCqfxxxList[${stuts.index }].cqfystarttime" type="text" errormsg="该字段不为空" value="${poVal.cqfystarttime }"/>
+					<img onclick="WdatePicker({el:'subcontractCqfxxxList${stuts.index }cqfystarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+					<span class="Validform_checktip"></span>
+				</td>
+				<td align="right" width="25%">
+					<label class="Validform_label">超期复验结束时间:</label>
+				</td>
+				<td class="value" width="25%">
+					<input id="subcontractCqfxxxList${stuts.index }cqfyendtime" name="subcontractCqfxxxList[${stuts.index }].cqfyendtime" type="text" errormsg="该字段不为空" value="${poVal.cqfyendtime }"/>
+					<img onclick="WdatePicker({el:'subcontractCqfxxxList${stuts.index }cqfyendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+					<span class="Validform_checktip"></span>
+				</td>
+			</tr>
+			<tr>
+				<td align="right" width="25%">
+					<label class="Validform_label">超期复验类别:</label>
+				</td>
+				<td class="value" width="25%">
+			     	<input name="subcontractCqfxxxList[${stuts.index }].cqfylb" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.cqfylb }"/>
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">超期复验类别</label>
+				</td>
+				<td align="right" width="25%">
+					<label class="Validform_label">超期复验合格数量:</label>
+				</td>
+				<td class="value" width="25%">
+					<input name="subcontractCqfxxxList[${stuts.index }].cqfyhgzl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.cqfyhgzl }"/>
+					<span class="Validform_checktip"></span>
+					<label class="Validform_label" style="display: none;">超期复验合格数量</label>
 				</td>
 			</tr>
 		</c:forEach>

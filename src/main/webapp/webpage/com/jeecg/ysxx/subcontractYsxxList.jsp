@@ -99,7 +99,7 @@
 											<a  target="_blank" id="subcontractYsxxList[${stuts.index }].ysfileattach_href"></a>
 										</c:if>
 										<c:if test="${!empty poVal.ysfileattach}">
-											<a  href="${poVal.ysfileattach}"  target="_blank" id="subcontractYsxxList[${stuts.index }].ysfileattach_href">下载</a>
+											<a  href="img/server/${poVal.ysfileattach}"  target="_blank" id="subcontractYsxxList[${stuts.index }].ysfileattach_href">下载</a>
 										</c:if>
 					  <label class="Validform_label" style="display: none;">验收附件</label>
 				</td>

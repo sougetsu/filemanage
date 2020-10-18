@@ -58,33 +58,42 @@
 				<label class="Validform_label" style="display: none;">补充筛选报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选开始时间:</label>
+				<label class="Validform_label">补充筛选附件:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxstarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选开始时间</label>
+		     	<input type="hidden" id="subcontractBcsxxxList[0].bcsxfileattach" name="subcontractBcsxxxList[0].bcsxfileattach" />
+									    <input class="ui-button" type="button" value="上传附件"  name="subcontractBcsxxxList[0].imgBtn" onclick="commonUpload(commonUploadDefaultCallBack,'subcontractBcsxxxList\\[0\\]\\.bcsxfileattach')"/> 
+										<a  target="_blank" id="subcontractBcsxxxList[0].bcsxfileattach_href">未上传</a>
+					  <label class="Validform_label" style="display: none;">补充筛选附件</label>
 			</td>
 		</tr>
 		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractBcsxxxList0bcsxstarttime" name="subcontractBcsxxxList[0].bcsxstarttime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractBcsxxxList0bcsxstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
 			<td align="right" width="25%">
 				<label class="Validform_label">补充筛选结束时间:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<input id="subcontractBcsxxxList0bcsxendtime" name="subcontractBcsxxxList[0].bcsxendtime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractBcsxxxList0bcsxendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选结束时间</label>
 			</td>
+		</tr>
+		<tr>
 			<td align="right" width="25%">
 				<label class="Validform_label">补充筛选委托单位:</label>
 			</td>
 			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[0].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<t:dictSelect  field="subcontractBcsxxxList[0].bcsxwtdw" type="select"  hasLabel="false" extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_bcsxwtdw" dictField="companyname" dictText="companyname" ></t:dictSelect>
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
 			</td>
-		</tr>
-		<tr>
 			<td align="right" width="25%">
 				<label class="Validform_label">补充筛选投入数量:</label>
 			</td>
@@ -93,6 +102,8 @@
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
 			</td>
+		</tr>
+		<tr>
 			<td align="right" width="25%">
 				<label class="Validform_label">补充筛选合格数量:</label>
 			</td>
@@ -100,17 +111,6 @@
 		     	<input name="subcontractBcsxxxList[0].bcsxhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选附件:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input type="hidden" id="subcontractBcsxxxList[0].bcsxfileattach" name="subcontractBcsxxxList[0].bcsxfileattach" />
-									    <input class="ui-button" type="button" value="上传附件"  name="subcontractBcsxxxList[0].imgBtn" onclick="commonUpload(commonUploadDefaultCallBack,'subcontractBcsxxxList\\[0\\]\\.bcsxfileattach')"/> 
-										<a  target="_blank" id="subcontractBcsxxxList[0].bcsxfileattach_href">未上传</a>
-					  <label class="Validform_label" style="display: none;">补充筛选附件</label>
 			</td>
 			<td align="right" width="25%">
 			</td>
@@ -142,52 +142,6 @@
 				<label class="Validform_label" style="display: none;">补充筛选报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxstarttime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxstarttime }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选开始时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxendtime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxendtime }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选结束时间</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选委托单位:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxwtdw }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选投入数量:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxtrsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxtrsl }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选合格数量:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxhgzl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxhgzl }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
 				<label class="Validform_label">补充筛选附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -198,9 +152,56 @@
 											<a  target="_blank" id="subcontractBcsxxxList[${stuts.index }].bcsxfileattach_href"></a>
 										</c:if>
 										<c:if test="${!empty poVal.bcsxfileattach}">
-											<a  href="${poVal.bcsxfileattach}"  target="_blank" id="subcontractBcsxxxList[${stuts.index }].bcsxfileattach_href">下载</a>
+											<a  href="img/server/${poVal.bcsxfileattach}"  target="_blank" id="subcontractBcsxxxList[${stuts.index }].bcsxfileattach_href">下载</a>
 										</c:if>
 					  <label class="Validform_label" style="display: none;">补充筛选附件</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractBcsxxxList${stuts.index }bcsxstarttime" name="subcontractBcsxxxList[${stuts.index }].bcsxstarttime" type="text" errormsg="该字段不为空"  value="${poVal.bcsxstarttime }"/>
+				<img onclick="WdatePicker({el:'subcontractBcsxxxList${stuts.index }bcsxstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractBcsxxxList${stuts.index }bcsxendtime" name="subcontractBcsxxxList[${stuts.index }].bcsxendtime" type="text" errormsg="该字段不为空"  value="${poVal.bcsxendtime }"/>
+				<img onclick="WdatePicker({el:'subcontractBcsxxxList${stuts.index }bcsxendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选委托单位:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractBcsxxxList[${stuts.index }].bcsxwtdw" type="select"  hasLabel="false" defaultVal="${poVal.bcsxwtdw }" extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_bcsxwtdw" dictField="companyname" dictText="companyname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选投入数量:</label>
+			</td>
+			<td class="value" width="25%">
+		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxtrsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxtrsl }"/>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
+			</td>
+			
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选合格数量:</label>
+			</td>
+			<td class="value" width="25%">
+		     	<input name="subcontractBcsxxxList[${stuts.index }].bcsxhgzl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.bcsxhgzl }"/>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
 			</td>
 			<td align="right" width="25%">
 			</td>

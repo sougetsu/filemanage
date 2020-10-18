@@ -177,7 +177,8 @@ public class CgUploadController extends BaseController {
 			String uploadbasepath = ResourceUtil.getConfigByName("uploadpath");
 			// 文件数据库保存路径
 			String path = uploadbasepath + "/";// 文件保存在硬盘的相对路径
-			String realPath = request.getSession().getServletContext().getRealPath("/") + "/" + path;// 文件的硬盘真实路径
+			String ctxPath=ResourceUtil.getConfigByName("webUploadpath");//demo中设置为D://upFiles,实际项目应因事制宜
+			String realPath = ctxPath + "/" + path;// 文件的硬盘真实路径
 			realPath += DateUtils.getDataString(DateUtils.yyyyMMdd) + "/";
 			path += DateUtils.getDataString(DateUtils.yyyyMMdd) + "/";
 			File file = new File(realPath);
@@ -208,7 +209,7 @@ public class CgUploadController extends BaseController {
 					}
 
 					systemService.save(attachment);
-					attributes.put("url", path + myfilename);
+					attributes.put("url", "img/server/"+ path + myfilename +"?down=true");
 					attributes.put("name", fileName);
 					attributes.put("swfpath", attachment.getSwfpath());
 					attributes.put("fileid", attachment.getId());

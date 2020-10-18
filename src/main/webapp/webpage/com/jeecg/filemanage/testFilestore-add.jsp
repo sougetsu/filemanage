@@ -83,6 +83,7 @@
 			</td>
 			
 		</tr>
+		
 		<tr>
 			<td align="right">
 				<label class="Validform_label">产品型号:</label>
@@ -160,7 +161,7 @@
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:auto;height:auto;"></div>
 		<t:tabs id="add_fzbhgqk" iframe="false" tabPosition="top" fit="false">
-			<t:tab href="testFilestoreController.do?subcontractJianzhiList&id=${testFilestorePage.id}" title="监制信息" id="subcontractJianzhi"></t:tab>
+			<t:tab href="testFilestoreController.do?subcontractJianzhiList&id=${testFilestorePage.id}"  icon="icon-add" title="监制信息" id="subcontractJianzhi"></t:tab>
 		</t:tabs>
 	</div>
 	<div style="width: auto;height: auto;">
@@ -230,7 +231,7 @@
 				<label class="Validform_label">封装不合格情况:</label>
 			</td>
 			<td class="value">
-				<t:webUploader auto="true" name="fzbhgqk" fileNumLimit="3"></t:webUploader>
+				<input name="fzbhgqk" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />
 				<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 			</td>
 		</tr>
@@ -239,17 +240,10 @@
 		<%-- 增加一个div，用于调节页面大小，否则默认太小 --%>
 		<div style="width:800px;height:1px;"></div>
 		<t:tabs id="tt" iframe="false" tabPosition="top" fit="false">
-			<t:tab href="testFilestoreController.do?subcontractFzbhgqkList&id=${testFilestorePage.id}" icon="icon-search" title="封装不合格情况" id="subcontractFzbhgqk"></t:tab>
+			<t:tab href="testFilestoreController.do?subcontractFzbhgqkList&id=${testFilestorePage.id}" icon="icon-document" title="筛选资料" id="subcontractFzbhgqk"></t:tab>
 		</t:tabs>
 	</div>
 	<table cellpadding="0" cellspacing="1" class="formtable">
-		<tr>
-			<td class="title_label" colspan="1"> 
-					封装后测试信息
-			</td>
-			<td colspan="3"> 
-			</td>
-		</tr>
 		<tr>
 			<td align="right" width="25%">
 				<label class="Validform_label">投入测试数量:</label>
@@ -323,17 +317,17 @@
 				<label class="Validform_label">筛选开始时间:</label>
 			</td>
 			<td class="value">
-		     	 <input id="sxstarttime" name="sxstarttime" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<input id="add_sxstarttime" name="sxstarttime" type="text"/>
+				<img onclick="WdatePicker({el:'add_sxstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">筛选开始时间</label>
 			</td>
 			<td align="right">
 				<label class="Validform_label">筛选结束时间:</label>
 			</td>
 			<td class="value">
-		     	 <input id="sxendtime" name="sxendtime" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<input id="add_sxendtime" name="sxendtime" type="text"/>
+				<img onclick="WdatePicker({el:'add_sxendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">筛选结束时间</label>
 			</td>
 		</tr>
 		<tr>
@@ -387,8 +381,7 @@
 				<label class="Validform_label">筛选不合格情况:</label>
 			</td>
 			<td class="value">
-				<t:webUploader auto="true" name="sxbhgqk" fileNumLimit="3"></t:webUploader>
-				<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
+				 <input name="sxbhgqk" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />
 			</td>
 		</tr>
 	
@@ -405,7 +398,7 @@
 				<label class="Validform_label">成品率:</label>
 			</td>
 			<td class="value">
-				<input id="cpl" name="cpl" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<input id="cpl" name="cpl" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />%
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">成品率</label>
 			</td>
@@ -453,6 +446,8 @@
 		 <t:tab href="testFilestoreController.do?subcontractSxbhgqkList&id=${testFilestorePage.id}" icon="icon-search" title="筛选不合格情况" id="subcontractSxbhgqk"></t:tab>
 		</t:tabs>
 	</div>	
+	
+	
 	<table cellpadding="0" cellspacing="1" class="formtable">	
 		<tr>
 			<td class="title_label" colspan="1"> 
@@ -483,17 +478,32 @@
 				<label class="Validform_label">鉴定/一致性检验方式:</label>
 			</td>
 			<td class="value">
-		     	 <input id="jdfs" name="jdfs" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />
+				<t:dictSelect field="jdfs" type="list"   typeGroupCode="jdfs"  defaultVal="${testFilestorePage.jdfs}" hasLabel="false"  title="阶段标识" ></t:dictSelect>     
 				<span class="Validform_checktip"></span>
 				<label class="Validform_label" style="display: none;">鉴定/一致性检验方式</label>
 			</td>
 			<td align="right">
-				<label class="Validform_label">鉴定/一致性检验起止时间:</label>
+				<label class="Validform_label"></label>
 			</td>
 			<td class="value">
-		     	 <input id="jdqzsj" name="jdqzsj" type="text" maxlength="200" style="width: 150px" class="inputxt"  ignore="ignore" />
+			</td>
+		</tr>
+		<tr>
+			<td align="right">
+				<label class="Validform_label">鉴定/一致性检验开始时间:</label>
+			</td>
+			<td class="value">
+				<input id="add_jdstarttime" name="jdstarttime" type="text"/>
+				<img onclick="WdatePicker({el:'add_jdstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">鉴定/一致性检验起止时间</label>
+			</td>
+			<td align="right">
+				<label class="Validform_label">鉴定/一致性检验结束时间:</label>
+			</td>
+			<td class="value">
+				<input id="add_jdendtime" name="jdendtime" type="text"/>
+				<img onclick="WdatePicker({el:'add_jdendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
 			</td>
 		</tr>
 		<tr>
@@ -603,7 +613,7 @@
 				<span class="Validform_checktip Validform_right" style="display: none;">文件已上传</span>
 			</td>
 			<td align="right">
-				<label class="Validform_label">鉴定一致性自定义上传:</label>
+				<label class="Validform_label">鉴定/一致性自定义上传:</label>
 			</td>
 			<td class="value">
 				<t:webUploader auto="true" name="jdyzzdy" fileNumLimit="3"></t:webUploader>
@@ -722,42 +732,6 @@
 				<label class="Validform_label" style="display: none;">超期复验报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">超期复验开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractCqfxxxList[#index#].cqfystarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验开始时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">超期复验结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractCqfxxxList[#index#].cqfyendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验结束时间</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">超期复验类别:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractCqfxxxList[#index#].cqfylb" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验类别</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">超期复验合格数量:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractCqfxxxList[#index#].cqfyhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">超期复验合格数量</label>
-			</td>
-			<td align="right" width="25%">
 				<label class="Validform_label">超期复验附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -766,6 +740,43 @@
 							onclick="commonUpload(commonUploadDefaultCallBack,'subcontractCqfxxxList\\[#index#\\]\\.cqfyfileattach')"/>
 				<a  target="_blank" id="subcontractCqfxxxList[#index#].cqfyfileattach_href"></a>
 		  		<label class="Validform_label" style="display: none;">超期复验附件</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractCqfxxxList[#index#]cqfystarttime" name="subcontractCqfxxxList[#index#].cqfystarttime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractCqfxxxList[#index#]cqfystarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractCqfxxxList[#index#]cqfyendtime" name="subcontractCqfxxxList[#index#].cqfyendtime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractCqfxxxList[#index#]cqfyendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验类别:</label>
+			</td>
+			<td class="value" width="25%">
+		     	<input name="subcontractCqfxxxList[#index#].cqfylb" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">超期复验类别</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">超期复验合格数量:</label>
+			</td>
+			<td class="value" width="25%">
+				<input name="subcontractCqfxxxList[#index#].cqfyhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">超期复验合格数量</label>
 			</td>
 		</tr>
 	</tbody>
@@ -781,52 +792,6 @@
 				<label class="Validform_label" style="display: none;">补充筛选报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxstarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选开始时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选结束时间</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选委托单位:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxwtdw" maxlength="100" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选投入数量:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxtrsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">补充筛选合格数量:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractBcsxxxList[#index#].bcsxhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
 				<label class="Validform_label">补充筛选附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -835,6 +800,53 @@
 													onclick="commonUpload(commonUploadDefaultCallBack,'subcontractBcsxxxList\\[#index#\\]\\.bcsxfileattach')"/>
 										<a  target="_blank" id="subcontractBcsxxxList[#index#].bcsxfileattach_href"></a>
 					  <label class="Validform_label" style="display: none;">补充筛选附件</label>
+			</td>
+			
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractBcsxxxList[#index#]bcsxstarttime" name="subcontractBcsxxxList[#index#].bcsxstarttime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractBcsxxxList[#index#]bcsxstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractBcsxxxList[#index#]bcsxendtime" name="subcontractBcsxxxList[#index#].bcsxendtime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractBcsxxxList[#index#]bcsxendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选委托单位:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractBcsxxxList[#index#].bcsxwtdw" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_bcsxwtdw" dictField="companyname" dictText="companyname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">补充筛选委托单位</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选投入数量:</label>
+			</td>
+			<td class="value" width="25%">
+		     	<input name="subcontractBcsxxxList[#index#].bcsxtrsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">补充筛选投入数量</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">补充筛选合格数量:</label>
+			</td>
+			<td class="value" width="25%">
+		     	<input name="subcontractBcsxxxList[#index#].bcsxhgzl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">补充筛选合格数量</label>
 			</td>
 			<td align="right" width="25%">
 			</td>
@@ -854,34 +866,6 @@
 				<label class="Validform_label" style="display: none;">单独水汽报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测机构:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[#index#].sqjcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测机构</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDdsqbgList[#index#].sqjcstarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测开始时间</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">水汽检测结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDdsqbgList[#index#].sqjcendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">水汽检测结束时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
 				<label class="Validform_label">水汽附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -890,6 +874,34 @@
 											onclick="commonUpload(commonUploadDefaultCallBack,'subcontractDdsqbgList\\[#index#\\]\\.fileattach')"/>
 								<a  target="_blank" id="subcontractDdsqbgList[#index#].fileattach_href"></a>
 			  <label class="Validform_label" style="display: none;">文件上传</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDdsqbgList[#index#]sqjcstarttime" name="subcontractDdsqbgList[#index#].sqjcstarttime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractDdsqbgList[#index#]sqjcstarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDdsqbgList[#index#]sqjcendtime" name="subcontractDdsqbgList[#index#].sqjcendtime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractDdsqbgList[#index#]sqjcendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">水汽检测机构:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractDdsqbgList[#index#].sqjcjg" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_sqjcjg" dictField="companyname" dictText="companyname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">水汽检测机构</label>
 			</td>
 			<td align="right" width="25%">
 			</td>
@@ -909,42 +921,6 @@
 				<label class="Validform_label" style="display: none;">DPA报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">DPA检测机构:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[#index#].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA检测机构</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA样品数量:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDpaList[#index#].dpaypsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA样品数量</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA试验开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[#index#].dpastarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA试验开始时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA试验结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDpaList[#index#].dpaendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA试验结束时间</label>
-			</td>
-			<td align="right" width="25%">
 				<label class="Validform_label">DPA附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -953,6 +929,42 @@
 													onclick="commonUpload(commonUploadDefaultCallBack,'subcontractDpaList\\[#index#\\]\\.dpafileattach')"/>
 										<a  target="_blank" id="subcontractDpaList[#index#].dpafileattach_href"></a>
 					  <label class="Validform_label" style="display: none;">文件上传</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA试验开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDpaList[#index#]dpastarttime" name="subcontractDpaList[#index#].dpastarttime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractDpaList[#index#]dpastarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA试验结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDpaList[#index#]dpaendtime" name="subcontractDpaList[#index#].dpaendtime" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractDpaList[#index#]dpaendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA检测机构:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractDpaList[#index#].dpajcjg" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_dpaname" dictField="dpaname" dictText="dpaname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">DPA检测机构</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA样品数量:</label>
+			</td>
+			<td class="value" width="25%">
+				<input name="subcontractDpaList[#index#].dpaypsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">DPA样品数量</label>
 			</td>
 		</tr>
 	</tbody>
@@ -989,9 +1001,9 @@
 				<label class="Validform_label">监制时间:</label>
 			</td>
 			<td class="value">
-		     	<input name="subcontractJianzhiList[#index#].jzsj" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
+				<input id="subcontractJianzhiList#index#" name="subcontractJianzhiList[#index#].jzsj" type="text" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractJianzhiList#index#'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
 				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">监制时间</label>
 			</td>
 		</tr>
 		<tr>

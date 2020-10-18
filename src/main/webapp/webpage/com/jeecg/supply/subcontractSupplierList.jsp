@@ -3,7 +3,7 @@
 <t:base type="jquery,easyui,tools,DatePicker"></t:base>
 <div class="easyui-layout" fit="true">
   <div region="center" style="padding:0px;border:0px">
-  <t:datagrid name="subcontractSupplierList" checkbox="false" pagination="true" fitColumns="true" title="供应商管理" sortName="createDate" actionUrl="subcontractSupplierController.do?datagrid" idField="id" fit="true" queryMode="group">
+  <t:datagrid name="subcontractSupplierList" checkbox="true" pagination="true" fitColumns="true" title="供应商管理" sortName="createDate" actionUrl="subcontractSupplierController.do?datagrid" idField="id" fit="true" queryMode="group">
    <t:dgCol title="主键"  field="id"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="创建人名称"  field="createName"  hidden="true"  queryMode="single"  width="120"></t:dgCol>
    <t:dgCol title="创建人登录名称"  field="createBy"  hidden="true"  queryMode="single"  width="120"></t:dgCol>

@@ -57,42 +57,6 @@
 				<label class="Validform_label" style="display: none;">DPA报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">DPA检测机构:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[0].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA检测机构</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA样品数量:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDpaList[0].dpaypsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA样品数量</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA试验开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[0].dpastarttime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA试验开始时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA试验结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDpaList[0].dpaendtime" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA试验结束时间</label>
-			</td>
-			<td align="right" width="25%">
 				<label class="Validform_label">DPA附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -100,6 +64,43 @@
 									    <input class="ui-button" type="button" value="上传附件"  name="subcontractDpaList[0].imgBtn" onclick="commonUpload(commonUploadDefaultCallBack,'subcontractDpaList\\[0\\]\\.dpafileattach')"/> 
 										<a  target="_blank" id="subcontractDpaList[0].dpafileattach_href">未上传</a>
 					  <label class="Validform_label" style="display: none;">文件上传</label>
+			</td>
+			
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA试验开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDpaList0dpastarttime" name="subcontractDpaList[0].dpastarttime" type="text" errormsg="该字段不为空" />
+				<img onclick="WdatePicker({el:'subcontractDpaList0dpastarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA试验结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDpaList0dpaendtime" name="subcontractDpaList[0].dpaendtime" type="text" errormsg="该字段不为空" />
+				<img onclick="WdatePicker({el:'subcontractDpaList0dpaendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA检测机构:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractDpaList[0].dpajcjg" type="select"  hasLabel="false"  extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_dpaname" dictField="dpaname" dictText="dpaname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">DPA检测机构</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA样品数量:</label>
+			</td>
+			<td class="value" width="25%">
+				<input name="subcontractDpaList[0].dpaypsl" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" />
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">DPA样品数量</label>
 			</td>
 		</tr>
 	</c:if>
@@ -127,42 +128,6 @@
 				<label class="Validform_label" style="display: none;">DPA报告号</label>
 			</td>
 			<td align="right" width="25%">
-				<label class="Validform_label">DPA检测机构:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[${stuts.index }].dpajcjg" maxlength="200" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpajcjg }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA检测机构</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA样品数量:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDpaList[${stuts.index }].dpaypsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpaypsl }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA样品数量</label>
-			</td>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA试验开始时间:</label>
-			</td>
-			<td class="value" width="25%">
-		     	<input name="subcontractDpaList[${stuts.index }].dpastarttime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpastarttime }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA试验开始时间</label>
-			</td>
-		</tr>
-		<tr>
-			<td align="right" width="25%">
-				<label class="Validform_label">DPA试验结束时间:</label>
-			</td>
-			<td class="value" width="25%">
-				<input name="subcontractDpaList[${stuts.index }].dpaendtime" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpaendtime }"/>
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">DPA试验结束时间</label>
-			</td>
-			<td align="right" width="25%">
 				<label class="Validform_label">DPA附件:</label>
 			</td>
 			<td class="value" width="25%">
@@ -173,9 +138,45 @@
 											<a  target="_blank" id="subcontractDpaList[${stuts.index }].dpafileattach_href"></a>
 										</c:if>
 										<c:if test="${!empty poVal.dpafileattach}">
-											<a  href="${poVal.dpafileattach}"  target="_blank" id="subcontractDpaList[${stuts.index }].dpafileattach_href">下载</a>
+											<a  href="img/server/${poVal.dpafileattach}"  target="_blank" id="subcontractDpaList[${stuts.index }].dpafileattach_href">下载</a>
 										</c:if>
 					  <label class="Validform_label" style="display: none;">文件上传</label>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA试验开始时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDpaList[${stuts.index }]dpastarttime" name="subcontractDpaList[${stuts.index }].dpastarttime" type="text" errormsg="该字段不为空" value="${poVal.dpastarttime }" />
+				<img onclick="WdatePicker({el:'subcontractDpaList[${stuts.index }]dpastarttime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA试验结束时间:</label>
+			</td>
+			<td class="value" width="25%">
+				<input id="subcontractDpaList[${stuts.index }]dpaendtime" name="subcontractDpaList[${stuts.index }].dpaendtime" type="text" errormsg="该字段不为空" value="${poVal.dpaendtime }" />
+				<img onclick="WdatePicker({el:'subcontractDpaList[${stuts.index }]dpaendtime'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
+				<span class="Validform_checktip"></span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA检测机构:</label>
+			</td>
+			<td class="value" width="25%">
+				<t:dictSelect  field="subcontractDpaList[${stuts.index }].dpajcjg" type="select"  hasLabel="false"  defaultVal="${poVal.dpajcjg }" extendJson="{class:'form-control input-sm ',style='width:150px'}" dictTable="file_dpaname" dictField="dpaname" dictText="dpaname" ></t:dictSelect>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">DPA检测机构</label>
+			</td>
+			<td align="right" width="25%">
+				<label class="Validform_label">DPA样品数量:</label>
+			</td>
+			<td class="value" width="25%">
+				<input name="subcontractDpaList[${stuts.index }].dpaypsl" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.dpaypsl }"/>
+				<span class="Validform_checktip"></span>
+				<label class="Validform_label" style="display: none;">DPA样品数量</label>
 			</td>
 		</tr>
 		</c:forEach>

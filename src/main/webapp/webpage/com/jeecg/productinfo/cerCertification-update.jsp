@@ -106,7 +106,7 @@
 						</label>
 					</td>
 					<td class="value">
-							<select id="hgzupdate_zlbzdj" name="zlbzdj" style="width: 150px" value='${cerCertificationPage.jcbgh}'/>
+							<select id="hgzupdate_zlbzdj" name="zlbzdj" style="width: 150px" value='${cerCertificationPage.zlbzdj}'/>
 							<span class="Validform_checktip"></span>
 							<label class="Validform_label" style="display: none;">质量等级</label>
 						</td>

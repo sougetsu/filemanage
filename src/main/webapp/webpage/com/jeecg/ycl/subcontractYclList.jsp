@@ -3,9 +3,6 @@
 <link href="plug-in/select2/css/select2.css" rel="stylesheet">
 <script type="text/javascript" src="plug-in/select2/js/select2.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$(".select2").select2();
-	});
 	$('#addSubcontractYclBtn').linkbutton({   
 	    iconCls: 'icon-add'  
 	});  
@@ -68,55 +65,6 @@
 		});
 	 	return false;
     });
-	$("select[name$='materialType']").change(function(){
-		var materialType =  this.value;
-		var $cpxh = $(this).parent().next().next().children("select[name$='cpxh']");
-		var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
-		$cpxh.html('');
-		$cppc.html('');
-		var option;
-		$.ajax({
-            type: "POST",
-            url:'fileRawMaterialController.do?getXhByTypeJson',
-            data: {type:materialType},
-            dataType : 'json',
-			success : function(data) {
-				if (data.success) {
-					 option +=  "<option value=''></option>";
-					 $.each(data.obj, function(objIndex, obj){
-						 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
-					 });
-					 $cpxh.html(option);//将循环拼接的字符串插入第二个下拉列表
-				}
-			}
-        });
-	});
-	
-	$("select[name$='cpxh']").change(function(){
-		var cpxh =  this.value;
-		var materialType =  $(this).parent().parent().children("td:eq(1)").children("select[name$='materialType']").val();
-		var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
-		$cppc.html('');
-		var option;
-		$.ajax({
-            type: "POST",
-            url:'fileRawMaterialController.do?getPcListByxh',
-            data: {xh:cpxh,type:materialType},
-            dataType : 'json',
-			success : function(data) {
-				if (data.success) {
-					 option +=  "<option value=''></option>";
-					 $.each(data.obj, function(objIndex, obj){
-						 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
-					 });
-					 $cppc.html(option);//将循环拼接的字符串插入第二个下拉列表
-				}
-			}
-        });
-		
-	});
-	
-	
 	$('#delSubcontractYclBtn').bind('click', function(){   
 		$("#add_subcontractYcl_table").find("input[name$='ck']:checked").parent().parent().next().remove();  
 		$("#add_subcontractYcl_table").find("input[name$='ck']:checked").parent().parent().remove();  
@@ -124,12 +72,60 @@
         return false;
     }); 
     $(document).ready(function(){
+    	$(".select2").select2();
     	$(".datagrid-toolbar").parent().css("width","auto");
     	$(".datagrid-toolbar").parent().css("overflow","hidden");
     	if(location.href.indexOf("load=detail")!=-1){
 			$(":input").attr("disabled","true");
 			$(".datagrid-toolbar").hide();
-		}
+		};
+    	$("select[name$='materialType']").change(function(){
+    		var materialType =  this.value;
+    		var $cpxh = $(this).parent().next().next().children("select[name$='cpxh']");
+    		var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
+    		$cpxh.html('');
+    		$cppc.html('');
+    		var option;
+    		$.ajax({
+                type: "POST",
+                url:'fileRawMaterialController.do?getXhByTypeJson',
+                data: {type:materialType},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					 option +=  "<option value=''></option>";
+    					 $.each(data.obj, function(objIndex, obj){
+    						 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
+    					 });
+    					 $cpxh.html(option);//将循环拼接的字符串插入第二个下拉列表
+    				}
+    			}
+            });
+    	});
+    	$("select[name$='cpxh']").change(function(){
+    		var cpxh =  this.value;
+    		var materialType =  $(this).parent().parent().children("td:eq(1)").children("select[name$='materialType']").val();
+    		var $cppc = $(this).parent().parent().next().children("td:eq(1)").children("select[name$='cppc']");
+    		$cppc.html('');
+    		var option;
+    		$.ajax({
+                type: "POST",
+                url:'fileRawMaterialController.do?getPcListByxh',
+                data: {xh:cpxh,type:materialType},
+                dataType : 'json',
+    			success : function(data) {
+    				if (data.success) {
+    					 option +=  "<option value=''></option>";
+    					 $.each(data.obj, function(objIndex, obj){
+    						 option +=  "<option value='" +obj.text+ "'>"+obj.text+"</option>";
+    					 });
+    					 $cppc.html(option);//将循环拼接的字符串插入第二个下拉列表
+    				}
+    			}
+            });
+    		
+    	});
+    	
     });
     
     function resetyclTrNumByRow(tableId,rownum) {
@@ -269,7 +265,7 @@
 					<label class="Validform_label">产品型号:</label>
 				</td>
 				<td class="value" width="25%">
-					<t:dictSelect field="subcontractYclList[${stuts.index }].cpxh" type="select"  hasLabel="false" defaultVal="${poVal.cpxh }" extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictField="model" dictText="model" ></t:dictSelect>
+					<t:dictSelect field="subcontractYclList[${stuts.index }].cpxh"  type="select"  hasLabel="false" defaultVal="${poVal.cpxh }" extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictCondition="where material_type = '${poVal.materialType }'" dictField="model" dictText="model" ></t:dictSelect>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">产品型号</label>
 				</td>
@@ -279,7 +275,7 @@
 					<label class="Validform_label">产品批次:</label>
 				</td>
 				<td class="value" width="25%">
-					<t:dictSelect field="subcontractYclList[${stuts.index }].cppc" type="select"  hasLabel="false" defaultVal="${poVal.cppc }" extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictField="inspection_lot" dictText="inspection_lot" ></t:dictSelect>
+					<t:dictSelect field="subcontractYclList[${stuts.index }].cppc" type="select"  hasLabel="false" defaultVal="${poVal.cppc }" extendJson="{class:'form-control input-sm select2'}" dictTable="file_raw_material" dictCondition="where material_type = '${poVal.materialType }' and model = '${poVal.cpxh }'" dictField="inspection_lot" dictText="inspection_lot" ></t:dictSelect>
 					<span class="Validform_checktip"></span>
 					<label class="Validform_label" style="display: none;">产品批次</label>
 				</td>

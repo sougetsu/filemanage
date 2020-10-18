@@ -298,7 +298,7 @@ function createdetailwindow(title, addurl,width,height) {
 			okVal: $.i18n.prop('dialog.submit'),
 		    cancelVal: $.i18n.prop('dialog.close'),
 		    cancel: true /*为true等价于function(){}*/
-		});
+		}).max();
 	}else{
 
 		W.$.dialog({
@@ -534,6 +534,7 @@ function createwindow(title, addurl,width,height) {
 			width:width,
 			height:height,
 			maximized:true,
+			min:false,
 			title:title,
 			opacity : 0.3,
 			cache:false,
@@ -545,7 +546,7 @@ function createwindow(title, addurl,width,height) {
 		    okVal: $.i18n.prop('dialog.submit'),
 		    cancelVal: $.i18n.prop('dialog.close'),
 		    cancel: true /*为true等价于function(){}*/
-		});
+		}).max();
 	}else{
 
 		/*W.*/$.dialog({//使用W，即为使用顶级页面作为openner，造成打开的次级窗口获取不到关联的主窗口
@@ -556,6 +557,7 @@ function createwindow(title, addurl,width,height) {
 			height:height,
 			parent:windowapi,
 			maximized:true,
+			min:false,
 			title:title,
 			opacity : 0.3,
 			cache:false,
@@ -567,7 +569,7 @@ function createwindow(title, addurl,width,height) {
 		    okVal: $.i18n.prop('dialog.submit'),
 		    cancelVal: $.i18n.prop('dialog.close'),
 		    cancel: true /*为true等价于function(){}*/
-		});
+		}).max();
 
 	}
     //--author：JueYue---------date：20140427---------for：弹出bug修改,设置了zindex()函数
@@ -596,6 +598,7 @@ function createconfirmwindow(title, addurl,width,height) {
 			height:height,
 			title:title,
 			maximized:true,
+			min:false,
 			opacity : 0.3,
 			cache:false,
 			button:[{
@@ -618,7 +621,7 @@ function createconfirmwindow(title, addurl,width,height) {
 	        }],
 		    cancelVal: '关闭',
 		    cancel: true /*为true等价于function(){}*/
-		});
+		}).max();
 	}else{
 
 		/*W.*/$.dialog({//使用W，即为使用顶级页面作为openner，造成打开的次级窗口获取不到关联的主窗口
@@ -630,6 +633,7 @@ function createconfirmwindow(title, addurl,width,height) {
 			parent:windowapi,
 			title:title,
 			maximized:true,
+			min:false,
 			opacity : 0.3,
 			cache:false,
 			button:[{
@@ -653,7 +657,7 @@ function createconfirmwindow(title, addurl,width,height) {
 	        }],
 		    cancelVal: '关闭',
 		    cancel: true /*为true等价于function(){}*/
-		});
+		}).max();
 
 	}
 	

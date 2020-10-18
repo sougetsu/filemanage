@@ -32,7 +32,7 @@
     function resetjianzhiTrNum(tableId) {
     	$tbody = $("#"+tableId+"");
     	$tbody.find('>tr').each(function(i){
-    		$(':input, select,button,a', this).each(function(){
+    		$(':input, select,button,a,img', this).each(function(){
     			var $this = $(this),validtype_str = $this.attr('validType'), name = $this.attr('name'),id=$this.attr('id'),onclick_str=$this.attr('onclick'), val = $this.val();
     			if(name!=null){
     				if (name.indexOf("#index#") >= 0){
@@ -124,9 +124,8 @@
 				<label class="Validform_label">监制时间:</label>
 			</td>
 			<td class="value">
-		     	<input name="subcontractJianzhiList[0].jzsj" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore" >
-				<span class="Validform_checktip"></span>
-				<label class="Validform_label" style="display: none;">监制时间</label>
+				<input id="subcontractJianzhiList0" name="subcontractJianzhiList[0].jzsj"  type="text" datatype="*" errormsg="该字段不为空"/>
+				<img onclick="WdatePicker({el:'subcontractJianzhiList0'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
 			</td>
 		</tr>
 		<tr>
@@ -190,9 +189,8 @@
 					<label class="Validform_label">监制时间:</label>
 				</td>
 				<td class="value">
-			     	<input name="subcontractJianzhiList[${stuts.index }].jzsj" maxlength="32" type="text" class="inputxt"  style="width:150px;"  ignore="ignore"  value="${poVal.jzsj }"/>
-					<span class="Validform_checktip"></span>
-					<label class="Validform_label" style="display: none;">监制时间</label>
+					<input id="subcontractJianzhiList${stuts.index }" name="subcontractJianzhiList[${stuts.index }].jzsj"  type="text" value="${poVal.jzsj }"/>
+					<img onclick="WdatePicker({el:'subcontractJianzhiList${stuts.index }'})" src="plug-in/easyui/themes/black/images/datebox_arrow.png" style="opacity: 0.6;height:17px;width:17px;" align="absmiddle">
 				</td>
 			</tr>
 			<tr>
@@ -207,7 +205,7 @@
 											<a  target="_blank" id="subcontractJianzhiList[${stuts.index }].jzfileattach_href"></a>
 										</c:if>
 										<c:if test="${!empty poVal.jzfileattach}">
-											<a  href="${poVal.jzfileattach}"  target="_blank" id="subcontractJianzhiList[${stuts.index }].jzfileattach_href">下载</a>
+											<a  href="img/server/${poVal.jzfileattach}?down=true"  target="_blank" id="subcontractJianzhiList[${stuts.index }].jzfileattach_href">下载</a>
 										</c:if>
 					  <label class="Validform_label" style="display: none;">文件</label>
 				</td>

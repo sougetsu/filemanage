@@ -269,6 +269,13 @@ public class TestFilestoreEntity implements java.io.Serializable {
 	/**筛选结束时间*/
 	@Excel(name="筛选结束时间",width=15)
 	private java.lang.String sxendtime;
+	/**鉴定开始时间*/
+	@Excel(name="筛选开始时间",width=15)
+	private java.lang.String jdstarttime;
+	/**鉴定结束时间*/
+	@Excel(name="筛选结束时间",width=15)
+	private java.lang.String jdendtime;
+	
 	
 	/**
 	 *方法: 取得java.lang.String
@@ -1766,5 +1773,22 @@ public class TestFilestoreEntity implements java.io.Serializable {
 	public void setSxendtime(java.lang.String sxendtime){
 		this.sxendtime = sxendtime;
 	}
+	@Column(name ="JDSTARTTIME",nullable=true,length=32)
+	public java.lang.String getJdstarttime() {
+		return jdstarttime;
+	}
+
+	public void setJdstarttime(java.lang.String jdstarttime) {
+		this.jdstarttime = jdstarttime;
+	}
+	@Column(name ="JDENDTIME",nullable=true,length=32)
+	public java.lang.String getJdendtime() {
+		return jdendtime;
+	}
+
+	public void setJdendtime(java.lang.String jdendtime) {
+		this.jdendtime = jdendtime;
+	}
+	
 	
 }
